@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RateBridge MBS</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="side-rail" aria-label="Primary">
+        <a class="brand" href="#dashboard" aria-label="RateBridge MBS dashboard">
+          <span class="brand-mark">RB</span>
+          <span>
+            <strong>RateBridge</strong>
+            <small>MBS Signal Desk</small>
+          </span>
+        </a>
+
+        <nav class="nav-list" aria-label="Application sections">
+          <a class="nav-link active" href="#dashboard">
+            <i data-lucide="layout-dashboard" aria-hidden="true"></i>
+            <span>Dashboard</span>
+          </a>
+          <a class="nav-link" href="#reports">
+            <i data-lucide="map-pinned" aria-hidden="true"></i>
+            <span>Market Report</span>
+          </a>
+          <a class="nav-link" href="#alerts">
+            <i data-lucide="bell-ring" aria-hidden="true"></i>
+            <span>Alerts</span>
+          </a>
+        </nav>
+
+        <section class="rail-status" aria-label="Data status">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          <div>
+            <strong>Mock data mode</strong>
+            <small>API-ready services</small>
+          </div>
+        </section>
+      </aside>
+
+      <main class="workspace">
+        <section class="risk-toast" id="riskToast" role="alert" aria-live="assertive" hidden>
+          <div class="risk-toast-icon" aria-hidden="true">
+            <i data-lucide="shield-alert"></i>
+          </div>
+          <div>
+            <strong id="riskToastTitle">Lock risk trigger</strong>
+            <p id="riskToastDetail">Reassess active loans for lock protection.</p>
+          </div>
+          <div class="risk-toast-actions">
+            <a class="toast-link" href="#alerts">View alerts</a>
+            <button class="toast-close" id="dismissRiskToast" type="button" aria-label="Dismiss lock risk alert">
+              <i data-lucide="x" aria-hidden="true"></i>
+            </button>
+          </div>
+        </section>
+
+        <header class="top-bar">
+          <div>
+            <p class="eyebrow">Mortgage market command center</p>
+            <h1>Today’s Rate & Housing Outlook</h1>
+          </div>
+          <div class="top-actions">
+            <time id="todayStamp"></time>
+            <button class="icon-button" id="refreshButton" type="button" aria-label="Refresh mock market data">
+              <i data-lucide="refresh-cw" aria-hidden="true"></i>
+            </button>
+          </div>
+        </header>
+
+        <section class="summary-strip" aria-label="Market snapshot">
+          <article class="metric-tile accent-cyan">
+            <span>30Y Conv.</span>
+            <strong id="rateMetric">6.82%</strong>
+            <small id="rateDelta">-0.03 today</small>
+          </article>
+          <article class="metric-tile accent-rust">
+            <span>MBS Price</span>
+            <strong id="mbsMetric">101-14</strong>
+            <small id="mbsDelta">+7 bps</small>
+          </article>
+          <article class="metric-tile accent-gold">
+            <span>10Y Treasury</span>
+            <strong id="treasuryMetric">4.31%</strong>
+            <small id="treasuryDelta">+0.02 today</small>
+          </article>
+          <article class="metric-tile accent-green">
+            <span>Volatility</span>
+            <strong id="volMetric">Moderate</strong>
+            <small>Fed speakers at noon</small>
+          </article>
+        </section>
+
+        <section class="dashboard-grid" id="dashboard">
+          <article class="panel market-summary">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Daily read</p>
+                <h2>Today’s Mortgage Market Summary</h2>
+              </div>
+              <span class="status-pill positive">Bias: Float Watch</span>
+            </div>
+            <p id="marketNarrative">
+              Mortgage rates are slightly better as coupon demand holds firm and Treasury yields drift within a narrow range.
+            </p>
+            <div class="signal-row">
+              <span>Primary driver</span>
+              <strong id="driverMetric">Treasury curve digestion</strong>
+            </div>
+            <div class="signal-row">
+              <span>Risk window</span>
+              <strong id="riskWindowMetric">10:00 AM ET data</strong>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Placeholder</p>
+                <h2>Rate Trend</h2>
+              </div>
+              <i data-lucide="trending-down" aria-hidden="true"></i>
+            </div>
+            <div class="placeholder-visual trend-visual" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <p class="muted">Trend model placeholder for lock desk rate-sheet movement and lender repricing pressure.</p>
+          </article>
+
+          <article class="panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Placeholder</p>
+                <h2>Bond / MBS Market</h2>
+              </div>
+              <i data-lucide="activity" aria-hidden="true"></i>
+            </div>
+            <div class="bond-board">
+              <span>FNMA 6.0</span><strong id="couponMetric">101-14</strong>
+              <span>Price change</span><strong class="up" id="priceChangeMetric">+0-07</strong>
+              <span>Spread tone</span><strong id="spreadMetric">Stable</strong>
+            </div>
+          </article>
+
+          <article class="panel news-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Placeholder</p>
+                <h2>Economic News</h2>
+              </div>
+              <i data-lucide="newspaper" aria-hidden="true"></i>
+            </div>
+            <ul class="news-list" id="newsList"></ul>
+          </article>
+
+          <article class="panel alerts-panel" id="alerts">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Guidance</p>
+                <h2>Lock / Float Alerts</h2>
+              </div>
+              <div class="panel-actions">
+                <span class="status-pill caution">Monitor</span>
+                <button class="mini-button" id="testLockAlertButton" type="button">
+                  <i data-lucide="radio-tower" aria-hidden="true"></i>
+                  Test
+                </button>
+              </div>
+            </div>
+            <div class="alert-stack" id="alertStack"></div>
+          </article>
+        </section>
+
+        <section class="report-section" id="reports">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Report generator</p>
+              <h2>Real Estate Market Report</h2>
+            </div>
+            <span class="status-pill neutral">Mock housing API</span>
+          </div>
+
+          <form class="report-form" id="reportForm">
+            <label>
+              <span>Market type</span>
+              <select id="marketType" name="marketType">
+                <option value="zip">ZIP code</option>
+                <option value="county">County</option>
+              </select>
+            </label>
+            <label>
+              <span>ZIP or county</span>
+              <input id="marketQuery" name="marketQuery" autocomplete="postal-code" value="90210" />
+            </label>
+            <button class="primary-button" type="submit">
+              <i data-lucide="file-chart-column" aria-hidden="true"></i>
+              Generate
+            </button>
+          </form>
+
+          <article class="report-card" aria-live="polite">
+            <div class="report-titlebar">
+              <div>
+                <p class="eyebrow">Generated market</p>
+                <h3 id="reportMarketName">Beverly Hills, CA 90210</h3>
+              </div>
+              <button class="ghost-button" id="downloadReportButton" type="button">
+                <i data-lucide="download" aria-hidden="true"></i>
+                Export snapshot
+              </button>
+            </div>
+
+            <div class="report-metrics">
+              <article>
+                <span>Median home price</span>
+                <strong id="medianPrice">$1.74M</strong>
+              </article>
+              <article>
+                <span>1-year appreciation</span>
+                <strong id="appreciation1Y">4.8%</strong>
+              </article>
+              <article>
+                <span>5-year appreciation</span>
+                <strong id="appreciation5Y">32.4%</strong>
+              </article>
+              <article>
+                <span>Inventory level</span>
+                <strong id="inventoryLevel">2.6 mo</strong>
+              </article>
+              <article>
+                <span>Affordability index</span>
+                <strong id="affordabilityIndex">71</strong>
+              </article>
+              <article class="wide-metric text-metric">
+                <span>Job growth</span>
+                <strong id="jobGrowth">Placeholder</strong>
+              </article>
+              <article class="wide-metric text-metric">
+                <span>Population / demographics</span>
+                <strong id="demographics">Placeholder</strong>
+              </article>
+            </div>
+
+            <div class="chart-grid">
+              <section class="chart-panel">
+                <div class="chart-heading">
+                  <h4>Historical Appreciation</h4>
+                  <span id="historyRange">2019-2025</span>
+                </div>
+                <canvas id="historicalChart" height="220" aria-label="Historical appreciation chart"></canvas>
+              </section>
+
+              <section class="chart-panel">
+                <div class="chart-heading">
+                  <h4>Forecast Appreciation</h4>
+                  <span id="forecastRange">2026-2028</span>
+                </div>
+                <canvas id="forecastChart" height="220" aria-label="Forecast appreciation chart"></canvas>
+              </section>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
