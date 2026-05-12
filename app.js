@@ -1,4 +1,6 @@
 const LIVE_DATA_PATH = "data/live.json";
+const LIVE_REFRESH_INTERVAL_MS = 4 * 60 * 60 * 1000;
+const MAX_ALERT_HISTORY_ITEMS = 10;
 
 let liveDataCache = null;
 
@@ -77,6 +79,8 @@ const marketService = {
       ...liveData.dashboard,
       isLive: true,
       generatedAt: liveData.generatedAt,
+      feedHealth: liveData.feedHealth,
+      alertHistory: liveData.alertHistory,
       sources: liveData.sources,
     };
   },
@@ -87,7 +91,7 @@ const riskAlertService = {
     if (!summary.riskTrigger?.active) return null;
     return {
       ...summary.riskTrigger,
-      triggeredAt: new Date(),
+      triggeredAt: summary.generatedAt ? new Date(summary.generatedAt) : new Date(),
     };
   },
 };
@@ -235,7 +239,8 @@ const state = {
   currentReport: null,
   currentRiskAlert: null,
   riskAlertDismissed: false,
-  riskMonitor: null,
+  liveRefreshTimer: null,
+  lastGeneratedAt: null,
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -246,7 +251,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   bindRiskAlertControls();
   await renderDashboard();
   await renderReport({ marketType: "zip", query: "90210" });
-  startRiskMonitor();
+  startLiveDataRefresh();
   if (window.lucide) {
     window.lucide.createIcons();
   }
@@ -338,6 +343,12 @@ function bindReportForm() {
 
 async function renderDashboard() {
   const data = await marketService.getDailyMarketSummary({ fresh: true });
+  const hasNewSnapshot = data.generatedAt && data.generatedAt !== state.lastGeneratedAt;
+  if (hasNewSnapshot && state.lastGeneratedAt) {
+    state.riskAlertDismissed = false;
+  }
+  state.lastGeneratedAt = data.generatedAt ?? state.lastGeneratedAt;
+
   updateDataStatus(data);
   setText("rateMetric", data.rate);
   setText("rateDelta", data.rateDelta);
@@ -367,22 +378,9 @@ async function renderDashboard() {
     );
   }
 
-  const newsList = document.querySelector("#newsList");
-  newsList.innerHTML = data.news
-    .map((item) => `<li><strong>${item.title}</strong><span>${item.detail}</span></li>`)
-    .join("");
-
-  const alertStack = document.querySelector("#alertStack");
-  alertStack.innerHTML = data.alerts
-    .map(
-      (item) => `
-        <section class="alert-item">
-          <strong>${item.label}<span>${item.level}</span></strong>
-          <small>${item.detail}</small>
-        </section>
-      `,
-    )
-    .join("");
+  renderNewsList(data.news);
+  renderAlertStack(data.alerts);
+  renderAlertHistory(data.alertHistory, data);
 
   const riskAlert = riskAlertService.evaluate(data);
   state.currentRiskAlert = riskAlert;
@@ -395,20 +393,129 @@ async function renderDashboard() {
 
 function updateDataStatus(data) {
   const label = data.isLive ? "Live data feed" : "Fallback data";
-  const detail = data.generatedAt ? `Updated ${formatRelativeDate(data.generatedAt)}` : "Mock fallback active";
+  let detail = data.generatedAt ? `Updated ${formatRelativeDate(data.generatedAt)}` : "Mock fallback active";
+  if (data.feedHealth?.fallbackCount) {
+    detail += " with source fallbacks";
+  }
   setText("dataStatusLabel", label);
   setText("dataStatusDetail", detail);
 }
 
-async function startRiskMonitor() {
-  if (state.riskMonitor) return;
-  state.riskMonitor = window.setInterval(async () => {
-    if (state.riskAlertDismissed) return;
-    const data = await marketService.getDailyMarketSummary({ fresh: true });
-    updateDataStatus(data);
-    const riskAlert = riskAlertService.evaluate(data);
-    if (riskAlert) showRiskAlert(riskAlert);
-  }, 300000);
+function startLiveDataRefresh() {
+  if (state.liveRefreshTimer) return;
+  state.liveRefreshTimer = window.setInterval(async () => {
+    await renderDashboard();
+  }, LIVE_REFRESH_INTERVAL_MS);
+}
+
+function renderNewsList(news = []) {
+  const newsList = document.querySelector("#newsList");
+  newsList.replaceChildren(
+    ...news.map((item) => {
+      const listItem = document.createElement("li");
+      const title = document.createElement("strong");
+      const detail = document.createElement("span");
+
+      title.textContent = item.title;
+      detail.textContent = item.detail;
+      listItem.append(title, detail);
+      return listItem;
+    }),
+  );
+}
+
+function renderAlertStack(alerts = []) {
+  const alertStack = document.querySelector("#alertStack");
+  alertStack.replaceChildren(
+    ...alerts.map((item) => {
+      const alertItem = document.createElement("section");
+      const title = document.createElement("strong");
+      const level = document.createElement("span");
+      const detail = document.createElement("small");
+
+      alertItem.className = "alert-item";
+      title.textContent = item.label;
+      level.textContent = item.level;
+      detail.textContent = item.detail;
+      title.append(level);
+      alertItem.append(title, detail);
+      return alertItem;
+    }),
+  );
+}
+
+function renderAlertHistory(history = [], data) {
+  const historyList = document.querySelector("#alertHistoryList");
+  const savedHistory = Array.isArray(history) ? history : [];
+  const items = (savedHistory.length ? savedHistory : buildCurrentAlertHistory(data)).slice(
+    0,
+    MAX_ALERT_HISTORY_ITEMS,
+  );
+
+  if (!items.length) {
+    const empty = document.createElement("p");
+    empty.className = "alert-history-empty";
+    empty.textContent = "No refresh alerts have been recorded yet.";
+    historyList.replaceChildren(empty);
+    return;
+  }
+
+  historyList.replaceChildren(...items.map(createAlertHistoryItem));
+}
+
+function buildCurrentAlertHistory(data) {
+  const primaryAlert = data.alerts?.[0];
+  if (!primaryAlert) return [];
+  return [
+    {
+      generatedAt: data.generatedAt,
+      level: primaryAlert.level,
+      label: primaryAlert.label,
+      detail: primaryAlert.detail,
+      metrics: {
+        rate: data.rate,
+        treasury: data.treasury,
+        mbsPrice: data.mbsPrice,
+      },
+    },
+  ];
+}
+
+function createAlertHistoryItem(item) {
+  const entry = document.createElement("article");
+  const timeBlock = document.createElement("div");
+  const timestamp = document.createElement("strong");
+  const level = document.createElement("span");
+  const detailBlock = document.createElement("div");
+  const title = document.createElement("strong");
+  const detail = document.createElement("p");
+  const metrics = document.createElement("div");
+
+  entry.className = "alert-history-item";
+  timeBlock.className = "alert-history-time";
+  level.className = item.riskActive ? "history-level lock" : "history-level";
+  detailBlock.className = "alert-history-detail";
+  metrics.className = "alert-history-metrics";
+
+  timestamp.textContent = item.generatedAt ? formatRelativeDate(item.generatedAt) : "Time unavailable";
+  level.textContent = item.level ?? "Watch";
+  title.textContent = item.label ?? "Refresh check";
+  detail.textContent = item.detail ?? "Live data refresh completed.";
+
+  timeBlock.append(timestamp, level);
+  detailBlock.append(title, detail);
+  addMetricPill(metrics, "30Y", item.metrics?.rate);
+  addMetricPill(metrics, "10Y", item.metrics?.treasury);
+  addMetricPill(metrics, "MBS", item.metrics?.mbsPrice);
+  entry.append(timeBlock, detailBlock, metrics);
+  return entry;
+}
+
+function addMetricPill(container, label, value) {
+  if (!value) return;
+  const pill = document.createElement("span");
+  pill.textContent = `${label} ${value}`;
+  container.append(pill);
 }
 
 function showRiskAlert(alert) {

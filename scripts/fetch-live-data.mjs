@@ -28,9 +28,16 @@ const TRACKED_MARKETS = [
   { key: "orange county", type: "county", stateFips: "06", countyFips: "059", name: "Orange County" },
 ];
 
+const ALERT_HISTORY_LIMIT = 10;
+const ALERT_HISTORY_MIN_SPACING_MS = 30 * 60 * 1000;
+
 const fallbackLiveData = await readPreviousLiveData();
+const fetchWarnings = [];
 
 async function main() {
+  const generatedAt = new Date().toISOString();
+  const zipMarkets = TRACKED_MARKETS.filter((market) => market.type === "zip");
+  const countyMarkets = TRACKED_MARKETS.filter((market) => market.type === "county");
   const [
     mortgageSeries,
     treasurySeries,
@@ -42,15 +49,19 @@ async function main() {
     countyInventoryRows,
     zipForecastRows,
   ] = await Promise.all([
-    getFredSeries(SOURCES.fredMortgage30, "MORTGAGE30US"),
-    getFredSeries(SOURCES.fredTreasury10, "DGS10"),
-    getFedNews(),
+    withFallback("FRED mortgage rate", () => getFredSeries(SOURCES.fredMortgage30, "MORTGAGE30US"), () =>
+      buildFallbackRateSeries("MORTGAGE30US", "rate", "rateDelta", "mortgageRate", 6.82),
+    ),
+    withFallback("FRED 10-year Treasury", () => getFredSeries(SOURCES.fredTreasury10, "DGS10"), () =>
+      buildFallbackRateSeries("DGS10", "treasury", "treasuryDelta", "treasury10Y", 4.31),
+    ),
+    withFallback("Federal Reserve RSS", () => getFedNews(), () => fallbackLiveData?.dashboard?.news ?? []),
     getMbbQuote(),
-    getZillowRows(SOURCES.zillowZipZhvi, TRACKED_MARKETS.filter((market) => market.type === "zip")),
-    getZillowRows(SOURCES.zillowCountyZhvi, TRACKED_MARKETS.filter((market) => market.type === "county")),
-    getZillowRows(SOURCES.zillowZipInventory, TRACKED_MARKETS.filter((market) => market.type === "zip")),
-    getZillowRows(SOURCES.zillowCountyInventory, TRACKED_MARKETS.filter((market) => market.type === "county")),
-    getZillowRows(SOURCES.zillowZipForecast, TRACKED_MARKETS.filter((market) => market.type === "zip")),
+    withFallback("Zillow ZIP home values", () => getZillowRows(SOURCES.zillowZipZhvi, zipMarkets), () => ({})),
+    withFallback("Zillow county home values", () => getZillowRows(SOURCES.zillowCountyZhvi, countyMarkets), () => ({})),
+    withFallback("Zillow ZIP inventory", () => getZillowRows(SOURCES.zillowZipInventory, zipMarkets), () => ({})),
+    withFallback("Zillow county inventory", () => getZillowRows(SOURCES.zillowCountyInventory, countyMarkets), () => ({})),
+    withFallback("Zillow ZIP forecast", () => getZillowRows(SOURCES.zillowZipForecast, zipMarkets), () => ({})),
   ]);
 
   const reports = {};
@@ -59,12 +70,23 @@ async function main() {
     const inventoryRow = market.type === "zip" ? zipInventoryRows[market.key] : countyInventoryRows[market.key];
     const forecastRow = market.type === "zip" ? zipForecastRows[market.key] : null;
     const census = await getCensusProfile(market);
-    reports[market.key] = buildHousingReport(market, zhviRow, inventoryRow, forecastRow, census, mortgageSeries.latest);
+    reports[market.key] =
+      zhviRow || inventoryRow
+        ? buildHousingReport(market, zhviRow, inventoryRow, forecastRow, census, mortgageSeries.latest)
+        : buildFallbackHousingReport(market, generatedAt) ??
+          buildHousingReport(market, zhviRow, inventoryRow, forecastRow, census, mortgageSeries.latest);
   }
 
+  const dashboard = buildDashboard(mortgageSeries, treasurySeries, mbbQuote, fedNews);
+
   const liveData = {
-    generatedAt: new Date().toISOString(),
+    generatedAt,
     mode: "live-public-feeds",
+    feedHealth: {
+      refreshedAt: generatedAt,
+      fallbackCount: fetchWarnings.length,
+      warnings: fetchWarnings.slice(0, 8),
+    },
     sources: {
       mortgageRate: "FRED MORTGAGE30US",
       treasury10Y: "FRED DGS10",
@@ -75,7 +97,8 @@ async function main() {
       forecast: "Zillow Research ZHVF ZIP growth public CSV where available",
       demographics: "U.S. Census ACS 5-year profile",
     },
-    dashboard: buildDashboard(mortgageSeries, treasurySeries, mbbQuote, fedNews),
+    dashboard,
+    alertHistory: buildAlertHistory(fallbackLiveData?.alertHistory, dashboard, generatedAt),
     reports: {
       markets: reports,
       trackedMarkets: TRACKED_MARKETS.map((market) => market.key),
@@ -93,6 +116,94 @@ async function readPreviousLiveData() {
   } catch {
     return null;
   }
+}
+
+async function withFallback(label, task, fallbackFactory) {
+  try {
+    return await task();
+  } catch (error) {
+    fetchWarnings.push(`${label}: ${error.message}`);
+    return fallbackFactory();
+  }
+}
+
+function buildFallbackRateSeries(id, valueKey, deltaKey, observationKey, defaultValue) {
+  const dashboard = fallbackLiveData?.dashboard;
+  const latestDate =
+    dashboard?.latestObservationDates?.[observationKey] ?? dashboard?.trend?.at(-1)?.date ?? currentDateKey();
+  const latestValue = parseLeadingNumber(dashboard?.[valueKey], defaultValue);
+  const delta = parseLeadingNumber(dashboard?.[deltaKey], 0);
+  const observations =
+    valueKey === "rate" && Array.isArray(dashboard?.trend) && dashboard.trend.length
+      ? dashboard.trend
+      : [{ date: latestDate, value: latestValue }];
+
+  return {
+    id,
+    latest: { date: latestDate, value: latestValue },
+    previous: { date: latestDate, value: round(latestValue - delta, 2) },
+    delta,
+    observations,
+  };
+}
+
+function buildFallbackHousingReport(market, generatedAt) {
+  const previous = fallbackLiveData?.reports?.markets?.[market.key];
+  if (!previous) return null;
+
+  return {
+    ...previous,
+    source: "Last known public feeds",
+    lastCheckedAt: generatedAt,
+  };
+}
+
+function buildAlertHistory(previousHistory, dashboard, generatedAt) {
+  const primaryAlert = dashboard.alerts?.[0] ?? {
+    level: dashboard.riskTrigger?.active ? "Lock" : "Watch",
+    label: dashboard.riskTrigger?.title ?? "Refresh check",
+    detail: dashboard.riskTrigger?.detail ?? "Live data refresh completed.",
+  };
+  const currentEntry = {
+    generatedAt,
+    level: primaryAlert.level,
+    label: primaryAlert.label,
+    detail: primaryAlert.detail,
+    riskActive: Boolean(dashboard.riskTrigger?.active),
+    metrics: {
+      rate: dashboard.rate,
+      rateDelta: dashboard.rateDelta,
+      treasury: dashboard.treasury,
+      treasuryDelta: dashboard.treasuryDelta,
+      mbsPrice: dashboard.mbsPrice,
+      mbsDelta: dashboard.mbsDelta,
+    },
+  };
+  const normalizedPrevious = Array.isArray(previousHistory)
+    ? previousHistory.map(normalizeAlertHistoryItem).filter(Boolean)
+    : [];
+  const currentTime = Date.parse(generatedAt);
+  const spacedPrevious = normalizedPrevious.filter((item) => {
+    const itemTime = Date.parse(item.generatedAt);
+    if (!Number.isFinite(currentTime) || !Number.isFinite(itemTime)) {
+      return item.generatedAt !== generatedAt;
+    }
+    return Math.abs(currentTime - itemTime) >= ALERT_HISTORY_MIN_SPACING_MS;
+  });
+
+  return [currentEntry, ...spacedPrevious].slice(0, ALERT_HISTORY_LIMIT);
+}
+
+function normalizeAlertHistoryItem(item) {
+  if (!item?.generatedAt) return null;
+  return {
+    generatedAt: item.generatedAt,
+    level: item.level ?? "Watch",
+    label: item.label ?? "Refresh check",
+    detail: item.detail ?? "Live data refresh completed.",
+    riskActive: Boolean(item.riskActive),
+    metrics: item.metrics ?? {},
+  };
 }
 
 async function fetchText(url) {
@@ -251,7 +362,7 @@ function buildDashboard(mortgageSeries, treasurySeries, mbbQuote, fedNews) {
     spreadTone: mbsDelta < -0.2 ? "Worse" : mbsDelta > 0.2 ? "Better" : "Stable",
     news: fedNews.map((item) => ({
       title: item.title,
-      detail: `${item.category} - ${formatDate(item.publishedAt)}`,
+      detail: item.detail ?? `${item.category ?? "Federal Reserve"} - ${formatDate(item.publishedAt)}`,
     })),
     alerts: [
       {
@@ -451,15 +562,26 @@ function formatDelta(value, suffix) {
 }
 
 function formatDate(date) {
+  const parsed = new Date(date);
+  if (Number.isNaN(parsed.getTime())) return "date unavailable";
   return new Intl.DateTimeFormat("en-US", {
     month: "short",
     day: "numeric",
     year: "numeric",
-  }).format(new Date(date));
+  }).format(parsed);
 }
 
 function round(value, digits = 2) {
   return Math.round(value * 10 ** digits) / 10 ** digits;
+}
+
+function parseLeadingNumber(value, fallbackValue) {
+  const parsed = Number.parseFloat(String(value ?? "").replace(/[^0-9.+-]/g, ""));
+  return Number.isFinite(parsed) ? parsed : fallbackValue;
+}
+
+function currentDateKey() {
+  return new Date().toISOString().slice(0, 10);
 }
 
 await main();

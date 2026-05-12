@@ -1,6 +1,14 @@
 {
-  "generatedAt": "2026-05-12T10:43:36.552Z",
+  "generatedAt": "2026-05-12T16:05:07.382Z",
   "mode": "live-public-feeds",
+  "feedHealth": {
+    "refreshedAt": "2026-05-12T16:05:07.382Z",
+    "fallbackCount": 2,
+    "warnings": [
+      "FRED mortgage rate: Fetch failed 502 for https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US",
+      "FRED 10-year Treasury: Fetch failed 504 for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10"
+    ]
+  },
   "sources": {
     "mortgageRate": "FRED MORTGAGE30US",
     "treasury10Y": "FRED DGS10",
@@ -14,18 +22,22 @@
   "dashboard": {
     "rate": "6.37%",
     "rateDelta": "+0.07 vs prior week",
-    "mbsPrice": "$94.67",
-    "mbsDelta": "-0.11% intraday",
+    "mbsPrice": "$94.31",
+    "mbsDelta": "-0.09% intraday",
     "treasury": "4.38%",
     "treasuryDelta": "-0.03 today",
     "volatility": "Elevated",
-    "narrative": "The latest FRED 30-year mortgage average is 6.37%, +0.07 from the prior reading. The 10-year Treasury is 4.38%, -0.03 from the prior observation. The MBB proxy closed at $94.67, -0.11% intraday. Lock risk is active for near-term closings.",
+    "narrative": "The latest FRED 30-year mortgage average is 6.37%, +0.07 from the prior reading. The 10-year Treasury is 4.38%, -0.03 from the prior observation. The MBB proxy closed at $94.31, -0.09% intraday. Lock risk is active for near-term closings.",
     "driver": "Treasury yield relief",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
-    "priceChange": "-0.10 today",
+    "priceChange": "-0.09 today",
     "spreadTone": "Stable",
     "news": [
+      {
+        "title": "Federal Reserve Board announces termination of enforcement actions with F & M Holding Company, Inc. and Thread Bancorp, Inc.",
+        "detail": "Enforcement Actions - May 12, 2026"
+      },
       {
         "title": "Federal Reserve Board announces approval of related applications by Columbia Bank MHC, and Columbia Financial, Inc.",
         "detail": "Orders on Banking Applications - May 8, 2026"
@@ -37,10 +49,6 @@
       {
         "title": "Federal Reserve issues FOMC statement",
         "detail": "Monetary Policy - Apr 29, 2026"
-      },
-      {
-        "title": "Federal Reserve Board announces approval of application by OceanFirst Financial Corp.",
-        "detail": "Orders on Banking Applications - Apr 24, 2026"
       }
     ],
     "alerts": [
@@ -134,22 +142,39 @@
     ],
     "mbsProxyRaw": {
       "symbol": "MBB.US",
-      "date": "20260511",
-      "time": "220018",
-      "open": 94.77,
-      "high": 94.78,
-      "low": 94.575,
-      "close": 94.67,
-      "volume": 2516205,
-      "delta": -0.1,
-      "deltaPercent": -0.11
+      "date": "20260512",
+      "time": "174954",
+      "open": 94.4,
+      "high": 94.4,
+      "low": 94.23,
+      "close": 94.315,
+      "volume": 1639167,
+      "delta": -0.09,
+      "deltaPercent": -0.09
     },
     "latestObservationDates": {
       "mortgageRate": "2026-05-07",
       "treasury10Y": "2026-05-08",
-      "mbsProxy": "20260511"
+      "mbsProxy": "20260512"
     }
   },
+  "alertHistory": [
+    {
+      "generatedAt": "2026-05-12T16:05:07.382Z",
+      "level": "Lock",
+      "label": "Risk trigger",
+      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
+      "riskActive": true,
+      "metrics": {
+        "rate": "6.37%",
+        "rateDelta": "+0.07 vs prior week",
+        "treasury": "4.38%",
+        "treasuryDelta": "-0.03 today",
+        "mbsPrice": "$94.31",
+        "mbsDelta": "-0.09% intraday"
+      }
+    }
+  ],
   "reports": {
     "markets": {
       "78704": {
@@ -163,9 +188,9 @@
         "inventoryMonths": null,
         "inventoryLevel": "276 active listings",
         "latestInventoryDate": "2026-03-31",
-        "affordabilityIndex": 70,
-        "jobGrowth": "ACS unemployment 4.3% (job-growth API pending)",
-        "demographics": "Population 50,479; median household income $97,160",
+        "affordabilityIndex": null,
+        "jobGrowth": "Census labor profile unavailable",
+        "demographics": "Census profile unavailable",
         "history": [
           {
             "year": "2020",
@@ -227,9 +252,9 @@
         "inventoryMonths": null,
         "inventoryLevel": "133 active listings",
         "latestInventoryDate": "2026-03-31",
-        "affordabilityIndex": 1,
-        "jobGrowth": "ACS unemployment 4.2% (job-growth API pending)",
-        "demographics": "Population 19,652; median household income $190,382",
+        "affordabilityIndex": null,
+        "jobGrowth": "Census labor profile unavailable",
+        "demographics": "Census profile unavailable",
         "history": [
           {
             "year": "2020",
@@ -291,9 +316,9 @@
         "inventoryMonths": null,
         "inventoryLevel": "5,077 active listings",
         "latestInventoryDate": "2026-03-31",
-        "affordabilityIndex": 37,
-        "jobGrowth": "ACS unemployment 5.3% (job-growth API pending)",
-        "demographics": "Population 3,164,063; median household income $113,702",
+        "affordabilityIndex": null,
+        "jobGrowth": "Census labor profile unavailable",
+        "demographics": "Census profile unavailable",
         "history": [
           {
             "year": "2020",

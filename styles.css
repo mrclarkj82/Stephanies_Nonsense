@@ -605,6 +605,97 @@ time {
   margin-top: 18px;
 }
 
+.history-section {
+  margin-top: 18px;
+}
+
+.alert-history-list {
+  display: grid;
+  gap: 10px;
+}
+
+.alert-history-item {
+  display: grid;
+  grid-template-columns: minmax(132px, 0.28fr) minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: start;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 10px 28px rgba(23, 32, 31, 0.06);
+}
+
+.alert-history-time,
+.alert-history-detail,
+.alert-history-metrics {
+  min-width: 0;
+}
+
+.alert-history-time strong,
+.alert-history-detail strong {
+  display: block;
+}
+
+.alert-history-time strong {
+  margin-bottom: 7px;
+  font-size: 0.92rem;
+}
+
+.history-level {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0 9px;
+  border-radius: 999px;
+  background: var(--green-soft);
+  color: var(--green);
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.history-level.lock {
+  background: var(--rust-soft);
+  color: var(--rust);
+}
+
+.alert-history-detail p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.alert-history-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  justify-content: flex-end;
+}
+
+.alert-history-metrics span,
+.alert-history-empty {
+  color: var(--muted);
+}
+
+.alert-history-metrics span {
+  min-height: 28px;
+  padding: 5px 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fbfcfb;
+  font-size: 0.78rem;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.alert-history-empty {
+  margin: 0;
+  padding: 14px;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
 .section-heading {
   align-items: center;
   margin-bottom: 12px;
@@ -744,6 +835,14 @@ canvas {
   .report-titlebar {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .alert-history-item {
+    grid-template-columns: 1fr;
+  }
+
+  .alert-history-metrics {
+    justify-content: flex-start;
   }
 
   .top-actions {
