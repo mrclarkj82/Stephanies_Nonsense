@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "refresh:data": "node scripts/fetch-live-data.mjs",
     "start": "node server.mjs"
   }
 }

@@ -37,8 +37,8 @@
         <section class="rail-status" aria-label="Data status">
           <span class="pulse-dot" aria-hidden="true"></span>
           <div>
-            <strong>Mock data mode</strong>
-            <small>API-ready services</small>
+            <strong id="dataStatusLabel">Loading data</strong>
+            <small id="dataStatusDetail">Checking live feed</small>
           </div>
         </section>
       </aside>
@@ -67,7 +67,7 @@
           </div>
           <div class="top-actions">
             <time id="todayStamp"></time>
-            <button class="icon-button" id="refreshButton" type="button" aria-label="Refresh mock market data">
+            <button class="icon-button" id="refreshButton" type="button" aria-label="Refresh live market data">
               <i data-lucide="refresh-cw" aria-hidden="true"></i>
             </button>
           </div>
@@ -121,21 +121,19 @@
           <article class="panel">
             <div class="panel-heading">
               <div>
-                <p class="eyebrow">Placeholder</p>
+                <p class="eyebrow">Live feed</p>
                 <h2>Rate Trend</h2>
               </div>
               <i data-lucide="trending-down" aria-hidden="true"></i>
             </div>
-            <div class="placeholder-visual trend-visual" aria-hidden="true">
-              <span></span><span></span><span></span><span></span><span></span>
-            </div>
-            <p class="muted">Trend model placeholder for lock desk rate-sheet movement and lender repricing pressure.</p>
+            <canvas id="rateTrendChart" height="180" aria-label="Live mortgage rate trend chart"></canvas>
+            <p class="muted">Recent 30-year mortgage average observations from FRED.</p>
           </article>
 
           <article class="panel">
             <div class="panel-heading">
               <div>
-                <p class="eyebrow">Placeholder</p>
+                <p class="eyebrow">Live proxy</p>
                 <h2>Bond / MBS Market</h2>
               </div>
               <i data-lucide="activity" aria-hidden="true"></i>
@@ -150,7 +148,7 @@
           <article class="panel news-panel">
             <div class="panel-heading">
               <div>
-                <p class="eyebrow">Placeholder</p>
+                <p class="eyebrow">Live RSS</p>
                 <h2>Economic News</h2>
               </div>
               <i data-lucide="newspaper" aria-hidden="true"></i>
@@ -182,7 +180,7 @@
               <p class="eyebrow">Report generator</p>
               <h2>Real Estate Market Report</h2>
             </div>
-            <span class="status-pill neutral">Mock housing API</span>
+            <span class="status-pill neutral" id="reportSourcePill">Loading feed</span>
           </div>
 
           <form class="report-form" id="reportForm">

@@ -1,4 +1,8 @@
-const marketService = {
+const LIVE_DATA_PATH = "data/live.json";
+
+let liveDataCache = null;
+
+const fallbackMarketService = {
   async getDailyMarketSummary() {
     return {
       rate: "6.82%",
@@ -57,6 +61,27 @@ const marketService = {
   },
 };
 
+const marketService = {
+  async getDailyMarketSummary({ fresh = false } = {}) {
+    const liveData = await getLiveData({ fresh });
+    if (!liveData?.dashboard) {
+      return {
+        ...(await fallbackMarketService.getDailyMarketSummary()),
+        isLive: false,
+        generatedAt: null,
+        sources: {},
+      };
+    }
+
+    return {
+      ...liveData.dashboard,
+      isLive: true,
+      generatedAt: liveData.generatedAt,
+      sources: liveData.sources,
+    };
+  },
+};
+
 const riskAlertService = {
   evaluate(summary) {
     if (!summary.riskTrigger?.active) return null;
@@ -70,11 +95,13 @@ const riskAlertService = {
 const realEstateReportApi = {
   async getReport({ marketType, query }) {
     const normalized = query.trim().toLowerCase();
-    const selected = mockHousingMarkets[normalized] ?? buildSyntheticMarket(marketType, query);
+    const liveData = await getLiveData();
+    const liveMarket = liveData?.reports?.markets?.[normalized];
+    const selected = liveMarket ?? mockHousingMarkets[normalized] ?? buildSyntheticMarket(marketType, query);
     return {
-      source: "mock",
-      requestedMarketType: marketType,
       ...selected,
+      source: liveMarket ? "live" : "mock",
+      requestedMarketType: marketType,
     };
   },
 };
@@ -225,6 +252,21 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
+async function getLiveData({ fresh = false } = {}) {
+  if (liveDataCache && !fresh) return liveDataCache;
+
+  try {
+    const cacheBust = fresh ? `?t=${Date.now()}` : "";
+    const response = await fetch(`${LIVE_DATA_PATH}${cacheBust}`, { cache: fresh ? "no-store" : "default" });
+    if (!response.ok) throw new Error(`Live data unavailable: ${response.status}`);
+    liveDataCache = await response.json();
+    return liveDataCache;
+  } catch (error) {
+    console.warn(error);
+    return liveDataCache;
+  }
+}
+
 function setDateStamp() {
   const stamp = document.querySelector("#todayStamp");
   stamp.textContent = new Intl.DateTimeFormat("en-US", {
@@ -295,7 +337,8 @@ function bindReportForm() {
 }
 
 async function renderDashboard() {
-  const data = await marketService.getDailyMarketSummary();
+  const data = await marketService.getDailyMarketSummary({ fresh: true });
+  updateDataStatus(data);
   setText("rateMetric", data.rate);
   setText("rateDelta", data.rateDelta);
   setText("mbsMetric", data.mbsPrice);
@@ -309,6 +352,20 @@ async function renderDashboard() {
   setText("couponMetric", data.coupon);
   setText("priceChangeMetric", data.priceChange);
   setText("spreadMetric", data.spreadTone);
+  if (data.trend?.length) {
+    drawLineChart(
+      "rateTrendChart",
+      data.trend.map((point) => ({
+        year: formatShortDate(point.date),
+        value: point.value,
+      })),
+      {
+        line: "#117c8b",
+        fill: "rgba(17, 124, 139, 0.12)",
+        suffix: "%",
+      },
+    );
+  }
 
   const newsList = document.querySelector("#newsList");
   newsList.innerHTML = data.news
@@ -336,14 +393,22 @@ async function renderDashboard() {
   }
 }
 
+function updateDataStatus(data) {
+  const label = data.isLive ? "Live data feed" : "Fallback data";
+  const detail = data.generatedAt ? `Updated ${formatRelativeDate(data.generatedAt)}` : "Mock fallback active";
+  setText("dataStatusLabel", label);
+  setText("dataStatusDetail", detail);
+}
+
 async function startRiskMonitor() {
   if (state.riskMonitor) return;
   state.riskMonitor = window.setInterval(async () => {
     if (state.riskAlertDismissed) return;
-    const data = await marketService.getDailyMarketSummary();
+    const data = await marketService.getDailyMarketSummary({ fresh: true });
+    updateDataStatus(data);
     const riskAlert = riskAlertService.evaluate(data);
     if (riskAlert) showRiskAlert(riskAlert);
-  }, 30000);
+  }, 300000);
 }
 
 function showRiskAlert(alert) {
@@ -353,7 +418,7 @@ function showRiskAlert(alert) {
     minute: "2-digit",
   }).format(alert.triggeredAt);
 
-  setText("riskToastTitle", `${alert.title} · ${timestamp}`);
+  setText("riskToastTitle", `${alert.title} - ${timestamp}`);
   setText("riskToastDetail", alert.detail);
   toast.hidden = false;
 
@@ -374,12 +439,13 @@ async function renderReport(criteria) {
   setText("medianPrice", formatCurrency.format(report.medianHomePrice));
   setText("appreciation1Y", `${report.appreciation1Y}%`);
   setText("appreciation5Y", `${report.appreciation5Y}%`);
-  setText("inventoryLevel", `${report.inventoryMonths} mo`);
-  setText("affordabilityIndex", report.affordabilityIndex);
+  setText("inventoryLevel", report.inventoryLevel ?? `${report.inventoryMonths} mo`);
+  setText("affordabilityIndex", report.affordabilityIndex ?? "N/A");
   setText("jobGrowth", report.jobGrowth);
   setText("demographics", report.demographics);
   setText("historyRange", `${report.history[0].year}-${report.history.at(-1).year}`);
   setText("forecastRange", `${report.forecast[0].year}-${report.forecast.at(-1).year}`);
+  setText("reportSourcePill", report.source === "live" ? "Live public feeds" : "Mock fallback");
 
   drawLineChart("historicalChart", report.history, {
     line: "#117c8b",
@@ -427,7 +493,7 @@ function drawLineChart(canvasId, points, theme) {
     ctx.lineTo(width - padding.right, y);
     ctx.stroke();
     const labelValue = max - (range / 3) * i;
-    ctx.fillText(`${labelValue.toFixed(1)}${theme.suffix}`, 8, y + 4);
+    ctx.fillText(`${formatChartAxisValue(labelValue)}${theme.suffix}`, 8, y + 4);
   }
 
   const getX = (index) =>
@@ -471,6 +537,21 @@ function drawLineChart(canvasId, points, theme) {
 
 window.addEventListener("resize", () => {
   if (!state.currentReport) return;
+  marketService.getDailyMarketSummary().then((data) => {
+    if (!data.trend?.length) return;
+    drawLineChart(
+      "rateTrendChart",
+      data.trend.map((point) => ({
+        year: formatShortDate(point.date),
+        value: point.value,
+      })),
+      {
+        line: "#117c8b",
+        fill: "rgba(17, 124, 139, 0.12)",
+        suffix: "%",
+      },
+    );
+  });
   drawLineChart("historicalChart", state.currentReport.history, {
     line: "#117c8b",
     fill: "rgba(17, 124, 139, 0.12)",
@@ -482,3 +563,25 @@ window.addEventListener("resize", () => {
     suffix: "%",
   });
 });
+
+function formatRelativeDate(date) {
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  }).format(new Date(date));
+}
+
+function formatShortDate(date) {
+  return new Intl.DateTimeFormat("en-US", {
+    month: "numeric",
+    day: "numeric",
+  }).format(new Date(`${date}T00:00:00`));
+}
+
+function formatChartAxisValue(value) {
+  if (Math.abs(value) >= 1000000) return `${(value / 1000000).toFixed(1)}M`;
+  if (Math.abs(value) >= 1000) return `${Math.round(value / 1000)}K`;
+  return value.toFixed(1);
+}
