@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-05-14T07:25:17.985Z",
+  "generatedAt": "2026-05-14T10:36:11.501Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-05-14T07:25:17.985Z",
+    "refreshedAt": "2026-05-14T10:36:11.501Z",
     "fallbackCount": 0,
     "warnings": []
   },
@@ -157,6 +157,21 @@
   },
   "alertHistory": [
     {
+      "generatedAt": "2026-05-14T10:36:11.501Z",
+      "level": "Lock",
+      "label": "Risk trigger",
+      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
+      "riskActive": true,
+      "metrics": {
+        "rate": "6.37%",
+        "rateDelta": "+0.07 vs prior week",
+        "treasury": "4.46%",
+        "treasuryDelta": "+0.04 today",
+        "mbsPrice": "$94.35",
+        "mbsDelta": "+0.23% intraday"
+      }
+    },
+    {
       "generatedAt": "2026-05-14T07:25:17.985Z",
       "level": "Lock",
       "label": "Risk trigger",
@@ -289,21 +304,6 @@
         "treasuryDelta": "-0.03 today",
         "mbsPrice": "$94.22",
         "mbsDelta": "-0.19% intraday"
-      }
-    },
-    {
-      "generatedAt": "2026-05-12T16:05:07.382Z",
-      "level": "Lock",
-      "label": "Risk trigger",
-      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
-      "riskActive": true,
-      "metrics": {
-        "rate": "6.37%",
-        "rateDelta": "+0.07 vs prior week",
-        "treasury": "4.38%",
-        "treasuryDelta": "-0.03 today",
-        "mbsPrice": "$94.31",
-        "mbsDelta": "-0.09% intraday"
       }
     }
   ],
