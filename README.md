@@ -22,7 +22,7 @@ The dashboard evaluates the live public data feed for a lock-risk trigger. When 
 
 The site is hosted on GitHub Pages, so it does not run a traditional backend server. Instead, `.github/workflows/refresh-live-data.yml` refreshes `data/live.json` from public feeds on a schedule.
 
-The workflow runs every 4 hours. The browser also checks `data/live.json` every 4 hours while the app is open, bypassing cache with a timestamped request. Each refresh writes a rolling `alertHistory` list capped at 10 entries so the bottom of the site shows the recent lock/float checks.
+The workflow runs every 4 hours, commits the refreshed JSON, and deploys the updated static site artifact to GitHub Pages in the same run. The browser also checks `data/live.json` every 4 hours while the app is open, bypassing cache with a timestamped request. Each refresh writes a rolling `alertHistory` list capped at 10 entries so the bottom of the site shows the recent lock/float checks.
 
 Current public sources:
 
