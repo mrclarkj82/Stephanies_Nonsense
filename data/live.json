@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-05-14T10:36:11.501Z",
+  "generatedAt": "2026-05-14T14:44:49.345Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-05-14T10:36:11.501Z",
+    "refreshedAt": "2026-05-14T14:44:49.345Z",
     "fallbackCount": 0,
     "warnings": []
   },
@@ -19,18 +19,22 @@
   "dashboard": {
     "rate": "6.37%",
     "rateDelta": "+0.07 vs prior week",
-    "mbsPrice": "$94.35",
-    "mbsDelta": "+0.23% intraday",
+    "mbsPrice": "$94.42",
+    "mbsDelta": "-0.14% intraday",
     "treasury": "4.46%",
     "treasuryDelta": "+0.04 today",
     "volatility": "Elevated",
-    "narrative": "The latest FRED 30-year mortgage average is 6.37%, +0.07 from the prior reading. The 10-year Treasury is 4.46%, +0.04 from the prior observation. The MBB proxy closed at $94.35, +0.23% intraday. Lock risk is active for near-term closings.",
+    "narrative": "The latest FRED 30-year mortgage average is 6.37%, +0.07 from the prior reading. The 10-year Treasury is 4.46%, +0.04 from the prior observation. The MBB proxy closed at $94.42, -0.14% intraday. Lock risk is active for near-term closings.",
     "driver": "Treasury yield pressure",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
-    "priceChange": "+0.22 today",
-    "spreadTone": "Better",
+    "priceChange": "-0.14 today",
+    "spreadTone": "Stable",
     "news": [
+      {
+        "title": "Federal Reserve Board releases results from two surveys of senior financial officers at banks about their views on discount window operating days and their strategies and practices for managing reserve balances",
+        "detail": "Other Announcements - May 14, 2026"
+      },
       {
         "title": "Federal Reserve Board issues Economic Well-Being of U.S. Households in 2025 report",
         "detail": "Other Announcements - May 13, 2026"
@@ -42,10 +46,6 @@
       {
         "title": "Federal Reserve Board announces approval of related applications by Columbia Bank MHC, and Columbia Financial, Inc.",
         "detail": "Orders on Banking Applications - May 8, 2026"
-      },
-      {
-        "title": "Agencies issue host state loan-to-deposit ratios",
-        "detail": "Banking and Consumer Regulatory Policy - May 1, 2026"
       }
     ],
     "alerts": [
@@ -139,23 +139,38 @@
     ],
     "mbsProxyRaw": {
       "symbol": "MBB.US",
-      "date": "20260513",
-      "time": "220019",
-      "open": 94.13,
-      "high": 94.35,
-      "low": 94.055,
-      "close": 94.35,
-      "volume": 1322999,
-      "delta": 0.22,
-      "deltaPercent": 0.23
+      "date": "20260514",
+      "time": "162942",
+      "open": 94.56,
+      "high": 94.56,
+      "low": 94.405,
+      "close": 94.425,
+      "volume": 95315,
+      "delta": -0.14,
+      "deltaPercent": -0.14
     },
     "latestObservationDates": {
       "mortgageRate": "2026-05-07",
       "treasury10Y": "2026-05-12",
-      "mbsProxy": "20260513"
+      "mbsProxy": "20260514"
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-05-14T14:44:49.345Z",
+      "level": "Lock",
+      "label": "Risk trigger",
+      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
+      "riskActive": true,
+      "metrics": {
+        "rate": "6.37%",
+        "rateDelta": "+0.07 vs prior week",
+        "treasury": "4.46%",
+        "treasuryDelta": "+0.04 today",
+        "mbsPrice": "$94.42",
+        "mbsDelta": "-0.14% intraday"
+      }
+    },
     {
       "generatedAt": "2026-05-14T10:36:11.501Z",
       "level": "Lock",
@@ -287,21 +302,6 @@
         "rateDelta": "+0.07 vs prior week",
         "treasury": "4.42%",
         "treasuryDelta": "+0.04 today",
-        "mbsPrice": "$94.22",
-        "mbsDelta": "-0.19% intraday"
-      }
-    },
-    {
-      "generatedAt": "2026-05-12T21:41:43.827Z",
-      "level": "Lock",
-      "label": "Risk trigger",
-      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
-      "riskActive": true,
-      "metrics": {
-        "rate": "6.37%",
-        "rateDelta": "+0.07 vs prior week",
-        "treasury": "4.38%",
-        "treasuryDelta": "-0.03 today",
         "mbsPrice": "$94.22",
         "mbsDelta": "-0.19% intraday"
       }
