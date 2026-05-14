@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-05-14T14:44:49.345Z",
+  "generatedAt": "2026-05-14T18:11:15.911Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-05-14T14:44:49.345Z",
+    "refreshedAt": "2026-05-14T18:11:15.911Z",
     "fallbackCount": 0,
     "warnings": []
   },
@@ -17,20 +17,24 @@
     "demographics": "U.S. Census ACS 5-year profile"
   },
   "dashboard": {
-    "rate": "6.37%",
-    "rateDelta": "+0.07 vs prior week",
-    "mbsPrice": "$94.42",
-    "mbsDelta": "-0.14% intraday",
+    "rate": "6.36%",
+    "rateDelta": "-0.01 vs prior week",
+    "mbsPrice": "$94.45",
+    "mbsDelta": "-0.11% intraday",
     "treasury": "4.46%",
     "treasuryDelta": "+0.04 today",
-    "volatility": "Elevated",
-    "narrative": "The latest FRED 30-year mortgage average is 6.37%, +0.07 from the prior reading. The 10-year Treasury is 4.46%, +0.04 from the prior observation. The MBB proxy closed at $94.42, -0.14% intraday. Lock risk is active for near-term closings.",
+    "volatility": "Moderate",
+    "narrative": "The latest FRED 30-year mortgage average is 6.36%, -0.01 from the prior reading. The 10-year Treasury is 4.46%, +0.04 from the prior observation. The MBB proxy closed at $94.45, -0.11% intraday. No lock trigger is active from the live public-feed rule.",
     "driver": "Treasury yield pressure",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
-    "priceChange": "-0.14 today",
+    "priceChange": "-0.11 today",
     "spreadTone": "Stable",
     "news": [
+      {
+        "title": "Stephen I. Miran submits his resignation as a member of the Federal Reserve Board, effective when or shortly before his successor on the Board is sworn in",
+        "detail": "Other Announcements - May 14, 2026"
+      },
       {
         "title": "Federal Reserve Board releases results from two surveys of senior financial officers at banks about their views on discount window operating days and their strategies and practices for managing reserve balances",
         "detail": "Other Announcements - May 14, 2026"
@@ -42,17 +46,13 @@
       {
         "title": "Federal Reserve Board announces termination of enforcement actions with F & M Holding Company, Inc. and Thread Bancorp, Inc.",
         "detail": "Enforcement Actions - May 12, 2026"
-      },
-      {
-        "title": "Federal Reserve Board announces approval of related applications by Columbia Bank MHC, and Columbia Financial, Inc.",
-        "detail": "Orders on Banking Applications - May 8, 2026"
       }
     ],
     "alerts": [
       {
-        "level": "Lock",
-        "label": "Risk trigger",
-        "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings."
+        "level": "Watch",
+        "label": "Live bias",
+        "detail": "No live lock trigger is active from the public feed rules."
       },
       {
         "level": "Watch",
@@ -62,20 +62,16 @@
       {
         "level": "Watch",
         "label": "Mortgage rate",
-        "detail": "Freddie/FRED 30-year average is 6.37%, +0.07 from prior week."
+        "detail": "Freddie/FRED 30-year average is 6.36%, -0.01 from prior week."
       }
     ],
     "riskTrigger": {
-      "active": true,
+      "active": false,
       "id": "live-public-feed-lock-risk",
-      "title": "Lock risk trigger",
-      "detail": "Live public data crossed the lock-risk rule: rising rates/yields or weaker MBS proxy pricing."
+      "title": "No lock trigger",
+      "detail": "Live public data does not currently meet the lock-risk rule."
     },
     "trend": [
-      {
-        "date": "2026-01-22",
-        "value": 6.09
-      },
       {
         "date": "2026-01-29",
         "value": 6.1
@@ -135,27 +131,46 @@
       {
         "date": "2026-05-07",
         "value": 6.37
+      },
+      {
+        "date": "2026-05-14",
+        "value": 6.36
       }
     ],
     "mbsProxyRaw": {
       "symbol": "MBB.US",
       "date": "20260514",
-      "time": "162942",
+      "time": "195604",
       "open": 94.56,
       "high": 94.56,
       "low": 94.405,
-      "close": 94.425,
-      "volume": 95315,
-      "delta": -0.14,
-      "deltaPercent": -0.14
+      "close": 94.455,
+      "volume": 958757,
+      "delta": -0.11,
+      "deltaPercent": -0.11
     },
     "latestObservationDates": {
-      "mortgageRate": "2026-05-07",
+      "mortgageRate": "2026-05-14",
       "treasury10Y": "2026-05-12",
       "mbsProxy": "20260514"
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-05-14T18:11:15.911Z",
+      "level": "Watch",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "6.36%",
+        "rateDelta": "-0.01 vs prior week",
+        "treasury": "4.46%",
+        "treasuryDelta": "+0.04 today",
+        "mbsPrice": "$94.45",
+        "mbsDelta": "-0.11% intraday"
+      }
+    },
     {
       "generatedAt": "2026-05-14T14:44:49.345Z",
       "level": "Lock",
@@ -278,21 +293,6 @@
     },
     {
       "generatedAt": "2026-05-13T07:31:22.034Z",
-      "level": "Lock",
-      "label": "Risk trigger",
-      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
-      "riskActive": true,
-      "metrics": {
-        "rate": "6.37%",
-        "rateDelta": "+0.07 vs prior week",
-        "treasury": "4.42%",
-        "treasuryDelta": "+0.04 today",
-        "mbsPrice": "$94.22",
-        "mbsDelta": "-0.19% intraday"
-      }
-    },
-    {
-      "generatedAt": "2026-05-13T04:15:01.102Z",
       "level": "Lock",
       "label": "Risk trigger",
       "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
