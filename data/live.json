@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-05-15T10:39:22.962Z",
+  "generatedAt": "2026-05-15T14:38:07.262Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-05-15T10:39:22.962Z",
+    "refreshedAt": "2026-05-15T14:38:07.262Z",
     "fallbackCount": 0,
     "warnings": []
   },
@@ -19,17 +19,17 @@
   "dashboard": {
     "rate": "6.36%",
     "rateDelta": "-0.01 vs prior week",
-    "mbsPrice": "$94.27",
-    "mbsDelta": "-0.31% intraday",
+    "mbsPrice": "$93.72",
+    "mbsDelta": "+0.01% intraday",
     "treasury": "4.46%",
     "treasuryDelta": "0.00 today",
-    "volatility": "Elevated",
-    "narrative": "The latest FRED 30-year mortgage average is 6.36%, -0.01 from the prior reading. The 10-year Treasury is 4.46%, 0.00 from the prior observation. The MBB proxy closed at $94.27, -0.31% intraday. Lock risk is active for near-term closings.",
+    "volatility": "Calm",
+    "narrative": "The latest FRED 30-year mortgage average is 6.36%, -0.01 from the prior reading. The 10-year Treasury is 4.46%, 0.00 from the prior observation. The MBB proxy closed at $93.72, +0.01% intraday. No lock trigger is active from the live public-feed rule.",
     "driver": "Treasury yield pressure",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
-    "priceChange": "-0.29 today",
-    "spreadTone": "Worse",
+    "priceChange": "0.00 today",
+    "spreadTone": "Stable",
     "news": [
       {
         "title": "Stephen I. Miran submits his resignation as a member of the Federal Reserve Board, effective when or shortly before his successor on the Board is sworn in",
@@ -50,9 +50,9 @@
     ],
     "alerts": [
       {
-        "level": "Lock",
-        "label": "Risk trigger",
-        "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings."
+        "level": "Float",
+        "label": "Live bias",
+        "detail": "No live lock trigger is active from the public feed rules."
       },
       {
         "level": "Watch",
@@ -66,10 +66,10 @@
       }
     ],
     "riskTrigger": {
-      "active": true,
+      "active": false,
       "id": "live-public-feed-lock-risk",
-      "title": "Lock risk trigger",
-      "detail": "Live public data crossed the lock-risk rule: rising rates/yields or weaker MBS proxy pricing."
+      "title": "No lock trigger",
+      "detail": "Live public data does not currently meet the lock-risk rule."
     },
     "trend": [
       {
@@ -139,23 +139,38 @@
     ],
     "mbsProxyRaw": {
       "symbol": "MBB.US",
-      "date": "20260514",
-      "time": "220019",
-      "open": 94.56,
-      "high": 94.56,
-      "low": 94.265,
-      "close": 94.27,
-      "volume": 1788988,
-      "delta": -0.29,
-      "deltaPercent": -0.31
+      "date": "20260515",
+      "time": "162305",
+      "open": 93.72,
+      "high": 93.7468,
+      "low": 93.62,
+      "close": 93.725,
+      "volume": 177243,
+      "delta": 0,
+      "deltaPercent": 0.01
     },
     "latestObservationDates": {
       "mortgageRate": "2026-05-14",
       "treasury10Y": "2026-05-13",
-      "mbsProxy": "20260514"
+      "mbsProxy": "20260515"
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-05-15T14:38:07.262Z",
+      "level": "Float",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "6.36%",
+        "rateDelta": "-0.01 vs prior week",
+        "treasury": "4.46%",
+        "treasuryDelta": "0.00 today",
+        "mbsPrice": "$93.72",
+        "mbsDelta": "+0.01% intraday"
+      }
+    },
     {
       "generatedAt": "2026-05-15T10:39:22.962Z",
       "level": "Lock",
@@ -289,21 +304,6 @@
         "treasuryDelta": "+0.04 today",
         "mbsPrice": "$94.35",
         "mbsDelta": "+0.24% intraday"
-      }
-    },
-    {
-      "generatedAt": "2026-05-13T18:19:16.518Z",
-      "level": "Lock",
-      "label": "Risk trigger",
-      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
-      "riskActive": true,
-      "metrics": {
-        "rate": "6.37%",
-        "rateDelta": "+0.07 vs prior week",
-        "treasury": "4.42%",
-        "treasuryDelta": "+0.04 today",
-        "mbsPrice": "$94.23",
-        "mbsDelta": "+0.12% intraday"
       }
     }
   ],
