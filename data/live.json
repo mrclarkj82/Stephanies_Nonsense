@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-05-15T21:29:44.508Z",
+  "generatedAt": "2026-05-16T04:05:13.683Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-05-15T21:29:44.508Z",
+    "refreshedAt": "2026-05-16T04:05:13.683Z",
     "fallbackCount": 0,
     "warnings": []
   },
@@ -19,16 +19,16 @@
   "dashboard": {
     "rate": "6.36%",
     "rateDelta": "-0.01 vs prior week",
-    "mbsPrice": "$93.58",
-    "mbsDelta": "-0.15% intraday",
+    "mbsPrice": "$93.57",
+    "mbsDelta": "-0.16% intraday",
     "treasury": "4.47%",
     "treasuryDelta": "+0.01 today",
     "volatility": "Calm",
-    "narrative": "The latest FRED 30-year mortgage average is 6.36%, -0.01 from the prior reading. The 10-year Treasury is 4.47%, +0.01 from the prior observation. The MBB proxy closed at $93.58, -0.15% intraday. No lock trigger is active from the live public-feed rule.",
+    "narrative": "The latest FRED 30-year mortgage average is 6.36%, -0.01 from the prior reading. The 10-year Treasury is 4.47%, +0.01 from the prior observation. The MBB proxy closed at $93.57, -0.16% intraday. No lock trigger is active from the live public-feed rule.",
     "driver": "Treasury yield pressure",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
-    "priceChange": "-0.14 today",
+    "priceChange": "-0.15 today",
     "spreadTone": "Stable",
     "news": [
       {
@@ -144,10 +144,10 @@
       "open": 93.72,
       "high": 93.775,
       "low": 93.495,
-      "close": 93.575,
-      "volume": 2521407,
-      "delta": -0.14,
-      "deltaPercent": -0.15
+      "close": 93.57,
+      "volume": 2832694,
+      "delta": -0.15,
+      "deltaPercent": -0.16
     },
     "latestObservationDates": {
       "mortgageRate": "2026-05-14",
@@ -156,6 +156,21 @@
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-05-16T04:05:13.683Z",
+      "level": "Watch",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "6.36%",
+        "rateDelta": "-0.01 vs prior week",
+        "treasury": "4.47%",
+        "treasuryDelta": "+0.01 today",
+        "mbsPrice": "$93.57",
+        "mbsDelta": "-0.16% intraday"
+      }
+    },
     {
       "generatedAt": "2026-05-15T21:29:44.508Z",
       "level": "Watch",
@@ -290,21 +305,6 @@
         "mbsPrice": "$94.35",
         "mbsDelta": "+0.23% intraday"
       }
-    },
-    {
-      "generatedAt": "2026-05-14T07:25:17.985Z",
-      "level": "Lock",
-      "label": "Risk trigger",
-      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
-      "riskActive": true,
-      "metrics": {
-        "rate": "6.37%",
-        "rateDelta": "+0.07 vs prior week",
-        "treasury": "4.46%",
-        "treasuryDelta": "+0.04 today",
-        "mbsPrice": "$94.35",
-        "mbsDelta": "+0.23% intraday"
-      }
     }
   ],
   "reports": {
@@ -313,58 +313,58 @@
         "name": "Austin 78704, TX",
         "marketType": "zip",
         "source": "Live public feeds",
-        "medianHomePrice": 722362,
-        "latestHomeValueDate": "2026-03-31",
-        "appreciation1Y": -5.1,
-        "appreciation5Y": 4.3,
+        "medianHomePrice": 731436,
+        "latestHomeValueDate": "2026-04-30",
+        "appreciation1Y": -5.2,
+        "appreciation5Y": -0.1,
         "inventoryMonths": null,
-        "inventoryLevel": "276 active listings",
-        "latestInventoryDate": "2026-03-31",
+        "inventoryLevel": "331 active listings",
+        "latestInventoryDate": "2026-04-30",
         "affordabilityIndex": null,
         "jobGrowth": "Census labor profile unavailable",
         "demographics": "Census profile unavailable",
         "history": [
           {
             "year": "2020",
-            "value": 644589
+            "value": 656676
           },
           {
             "year": "2021",
-            "value": 864336
+            "value": 880544
           },
           {
             "year": "2022",
-            "value": 938174
+            "value": 955766
           },
           {
             "year": "2023",
-            "value": 829791
+            "value": 845351
           },
           {
             "year": "2024",
-            "value": 776609
+            "value": 791172
           },
           {
             "year": "2025",
-            "value": 734755
+            "value": 748533
           },
           {
             "year": "2026",
-            "value": 722362
+            "value": 731436
           }
         ],
         "forecast": [
           {
-            "year": "2026-04",
-            "value": 0.5
+            "year": "2026-05",
+            "value": 0.3
           },
           {
-            "year": "2026-06",
-            "value": 1.3
+            "year": "2026-07",
+            "value": 0
           },
           {
-            "year": "2027-03",
-            "value": -3.4
+            "year": "2027-04",
+            "value": -4.4
           }
         ],
         "sourceNotes": [
@@ -377,57 +377,57 @@
         "name": "Beverly Hills 90210, CA",
         "marketType": "zip",
         "source": "Live public feeds",
-        "medianHomePrice": 5192181,
-        "latestHomeValueDate": "2026-03-31",
-        "appreciation1Y": 5.7,
-        "appreciation5Y": 12.2,
+        "medianHomePrice": 5242255,
+        "latestHomeValueDate": "2026-04-30",
+        "appreciation1Y": 5.9,
+        "appreciation5Y": 11.5,
         "inventoryMonths": null,
-        "inventoryLevel": "133 active listings",
-        "latestInventoryDate": "2026-03-31",
+        "inventoryLevel": "146 active listings",
+        "latestInventoryDate": "2026-04-30",
         "affordabilityIndex": null,
         "jobGrowth": "Census labor profile unavailable",
         "demographics": "Census profile unavailable",
         "history": [
           {
             "year": "2020",
-            "value": 4587078
+            "value": 4647175
           },
           {
             "year": "2021",
-            "value": 5241667
+            "value": 5310340
           },
           {
             "year": "2022",
-            "value": 5476171
+            "value": 5547917
           },
           {
             "year": "2023",
-            "value": 5431135
+            "value": 5502291
           },
           {
             "year": "2024",
-            "value": 5023827
+            "value": 5089646
           },
           {
             "year": "2025",
-            "value": 5091941
+            "value": 5158653
           },
           {
             "year": "2026",
-            "value": 5192181
+            "value": 5242255
           }
         ],
         "forecast": [
           {
-            "year": "2026-04",
-            "value": 0.6
+            "year": "2026-05",
+            "value": 0.4
           },
           {
-            "year": "2026-06",
-            "value": 1.4
+            "year": "2026-07",
+            "value": 0.7
           },
           {
-            "year": "2027-03",
+            "year": "2027-04",
             "value": 0
           }
         ],
@@ -441,58 +441,58 @@
         "name": "Orange County, CA",
         "marketType": "county",
         "source": "Live public feeds",
-        "medianHomePrice": 1194407,
-        "latestHomeValueDate": "2026-03-31",
-        "appreciation1Y": 0.5,
-        "appreciation5Y": 45.6,
+        "medianHomePrice": 1194373,
+        "latestHomeValueDate": "2026-04-30",
+        "appreciation1Y": 0.8,
+        "appreciation5Y": 44.2,
         "inventoryMonths": null,
-        "inventoryLevel": "5,077 active listings",
-        "latestInventoryDate": "2026-03-31",
+        "inventoryLevel": "5,557 active listings",
+        "latestInventoryDate": "2026-04-30",
         "affordabilityIndex": null,
         "jobGrowth": "Census labor profile unavailable",
         "demographics": "Census profile unavailable",
         "history": [
           {
             "year": "2020",
-            "value": 795519
+            "value": 794385
           },
           {
             "year": "2021",
-            "value": 916804
+            "value": 915496
           },
           {
             "year": "2022",
-            "value": 1013036
+            "value": 1011591
           },
           {
             "year": "2023",
-            "value": 1090395
+            "value": 1088840
           },
           {
             "year": "2024",
-            "value": 1181310
+            "value": 1179625
           },
           {
             "year": "2025",
-            "value": 1178842
+            "value": 1177161
           },
           {
             "year": "2026",
-            "value": 1194407
+            "value": 1194373
           }
         ],
         "forecast": [
           {
             "year": "2027",
-            "value": 1.2
+            "value": 1.3
           },
           {
             "year": "2028",
-            "value": 1
+            "value": 1.1
           },
           {
             "year": "2029",
-            "value": 0.8
+            "value": 0.9
           }
         ],
         "sourceNotes": [
