@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-05-16T09:51:52.829Z",
+  "generatedAt": "2026-05-16T14:01:22.972Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-05-16T09:51:52.829Z",
+    "refreshedAt": "2026-05-16T14:01:22.972Z",
     "fallbackCount": 0,
     "warnings": []
   },
@@ -157,6 +157,21 @@
   },
   "alertHistory": [
     {
+      "generatedAt": "2026-05-16T14:01:22.972Z",
+      "level": "Watch",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "6.36%",
+        "rateDelta": "-0.01 vs prior week",
+        "treasury": "4.47%",
+        "treasuryDelta": "+0.01 today",
+        "mbsPrice": "$93.57",
+        "mbsDelta": "-0.16% intraday"
+      }
+    },
+    {
       "generatedAt": "2026-05-16T09:51:52.829Z",
       "level": "Watch",
       "label": "Live bias",
@@ -289,21 +304,6 @@
         "treasuryDelta": "0.00 today",
         "mbsPrice": "$94.27",
         "mbsDelta": "-0.31% intraday"
-      }
-    },
-    {
-      "generatedAt": "2026-05-14T18:11:15.911Z",
-      "level": "Watch",
-      "label": "Live bias",
-      "detail": "No live lock trigger is active from the public feed rules.",
-      "riskActive": false,
-      "metrics": {
-        "rate": "6.36%",
-        "rateDelta": "-0.01 vs prior week",
-        "treasury": "4.46%",
-        "treasuryDelta": "+0.04 today",
-        "mbsPrice": "$94.45",
-        "mbsDelta": "-0.11% intraday"
       }
     }
   ],
