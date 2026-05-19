@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-05-19T18:16:43.472Z",
+  "generatedAt": "2026-05-19T21:48:10.726Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-05-19T18:16:43.472Z",
+    "refreshedAt": "2026-05-19T21:48:10.726Z",
     "fallbackCount": 0,
     "warnings": []
   },
@@ -19,17 +19,17 @@
   "dashboard": {
     "rate": "6.36%",
     "rateDelta": "-0.01 vs prior week",
-    "mbsPrice": "$93.23",
-    "mbsDelta": "+0.21% intraday",
-    "treasury": "4.59%",
-    "treasuryDelta": "+0.12 today",
-    "volatility": "Elevated",
-    "narrative": "The latest FRED 30-year mortgage average is 6.36%, -0.01 from the prior reading. The 10-year Treasury is 4.59%, +0.12 from the prior observation. The MBB proxy closed at $93.23, +0.21% intraday. Lock risk is active for near-term closings.",
+    "mbsPrice": "$93.08",
+    "mbsDelta": "+0.05% intraday",
+    "treasury": "4.61%",
+    "treasuryDelta": "+0.02 today",
+    "volatility": "Calm",
+    "narrative": "The latest FRED 30-year mortgage average is 6.36%, -0.01 from the prior reading. The 10-year Treasury is 4.61%, +0.02 from the prior observation. The MBB proxy closed at $93.08, +0.05% intraday. No lock trigger is active from the live public-feed rule.",
     "driver": "Treasury yield pressure",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
-    "priceChange": "+0.20 today",
-    "spreadTone": "Better",
+    "priceChange": "+0.05 today",
+    "spreadTone": "Stable",
     "news": [
       {
         "title": "Federal Reserve Board names Jerome H. Powell as chair pro tempore; Powell will serve as chair pro tempore until Kevin M. Warsh is sworn in as the new chair",
@@ -50,14 +50,14 @@
     ],
     "alerts": [
       {
-        "level": "Lock",
-        "label": "Risk trigger",
-        "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings."
+        "level": "Watch",
+        "label": "Live bias",
+        "detail": "No live lock trigger is active from the public feed rules."
       },
       {
         "level": "Watch",
         "label": "10Y Treasury",
-        "detail": "Latest DGS10 is 4.59%, +0.12 from prior observation."
+        "detail": "Latest DGS10 is 4.61%, +0.02 from prior observation."
       },
       {
         "level": "Watch",
@@ -66,10 +66,10 @@
       }
     ],
     "riskTrigger": {
-      "active": true,
+      "active": false,
       "id": "live-public-feed-lock-risk",
-      "title": "Lock risk trigger",
-      "detail": "Live public data crossed the lock-risk rule: rising rates/yields or weaker MBS proxy pricing."
+      "title": "No lock trigger",
+      "detail": "Live public data does not currently meet the lock-risk rule."
     },
     "trend": [
       {
@@ -140,22 +140,37 @@
     "mbsProxyRaw": {
       "symbol": "MBB.US",
       "date": "20260519",
-      "time": "200126",
+      "time": "220018",
       "open": 93.03,
       "high": 93.28,
       "low": 92.92,
-      "close": 93.23,
-      "volume": 1994136,
-      "delta": 0.2,
-      "deltaPercent": 0.21
+      "close": 93.08,
+      "volume": 3928977,
+      "delta": 0.05,
+      "deltaPercent": 0.05
     },
     "latestObservationDates": {
       "mortgageRate": "2026-05-14",
-      "treasury10Y": "2026-05-15",
+      "treasury10Y": "2026-05-18",
       "mbsProxy": "20260519"
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-05-19T21:48:10.726Z",
+      "level": "Watch",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "6.36%",
+        "rateDelta": "-0.01 vs prior week",
+        "treasury": "4.61%",
+        "treasuryDelta": "+0.02 today",
+        "mbsPrice": "$93.08",
+        "mbsDelta": "+0.05% intraday"
+      }
+    },
     {
       "generatedAt": "2026-05-19T18:16:43.472Z",
       "level": "Lock",
@@ -278,21 +293,6 @@
     },
     {
       "generatedAt": "2026-05-18T04:44:15.561Z",
-      "level": "Watch",
-      "label": "Live bias",
-      "detail": "No live lock trigger is active from the public feed rules.",
-      "riskActive": false,
-      "metrics": {
-        "rate": "6.36%",
-        "rateDelta": "-0.01 vs prior week",
-        "treasury": "4.47%",
-        "treasuryDelta": "+0.01 today",
-        "mbsPrice": "$93.57",
-        "mbsDelta": "-0.16% intraday"
-      }
-    },
-    {
-      "generatedAt": "2026-05-17T21:09:35.900Z",
       "level": "Watch",
       "label": "Live bias",
       "detail": "No live lock trigger is active from the public feed rules.",
