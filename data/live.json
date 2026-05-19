@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-05-19T15:52:10.835Z",
+  "generatedAt": "2026-05-19T18:16:43.472Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-05-19T15:52:10.835Z",
+    "refreshedAt": "2026-05-19T18:16:43.472Z",
     "fallbackCount": 0,
     "warnings": []
   },
@@ -19,17 +19,17 @@
   "dashboard": {
     "rate": "6.36%",
     "rateDelta": "-0.01 vs prior week",
-    "mbsPrice": "$92.94",
-    "mbsDelta": "-0.09% intraday",
+    "mbsPrice": "$93.23",
+    "mbsDelta": "+0.21% intraday",
     "treasury": "4.59%",
     "treasuryDelta": "+0.12 today",
     "volatility": "Elevated",
-    "narrative": "The latest FRED 30-year mortgage average is 6.36%, -0.01 from the prior reading. The 10-year Treasury is 4.59%, +0.12 from the prior observation. The MBB proxy closed at $92.94, -0.09% intraday. Lock risk is active for near-term closings.",
+    "narrative": "The latest FRED 30-year mortgage average is 6.36%, -0.01 from the prior reading. The 10-year Treasury is 4.59%, +0.12 from the prior observation. The MBB proxy closed at $93.23, +0.21% intraday. Lock risk is active for near-term closings.",
     "driver": "Treasury yield pressure",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
-    "priceChange": "-0.09 today",
-    "spreadTone": "Stable",
+    "priceChange": "+0.20 today",
+    "spreadTone": "Better",
     "news": [
       {
         "title": "Federal Reserve Board names Jerome H. Powell as chair pro tempore; Powell will serve as chair pro tempore until Kevin M. Warsh is sworn in as the new chair",
@@ -140,14 +140,14 @@
     "mbsProxyRaw": {
       "symbol": "MBB.US",
       "date": "20260519",
-      "time": "173707",
+      "time": "200126",
       "open": 93.03,
       "high": 93.28,
       "low": 92.92,
-      "close": 92.945,
-      "volume": 1252456,
-      "delta": -0.09,
-      "deltaPercent": -0.09
+      "close": 93.23,
+      "volume": 1994136,
+      "delta": 0.2,
+      "deltaPercent": 0.21
     },
     "latestObservationDates": {
       "mortgageRate": "2026-05-14",
@@ -156,6 +156,21 @@
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-05-19T18:16:43.472Z",
+      "level": "Lock",
+      "label": "Risk trigger",
+      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
+      "riskActive": true,
+      "metrics": {
+        "rate": "6.36%",
+        "rateDelta": "-0.01 vs prior week",
+        "treasury": "4.59%",
+        "treasuryDelta": "+0.12 today",
+        "mbsPrice": "$93.23",
+        "mbsDelta": "+0.21% intraday"
+      }
+    },
     {
       "generatedAt": "2026-05-19T15:52:10.835Z",
       "level": "Lock",
@@ -278,21 +293,6 @@
     },
     {
       "generatedAt": "2026-05-17T21:09:35.900Z",
-      "level": "Watch",
-      "label": "Live bias",
-      "detail": "No live lock trigger is active from the public feed rules.",
-      "riskActive": false,
-      "metrics": {
-        "rate": "6.36%",
-        "rateDelta": "-0.01 vs prior week",
-        "treasury": "4.47%",
-        "treasuryDelta": "+0.01 today",
-        "mbsPrice": "$93.57",
-        "mbsDelta": "-0.16% intraday"
-      }
-    },
-    {
-      "generatedAt": "2026-05-17T17:17:06.147Z",
       "level": "Watch",
       "label": "Live bias",
       "detail": "No live lock trigger is active from the public feed rules.",
