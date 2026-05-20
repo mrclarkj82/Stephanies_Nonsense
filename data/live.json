@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-05-20T18:33:18.276Z",
+  "generatedAt": "2026-05-20T22:04:46.353Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-05-20T18:33:18.276Z",
+    "refreshedAt": "2026-05-20T22:04:46.353Z",
     "fallbackCount": 0,
     "warnings": []
   },
@@ -19,18 +19,22 @@
   "dashboard": {
     "rate": "6.36%",
     "rateDelta": "-0.01 vs prior week",
-    "mbsPrice": "$93.69",
-    "mbsDelta": "+0.66% intraday",
-    "treasury": "4.61%",
-    "treasuryDelta": "+0.02 today",
-    "volatility": "Calm",
-    "narrative": "The latest FRED 30-year mortgage average is 6.36%, -0.01 from the prior reading. The 10-year Treasury is 4.61%, +0.02 from the prior observation. The MBB proxy closed at $93.69, +0.66% intraday. No lock trigger is active from the live public-feed rule.",
+    "mbsPrice": "$93.76",
+    "mbsDelta": "+0.73% intraday",
+    "treasury": "4.67%",
+    "treasuryDelta": "+0.06 today",
+    "volatility": "Elevated",
+    "narrative": "The latest FRED 30-year mortgage average is 6.36%, -0.01 from the prior reading. The 10-year Treasury is 4.67%, +0.06 from the prior observation. The MBB proxy closed at $93.76, +0.73% intraday. Lock risk is active for near-term closings.",
     "driver": "Treasury yield pressure",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
-    "priceChange": "+0.61 today",
+    "priceChange": "+0.68 today",
     "spreadTone": "Better",
     "news": [
+      {
+        "title": "Federal Reserve Board requests public comment on a proposal to establish a \"payment account,\" which legally eligible financial institutions could use for the specific purpose of clearing and settling their payments",
+        "detail": "Other Announcements - May 20, 2026"
+      },
       {
         "title": "Minutes of the Federal Open Market Committee, April 28-29, 2026",
         "detail": "Monetary Policy - May 20, 2026"
@@ -42,22 +46,18 @@
       {
         "title": "Federal Reserve Board announces approval of application by the Stephen M. Calk 2025 Trust",
         "detail": "Orders on Banking Applications - May 15, 2026"
-      },
-      {
-        "title": "Federal Reserve Board announces it does not object to the conversion of United Texas Bank, of Dallas, Texas, from a bank supervised by the Federal Reserve to a national bank supervised by the Office of the Comptroller of the Currency",
-        "detail": "Orders on Banking Applications - May 15, 2026"
       }
     ],
     "alerts": [
       {
-        "level": "Watch",
-        "label": "Live bias",
-        "detail": "No live lock trigger is active from the public feed rules."
+        "level": "Lock",
+        "label": "Risk trigger",
+        "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings."
       },
       {
         "level": "Watch",
         "label": "10Y Treasury",
-        "detail": "Latest DGS10 is 4.61%, +0.02 from prior observation."
+        "detail": "Latest DGS10 is 4.67%, +0.06 from prior observation."
       },
       {
         "level": "Watch",
@@ -66,10 +66,10 @@
       }
     ],
     "riskTrigger": {
-      "active": false,
+      "active": true,
       "id": "live-public-feed-lock-risk",
-      "title": "No lock trigger",
-      "detail": "Live public data does not currently meet the lock-risk rule."
+      "title": "Lock risk trigger",
+      "detail": "Live public data crossed the lock-risk rule: rising rates/yields or weaker MBS proxy pricing."
     },
     "trend": [
       {
@@ -140,22 +140,37 @@
     "mbsProxyRaw": {
       "symbol": "MBB.US",
       "date": "20260520",
-      "time": "201759",
+      "time": "220017",
       "open": 93.08,
-      "high": 93.76,
+      "high": 93.86,
       "low": 93.08,
-      "close": 93.69,
-      "volume": 979604,
-      "delta": 0.61,
-      "deltaPercent": 0.66
+      "close": 93.76,
+      "volume": 2716383,
+      "delta": 0.68,
+      "deltaPercent": 0.73
     },
     "latestObservationDates": {
       "mortgageRate": "2026-05-14",
-      "treasury10Y": "2026-05-18",
+      "treasury10Y": "2026-05-19",
       "mbsProxy": "20260520"
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-05-20T22:04:46.353Z",
+      "level": "Lock",
+      "label": "Risk trigger",
+      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
+      "riskActive": true,
+      "metrics": {
+        "rate": "6.36%",
+        "rateDelta": "-0.01 vs prior week",
+        "treasury": "4.67%",
+        "treasuryDelta": "+0.06 today",
+        "mbsPrice": "$93.76",
+        "mbsDelta": "+0.73% intraday"
+      }
+    },
     {
       "generatedAt": "2026-05-20T18:33:18.276Z",
       "level": "Watch",
@@ -278,21 +293,6 @@
     },
     {
       "generatedAt": "2026-05-19T04:35:15.628Z",
-      "level": "Lock",
-      "label": "Risk trigger",
-      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
-      "riskActive": true,
-      "metrics": {
-        "rate": "6.36%",
-        "rateDelta": "-0.01 vs prior week",
-        "treasury": "4.59%",
-        "treasuryDelta": "+0.12 today",
-        "mbsPrice": "$93.49",
-        "mbsDelta": "-0.19% intraday"
-      }
-    },
-    {
-      "generatedAt": "2026-05-18T21:39:52.896Z",
       "level": "Lock",
       "label": "Risk trigger",
       "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
