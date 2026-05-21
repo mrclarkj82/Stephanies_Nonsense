@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-05-21T11:38:30.507Z",
+  "generatedAt": "2026-05-21T15:53:01.080Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-05-21T11:38:30.507Z",
+    "refreshedAt": "2026-05-21T15:53:01.080Z",
     "fallbackCount": 0,
     "warnings": []
   },
@@ -19,18 +19,22 @@
   "dashboard": {
     "rate": "6.36%",
     "rateDelta": "-0.01 vs prior week",
-    "mbsPrice": "$93.76",
-    "mbsDelta": "+0.73% intraday",
+    "mbsPrice": "$93.50",
+    "mbsDelta": "+0.10% intraday",
     "treasury": "4.67%",
     "treasuryDelta": "+0.06 today",
     "volatility": "Elevated",
-    "narrative": "The latest FRED 30-year mortgage average is 6.36%, -0.01 from the prior reading. The 10-year Treasury is 4.67%, +0.06 from the prior observation. The MBB proxy closed at $93.76, +0.73% intraday. Lock risk is active for near-term closings.",
+    "narrative": "The latest FRED 30-year mortgage average is 6.36%, -0.01 from the prior reading. The 10-year Treasury is 4.67%, +0.06 from the prior observation. The MBB proxy closed at $93.50, +0.10% intraday. Lock risk is active for near-term closings.",
     "driver": "Treasury yield pressure",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
-    "priceChange": "+0.68 today",
-    "spreadTone": "Better",
+    "priceChange": "+0.09 today",
+    "spreadTone": "Stable",
     "news": [
+      {
+        "title": "Federal Reserve Board issues enforcement action with former employee of Commerce Bank",
+        "detail": "Enforcement Actions - May 21, 2026"
+      },
       {
         "title": "Federal Reserve Board requests public comment on a proposal to establish a \"payment account,\" which legally eligible financial institutions could use for the specific purpose of clearing and settling their payments",
         "detail": "Other Announcements - May 20, 2026"
@@ -42,10 +46,6 @@
       {
         "title": "Federal Reserve Board names Jerome H. Powell as chair pro tempore; Powell will serve as chair pro tempore until Kevin M. Warsh is sworn in as the new chair",
         "detail": "Other Announcements - May 15, 2026"
-      },
-      {
-        "title": "Federal Reserve Board announces approval of application by the Stephen M. Calk 2025 Trust",
-        "detail": "Orders on Banking Applications - May 15, 2026"
       }
     ],
     "alerts": [
@@ -139,23 +139,38 @@
     ],
     "mbsProxyRaw": {
       "symbol": "MBB.US",
-      "date": "20260520",
-      "time": "220017",
-      "open": 93.08,
-      "high": 93.86,
-      "low": 93.08,
-      "close": 93.76,
-      "volume": 2716383,
-      "delta": 0.68,
-      "deltaPercent": 0.73
+      "date": "20260521",
+      "time": "173748",
+      "open": 93.41,
+      "high": 93.525,
+      "low": 93.29,
+      "close": 93.5,
+      "volume": 656683,
+      "delta": 0.09,
+      "deltaPercent": 0.1
     },
     "latestObservationDates": {
       "mortgageRate": "2026-05-14",
       "treasury10Y": "2026-05-19",
-      "mbsProxy": "20260520"
+      "mbsProxy": "20260521"
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-05-21T15:53:01.080Z",
+      "level": "Lock",
+      "label": "Risk trigger",
+      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
+      "riskActive": true,
+      "metrics": {
+        "rate": "6.36%",
+        "rateDelta": "-0.01 vs prior week",
+        "treasury": "4.67%",
+        "treasuryDelta": "+0.06 today",
+        "mbsPrice": "$93.50",
+        "mbsDelta": "+0.10% intraday"
+      }
+    },
     {
       "generatedAt": "2026-05-21T11:38:30.507Z",
       "level": "Lock",
@@ -289,21 +304,6 @@
         "treasuryDelta": "+0.12 today",
         "mbsPrice": "$93.23",
         "mbsDelta": "+0.21% intraday"
-      }
-    },
-    {
-      "generatedAt": "2026-05-19T15:52:10.835Z",
-      "level": "Lock",
-      "label": "Risk trigger",
-      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
-      "riskActive": true,
-      "metrics": {
-        "rate": "6.36%",
-        "rateDelta": "-0.01 vs prior week",
-        "treasury": "4.59%",
-        "treasuryDelta": "+0.12 today",
-        "mbsPrice": "$92.94",
-        "mbsDelta": "-0.09% intraday"
       }
     }
   ],
