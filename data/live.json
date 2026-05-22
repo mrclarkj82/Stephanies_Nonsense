@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-05-22T18:07:37.068Z",
+  "generatedAt": "2026-05-22T21:37:11.244Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-05-22T18:07:37.068Z",
+    "refreshedAt": "2026-05-22T21:37:11.244Z",
     "fallbackCount": 0,
     "warnings": []
   },
@@ -19,18 +19,26 @@
   "dashboard": {
     "rate": "6.51%",
     "rateDelta": "+0.15 vs prior week",
-    "mbsPrice": "$93.88",
-    "mbsDelta": "-0.17% intraday",
+    "mbsPrice": "$94.07",
+    "mbsDelta": "+0.03% intraday",
     "treasury": "4.57%",
-    "treasuryDelta": "-0.10 today",
+    "treasuryDelta": "0.00 today",
     "volatility": "Elevated",
-    "narrative": "The latest FRED 30-year mortgage average is 6.51%, +0.15 from the prior reading. The 10-year Treasury is 4.57%, -0.10 from the prior observation. The MBB proxy closed at $93.88, -0.17% intraday. Lock risk is active for near-term closings.",
-    "driver": "Treasury yield relief",
+    "narrative": "The latest FRED 30-year mortgage average is 6.51%, +0.15 from the prior reading. The 10-year Treasury is 4.57%, 0.00 from the prior observation. The MBB proxy closed at $94.07, +0.03% intraday. Lock risk is active for near-term closings.",
+    "driver": "Treasury yield pressure",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
-    "priceChange": "-0.16 today",
+    "priceChange": "+0.03 today",
     "spreadTone": "Stable",
     "news": [
+      {
+        "title": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh as its chairman",
+        "detail": "Other Announcements - May 22, 2026"
+      },
+      {
+        "title": "Agencies publish resolution plan feedback letters for certain domestic and foreign banking organizations",
+        "detail": "Banking and Consumer Regulatory Policy - May 22, 2026"
+      },
       {
         "title": "Federal Reserve Board issues enforcement action with former employee of Commerce Bank",
         "detail": "Enforcement Actions - May 21, 2026"
@@ -38,14 +46,6 @@
       {
         "title": "Federal Reserve Board requests public comment on a proposal to establish a \"payment account,\" which legally eligible financial institutions could use for the specific purpose of clearing and settling their payments",
         "detail": "Other Announcements - May 20, 2026"
-      },
-      {
-        "title": "Minutes of the Federal Open Market Committee, April 28-29, 2026",
-        "detail": "Monetary Policy - May 20, 2026"
-      },
-      {
-        "title": "Federal Reserve Board names Jerome H. Powell as chair pro tempore; Powell will serve as chair pro tempore until Kevin M. Warsh is sworn in as the new chair",
-        "detail": "Other Announcements - May 15, 2026"
       }
     ],
     "alerts": [
@@ -57,7 +57,7 @@
       {
         "level": "Watch",
         "label": "10Y Treasury",
-        "detail": "Latest DGS10 is 4.57%, -0.10 from prior observation."
+        "detail": "Latest DGS10 is 4.57%, 0.00 from prior observation."
       },
       {
         "level": "Watch",
@@ -140,22 +140,37 @@
     "mbsProxyRaw": {
       "symbol": "MBB.US",
       "date": "20260522",
-      "time": "195156",
+      "time": "220018",
       "open": 94.04,
-      "high": 94.05,
+      "high": 94.08,
       "low": 93.6946,
-      "close": 93.88,
-      "volume": 933897,
-      "delta": -0.16,
-      "deltaPercent": -0.17
+      "close": 94.07,
+      "volume": 1655480,
+      "delta": 0.03,
+      "deltaPercent": 0.03
     },
     "latestObservationDates": {
       "mortgageRate": "2026-05-21",
-      "treasury10Y": "2026-05-20",
+      "treasury10Y": "2026-05-21",
       "mbsProxy": "20260522"
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-05-22T21:37:11.244Z",
+      "level": "Lock",
+      "label": "Risk trigger",
+      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
+      "riskActive": true,
+      "metrics": {
+        "rate": "6.51%",
+        "rateDelta": "+0.15 vs prior week",
+        "treasury": "4.57%",
+        "treasuryDelta": "0.00 today",
+        "mbsPrice": "$94.07",
+        "mbsDelta": "+0.03% intraday"
+      }
+    },
     {
       "generatedAt": "2026-05-22T18:07:37.068Z",
       "level": "Lock",
@@ -278,21 +293,6 @@
     },
     {
       "generatedAt": "2026-05-21T04:46:56.580Z",
-      "level": "Lock",
-      "label": "Risk trigger",
-      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
-      "riskActive": true,
-      "metrics": {
-        "rate": "6.36%",
-        "rateDelta": "-0.01 vs prior week",
-        "treasury": "4.67%",
-        "treasuryDelta": "+0.06 today",
-        "mbsPrice": "$93.76",
-        "mbsDelta": "+0.73% intraday"
-      }
-    },
-    {
-      "generatedAt": "2026-05-20T22:04:46.353Z",
       "level": "Lock",
       "label": "Risk trigger",
       "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
