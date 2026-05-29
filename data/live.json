@@ -1,16 +1,10 @@
 {
-  "generatedAt": "2026-05-29T18:44:03.513Z",
+  "generatedAt": "2026-05-29T22:06:00.724Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-05-29T18:44:03.513Z",
-    "fallbackCount": 5,
-    "warnings": [
-      "Zillow ZIP inventory: Fetch failed 403 for https://files.zillowstatic.com/research/public_csvs/invt_fs/Zip_invt_fs_uc_sfrcondo_sm_month.csv",
-      "Zillow county home values: Fetch failed 403 for https://files.zillowstatic.com/research/public_csvs/zhvi/County_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv",
-      "Zillow county inventory: Fetch failed 403 for https://files.zillowstatic.com/research/public_csvs/invt_fs/County_invt_fs_uc_sfrcondo_sm_month.csv",
-      "Zillow ZIP forecast: Fetch failed 403 for https://files.zillowstatic.com/research/public_csvs/zhvf_growth/Zip_zhvf_growth_uc_sfrcondo_tier_0.33_0.67_month.csv",
-      "Zillow ZIP home values: Fetch failed 403 for https://files.zillowstatic.com/research/public_csvs/zhvi/Zip_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv"
-    ]
+    "refreshedAt": "2026-05-29T22:06:00.724Z",
+    "fallbackCount": 0,
+    "warnings": []
   },
   "sources": {
     "mortgageRate": "FRED MORTGAGE30US",
@@ -25,16 +19,16 @@
   "dashboard": {
     "rate": "6.53%",
     "rateDelta": "+0.02 vs prior week",
-    "mbsPrice": "$94.83",
-    "mbsDelta": "+0.03% intraday",
-    "treasury": "4.48%",
-    "treasuryDelta": "-0.02 today",
-    "volatility": "Calm",
-    "narrative": "The latest FRED 30-year mortgage average is 6.53%, +0.02 from the prior reading. The 10-year Treasury is 4.48%, -0.02 from the prior observation. The MBB proxy closed at $94.83, +0.03% intraday. No lock trigger is active from the live public-feed rule.",
+    "mbsPrice": "$94.79",
+    "mbsDelta": "-0.01% intraday",
+    "treasury": "4.45%",
+    "treasuryDelta": "-0.03 today",
+    "volatility": "Moderate",
+    "narrative": "The latest FRED 30-year mortgage average is 6.53%, +0.02 from the prior reading. The 10-year Treasury is 4.45%, -0.03 from the prior observation. The MBB proxy closed at $94.79, -0.01% intraday. No lock trigger is active from the live public-feed rule.",
     "driver": "Treasury yield relief",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
-    "priceChange": "+0.03 today",
+    "priceChange": "-0.01 today",
     "spreadTone": "Stable",
     "news": [
       {
@@ -63,7 +57,7 @@
       {
         "level": "Watch",
         "label": "10Y Treasury",
-        "detail": "Latest DGS10 is 4.48%, -0.02 from prior observation."
+        "detail": "Latest DGS10 is 4.45%, -0.03 from prior observation."
       },
       {
         "level": "Watch",
@@ -146,22 +140,37 @@
     "mbsProxyRaw": {
       "symbol": "MBB.US",
       "date": "20260529",
-      "time": "202859",
+      "time": "220020",
       "open": 94.8,
       "high": 94.875,
       "low": 94.675,
-      "close": 94.825,
-      "volume": 1217356,
-      "delta": 0.03,
-      "deltaPercent": 0.03
+      "close": 94.79,
+      "volume": 2313412,
+      "delta": -0.01,
+      "deltaPercent": -0.01
     },
     "latestObservationDates": {
       "mortgageRate": "2026-05-28",
-      "treasury10Y": "2026-05-27",
+      "treasury10Y": "2026-05-28",
       "mbsProxy": "20260529"
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-05-29T22:06:00.724Z",
+      "level": "Float",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "6.53%",
+        "rateDelta": "+0.02 vs prior week",
+        "treasury": "4.45%",
+        "treasuryDelta": "-0.03 today",
+        "mbsPrice": "$94.79",
+        "mbsDelta": "-0.01% intraday"
+      }
+    },
     {
       "generatedAt": "2026-05-29T18:44:03.513Z",
       "level": "Float",
@@ -296,21 +305,6 @@
         "mbsPrice": "$94.38",
         "mbsDelta": "-0.11% intraday"
       }
-    },
-    {
-      "generatedAt": "2026-05-27T18:35:37.979Z",
-      "level": "Lock",
-      "label": "Risk trigger",
-      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
-      "riskActive": true,
-      "metrics": {
-        "rate": "6.51%",
-        "rateDelta": "+0.15 vs prior week",
-        "treasury": "4.56%",
-        "treasuryDelta": "-0.01 today",
-        "mbsPrice": "$94.39",
-        "mbsDelta": "-0.10% intraday"
-      }
     }
   ],
   "reports": {
@@ -318,7 +312,7 @@
       "78704": {
         "name": "Austin 78704, TX",
         "marketType": "zip",
-        "source": "Last known public feeds",
+        "source": "Live public feeds",
         "medianHomePrice": 731436,
         "latestHomeValueDate": "2026-04-30",
         "appreciation1Y": -5.2,
@@ -377,13 +371,12 @@
           "Median home price uses Zillow ZHVI typical home value, not MLS closed-sale median.",
           "Inventory uses Zillow for-sale inventory count, not months of supply.",
           "Forecast uses Zillow ZHVF for tracked ZIPs where available; county fallback is a simple trend projection."
-        ],
-        "lastCheckedAt": "2026-05-29T18:44:03.513Z"
+        ]
       },
       "90210": {
         "name": "Beverly Hills 90210, CA",
         "marketType": "zip",
-        "source": "Last known public feeds",
+        "source": "Live public feeds",
         "medianHomePrice": 5242255,
         "latestHomeValueDate": "2026-04-30",
         "appreciation1Y": 5.9,
@@ -442,13 +435,12 @@
           "Median home price uses Zillow ZHVI typical home value, not MLS closed-sale median.",
           "Inventory uses Zillow for-sale inventory count, not months of supply.",
           "Forecast uses Zillow ZHVF for tracked ZIPs where available; county fallback is a simple trend projection."
-        ],
-        "lastCheckedAt": "2026-05-29T18:44:03.513Z"
+        ]
       },
       "orange county": {
         "name": "Orange County, CA",
         "marketType": "county",
-        "source": "Last known public feeds",
+        "source": "Live public feeds",
         "medianHomePrice": 1194373,
         "latestHomeValueDate": "2026-04-30",
         "appreciation1Y": 0.8,
@@ -507,8 +499,7 @@
           "Median home price uses Zillow ZHVI typical home value, not MLS closed-sale median.",
           "Inventory uses Zillow for-sale inventory count, not months of supply.",
           "Forecast uses Zillow ZHVF for tracked ZIPs where available; county fallback is a simple trend projection."
-        ],
-        "lastCheckedAt": "2026-05-29T18:44:03.513Z"
+        ]
       }
     },
     "trackedMarkets": [
