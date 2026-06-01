@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-01T13:47:43.619Z",
+  "generatedAt": "2026-06-01T20:36:26.054Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-06-01T13:47:43.619Z",
+    "refreshedAt": "2026-06-01T20:36:26.054Z",
     "fallbackCount": 0,
     "warnings": []
   },
@@ -19,17 +19,17 @@
   "dashboard": {
     "rate": "6.53%",
     "rateDelta": "+0.02 vs prior week",
-    "mbsPrice": "$94.05",
-    "mbsDelta": "-0.01% intraday",
+    "mbsPrice": "$94.31",
+    "mbsDelta": "+0.27% intraday",
     "treasury": "4.45%",
-    "treasuryDelta": "-0.03 today",
-    "volatility": "Moderate",
-    "narrative": "The latest FRED 30-year mortgage average is 6.53%, +0.02 from the prior reading. The 10-year Treasury is 4.45%, -0.03 from the prior observation. The MBB proxy closed at $94.05, -0.01% intraday. No lock trigger is active from the live public-feed rule.",
-    "driver": "Treasury yield relief",
+    "treasuryDelta": "0.00 today",
+    "volatility": "Calm",
+    "narrative": "The latest FRED 30-year mortgage average is 6.53%, +0.02 from the prior reading. The 10-year Treasury is 4.45%, 0.00 from the prior observation. The MBB proxy closed at $94.31, +0.27% intraday. No lock trigger is active from the live public-feed rule.",
+    "driver": "Treasury yield pressure",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
-    "priceChange": "-0.01 today",
-    "spreadTone": "Stable",
+    "priceChange": "+0.25 today",
+    "spreadTone": "Better",
     "news": [
       {
         "title": "Federal Reserve Board issues enforcement actions with former employee of Atlantic Union Bank and former employee of Frost Bank",
@@ -57,7 +57,7 @@
       {
         "level": "Watch",
         "label": "10Y Treasury",
-        "detail": "Latest DGS10 is 4.45%, -0.03 from prior observation."
+        "detail": "Latest DGS10 is 4.45%, 0.00 from prior observation."
       },
       {
         "level": "Watch",
@@ -140,22 +140,37 @@
     "mbsProxyRaw": {
       "symbol": "MBB.US",
       "date": "20260601",
-      "time": "153224",
+      "time": "220019",
       "open": 94.06,
-      "high": 94.08,
-      "low": 94.045,
-      "close": 94.05,
-      "volume": 3206,
-      "delta": -0.01,
-      "deltaPercent": -0.01
+      "high": 94.325,
+      "low": 93.965,
+      "close": 94.31,
+      "volume": 1878081,
+      "delta": 0.25,
+      "deltaPercent": 0.27
     },
     "latestObservationDates": {
       "mortgageRate": "2026-05-28",
-      "treasury10Y": "2026-05-28",
+      "treasury10Y": "2026-05-29",
       "mbsProxy": "20260601"
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-06-01T20:36:26.054Z",
+      "level": "Float",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "6.53%",
+        "rateDelta": "+0.02 vs prior week",
+        "treasury": "4.45%",
+        "treasuryDelta": "0.00 today",
+        "mbsPrice": "$94.31",
+        "mbsDelta": "+0.27% intraday"
+      }
+    },
     {
       "generatedAt": "2026-06-01T13:47:43.619Z",
       "level": "Float",
@@ -278,21 +293,6 @@
     },
     {
       "generatedAt": "2026-05-30T17:31:37.822Z",
-      "level": "Float",
-      "label": "Live bias",
-      "detail": "No live lock trigger is active from the public feed rules.",
-      "riskActive": false,
-      "metrics": {
-        "rate": "6.53%",
-        "rateDelta": "+0.02 vs prior week",
-        "treasury": "4.45%",
-        "treasuryDelta": "-0.03 today",
-        "mbsPrice": "$94.79",
-        "mbsDelta": "-0.01% intraday"
-      }
-    },
-    {
-      "generatedAt": "2026-05-30T14:06:51.030Z",
       "level": "Float",
       "label": "Live bias",
       "detail": "No live lock trigger is active from the public feed rules.",
