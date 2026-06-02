@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-02T12:15:46.193Z",
+  "generatedAt": "2026-06-02T16:57:50.405Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-06-02T12:15:46.193Z",
+    "refreshedAt": "2026-06-02T16:57:50.405Z",
     "fallbackCount": 0,
     "warnings": []
   },
@@ -19,18 +19,22 @@
   "dashboard": {
     "rate": "6.53%",
     "rateDelta": "+0.02 vs prior week",
-    "mbsPrice": "$94.32",
-    "mbsDelta": "+0.23% intraday",
+    "mbsPrice": "$94.23",
+    "mbsDelta": "-0.16% intraday",
     "treasury": "4.45%",
     "treasuryDelta": "0.00 today",
     "volatility": "Calm",
-    "narrative": "The latest FRED 30-year mortgage average is 6.53%, +0.02 from the prior reading. The 10-year Treasury is 4.45%, 0.00 from the prior observation. The MBB proxy closed at $94.32, +0.23% intraday. No lock trigger is active from the live public-feed rule.",
+    "narrative": "The latest FRED 30-year mortgage average is 6.53%, +0.02 from the prior reading. The 10-year Treasury is 4.45%, 0.00 from the prior observation. The MBB proxy closed at $94.23, -0.16% intraday. No lock trigger is active from the live public-feed rule.",
     "driver": "Treasury yield pressure",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
-    "priceChange": "+0.22 today",
-    "spreadTone": "Better",
+    "priceChange": "-0.16 today",
+    "spreadTone": "Stable",
     "news": [
+      {
+        "title": "Agencies remove additional references to reputation risk",
+        "detail": "Banking and Consumer Regulatory Policy - Jun 2, 2026"
+      },
       {
         "title": "Federal Reserve Board issues enforcement actions with former employee of Atlantic Union Bank and former employee of Frost Bank",
         "detail": "Enforcement Actions - May 28, 2026"
@@ -42,10 +46,6 @@
       {
         "title": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh as its chairman",
         "detail": "Other Announcements - May 22, 2026"
-      },
-      {
-        "title": "Agencies publish resolution plan feedback letters for certain domestic and foreign banking organizations",
-        "detail": "Banking and Consumer Regulatory Policy - May 22, 2026"
       }
     ],
     "alerts": [
@@ -139,23 +139,38 @@
     ],
     "mbsProxyRaw": {
       "symbol": "MBB.US",
-      "date": "20260601",
-      "time": "220019",
-      "open": 94.1,
-      "high": 94.325,
-      "low": 93.965,
-      "close": 94.32,
-      "volume": 2235912,
-      "delta": 0.22,
-      "deltaPercent": 0.23
+      "date": "20260602",
+      "time": "184238",
+      "open": 94.39,
+      "high": 94.39,
+      "low": 94.2214,
+      "close": 94.235,
+      "volume": 799188,
+      "delta": -0.16,
+      "deltaPercent": -0.16
     },
     "latestObservationDates": {
       "mortgageRate": "2026-05-28",
       "treasury10Y": "2026-05-29",
-      "mbsProxy": "20260601"
+      "mbsProxy": "20260602"
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-06-02T16:57:50.405Z",
+      "level": "Float",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "6.53%",
+        "rateDelta": "+0.02 vs prior week",
+        "treasury": "4.45%",
+        "treasuryDelta": "0.00 today",
+        "mbsPrice": "$94.23",
+        "mbsDelta": "-0.16% intraday"
+      }
+    },
     {
       "generatedAt": "2026-06-02T12:15:46.193Z",
       "level": "Float",
@@ -278,21 +293,6 @@
     },
     {
       "generatedAt": "2026-05-31T10:25:50.586Z",
-      "level": "Float",
-      "label": "Live bias",
-      "detail": "No live lock trigger is active from the public feed rules.",
-      "riskActive": false,
-      "metrics": {
-        "rate": "6.53%",
-        "rateDelta": "+0.02 vs prior week",
-        "treasury": "4.45%",
-        "treasuryDelta": "-0.03 today",
-        "mbsPrice": "$94.79",
-        "mbsDelta": "-0.01% intraday"
-      }
-    },
-    {
-      "generatedAt": "2026-05-31T04:54:06.589Z",
       "level": "Float",
       "label": "Live bias",
       "detail": "No live lock trigger is active from the public feed rules.",
