@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-02T16:57:50.405Z",
+  "generatedAt": "2026-06-02T22:29:00.821Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-06-02T16:57:50.405Z",
+    "refreshedAt": "2026-06-02T22:29:00.821Z",
     "fallbackCount": 0,
     "warnings": []
   },
@@ -19,16 +19,16 @@
   "dashboard": {
     "rate": "6.53%",
     "rateDelta": "+0.02 vs prior week",
-    "mbsPrice": "$94.23",
-    "mbsDelta": "-0.16% intraday",
-    "treasury": "4.45%",
-    "treasuryDelta": "0.00 today",
+    "mbsPrice": "$94.33",
+    "mbsDelta": "-0.06% intraday",
+    "treasury": "4.47%",
+    "treasuryDelta": "+0.02 today",
     "volatility": "Calm",
-    "narrative": "The latest FRED 30-year mortgage average is 6.53%, +0.02 from the prior reading. The 10-year Treasury is 4.45%, 0.00 from the prior observation. The MBB proxy closed at $94.23, -0.16% intraday. No lock trigger is active from the live public-feed rule.",
+    "narrative": "The latest FRED 30-year mortgage average is 6.53%, +0.02 from the prior reading. The 10-year Treasury is 4.47%, +0.02 from the prior observation. The MBB proxy closed at $94.33, -0.06% intraday. No lock trigger is active from the live public-feed rule.",
     "driver": "Treasury yield pressure",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
-    "priceChange": "-0.16 today",
+    "priceChange": "-0.06 today",
     "spreadTone": "Stable",
     "news": [
       {
@@ -50,14 +50,14 @@
     ],
     "alerts": [
       {
-        "level": "Float",
+        "level": "Watch",
         "label": "Live bias",
         "detail": "No live lock trigger is active from the public feed rules."
       },
       {
         "level": "Watch",
         "label": "10Y Treasury",
-        "detail": "Latest DGS10 is 4.45%, 0.00 from prior observation."
+        "detail": "Latest DGS10 is 4.47%, +0.02 from prior observation."
       },
       {
         "level": "Watch",
@@ -140,22 +140,37 @@
     "mbsProxyRaw": {
       "symbol": "MBB.US",
       "date": "20260602",
-      "time": "184238",
+      "time": "220019",
       "open": 94.39,
       "high": 94.39,
       "low": 94.2214,
-      "close": 94.235,
-      "volume": 799188,
-      "delta": -0.16,
-      "deltaPercent": -0.16
+      "close": 94.33,
+      "volume": 1891585,
+      "delta": -0.06,
+      "deltaPercent": -0.06
     },
     "latestObservationDates": {
       "mortgageRate": "2026-05-28",
-      "treasury10Y": "2026-05-29",
+      "treasury10Y": "2026-06-01",
       "mbsProxy": "20260602"
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-06-02T22:29:00.821Z",
+      "level": "Watch",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "6.53%",
+        "rateDelta": "+0.02 vs prior week",
+        "treasury": "4.47%",
+        "treasuryDelta": "+0.02 today",
+        "mbsPrice": "$94.33",
+        "mbsDelta": "-0.06% intraday"
+      }
+    },
     {
       "generatedAt": "2026-06-02T16:57:50.405Z",
       "level": "Float",
@@ -278,21 +293,6 @@
     },
     {
       "generatedAt": "2026-05-31T14:13:03.199Z",
-      "level": "Float",
-      "label": "Live bias",
-      "detail": "No live lock trigger is active from the public feed rules.",
-      "riskActive": false,
-      "metrics": {
-        "rate": "6.53%",
-        "rateDelta": "+0.02 vs prior week",
-        "treasury": "4.45%",
-        "treasuryDelta": "-0.03 today",
-        "mbsPrice": "$94.79",
-        "mbsDelta": "-0.01% intraday"
-      }
-    },
-    {
-      "generatedAt": "2026-05-31T10:25:50.586Z",
       "level": "Float",
       "label": "Live bias",
       "detail": "No live lock trigger is active from the public feed rules.",
