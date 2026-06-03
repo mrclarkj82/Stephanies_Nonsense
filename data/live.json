@@ -1,10 +1,13 @@
 {
-  "generatedAt": "2026-06-02T22:29:00.821Z",
+  "generatedAt": "2026-06-03T05:19:46.514Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-06-02T22:29:00.821Z",
-    "fallbackCount": 0,
-    "warnings": []
+    "refreshedAt": "2026-06-03T05:19:46.514Z",
+    "fallbackCount": 2,
+    "warnings": [
+      "FRED 10-year Treasury: Fetch failed 504 for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10",
+      "FRED mortgage rate: Fetch failed 504 for https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US"
+    ]
   },
   "sources": {
     "mortgageRate": "FRED MORTGAGE30US",
@@ -157,6 +160,21 @@
   },
   "alertHistory": [
     {
+      "generatedAt": "2026-06-03T05:19:46.514Z",
+      "level": "Watch",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "6.53%",
+        "rateDelta": "+0.02 vs prior week",
+        "treasury": "4.47%",
+        "treasuryDelta": "+0.02 today",
+        "mbsPrice": "$94.33",
+        "mbsDelta": "-0.06% intraday"
+      }
+    },
+    {
       "generatedAt": "2026-06-02T22:29:00.821Z",
       "level": "Watch",
       "label": "Live bias",
@@ -278,21 +296,6 @@
     },
     {
       "generatedAt": "2026-05-31T17:32:08.698Z",
-      "level": "Float",
-      "label": "Live bias",
-      "detail": "No live lock trigger is active from the public feed rules.",
-      "riskActive": false,
-      "metrics": {
-        "rate": "6.53%",
-        "rateDelta": "+0.02 vs prior week",
-        "treasury": "4.45%",
-        "treasuryDelta": "-0.03 today",
-        "mbsPrice": "$94.79",
-        "mbsDelta": "-0.01% intraday"
-      }
-    },
-    {
-      "generatedAt": "2026-05-31T14:13:03.199Z",
       "level": "Float",
       "label": "Live bias",
       "detail": "No live lock trigger is active from the public feed rules.",
