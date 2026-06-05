@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-06-05T15:29:02.736Z",
+  "generatedAt": "2026-06-05T18:13:55.494Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-06-05T15:29:02.736Z",
+    "refreshedAt": "2026-06-05T18:13:55.494Z",
     "fallbackCount": 2,
     "warnings": [
-      "FRED mortgage rate: Fetch failed 504 for https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US",
-      "FRED 10-year Treasury: Fetch failed 504 for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10"
+      "FRED 10-year Treasury: Fetch failed 504 for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10",
+      "FRED mortgage rate: Fetch failed 504 for https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US"
     ]
   },
   "sources": {
@@ -22,16 +22,16 @@
   "dashboard": {
     "rate": "6.53%",
     "rateDelta": "+0.02 vs prior week",
-    "mbsPrice": "$93.81",
-    "mbsDelta": "-0.12% intraday",
+    "mbsPrice": "$NaN",
+    "mbsDelta": "NaN% intraday",
     "treasury": "4.47%",
     "treasuryDelta": "+0.02 today",
     "volatility": "Calm",
-    "narrative": "The latest FRED 30-year mortgage average is 6.53%, +0.02 from the prior reading. The 10-year Treasury is 4.47%, +0.02 from the prior observation. The MBB proxy closed at $93.81, -0.12% intraday. No lock trigger is active from the live public-feed rule.",
+    "narrative": "The latest FRED 30-year mortgage average is 6.53%, +0.02 from the prior reading. The 10-year Treasury is 4.47%, +0.02 from the prior observation. The MBB proxy closed at $NaN, NaN% intraday. No lock trigger is active from the live public-feed rule.",
     "driver": "Treasury yield pressure",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
-    "priceChange": "-0.11 today",
+    "priceChange": "NaN today",
     "spreadTone": "Stable",
     "news": [
       {
@@ -141,24 +141,38 @@
       }
     ],
     "mbsProxyRaw": {
-      "symbol": "MBB.US",
-      "date": "20260605",
-      "time": "171400",
-      "open": 93.92,
-      "high": 93.92,
-      "low": 93.76,
-      "close": 93.81,
-      "volume": 640324,
-      "delta": -0.11,
-      "deltaPercent": -0.12
+      "symbol": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex",
+      "date": "nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"74VIWm9UBQDo4vO5H5DLrw\">",
+      "open": null,
+      "high": null,
+      "low": null,
+      "close": null,
+      "volume": null,
+      "delta": null,
+      "deltaPercent": null
     },
     "latestObservationDates": {
       "mortgageRate": "2026-05-28",
       "treasury10Y": "2026-06-01",
-      "mbsProxy": "20260605"
+      "mbsProxy": "nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"74VIWm9UBQDo4vO5H5DLrw\">"
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-06-05T18:13:55.494Z",
+      "level": "Watch",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "6.53%",
+        "rateDelta": "+0.02 vs prior week",
+        "treasury": "4.47%",
+        "treasuryDelta": "+0.02 today",
+        "mbsPrice": "$NaN",
+        "mbsDelta": "NaN% intraday"
+      }
+    },
     {
       "generatedAt": "2026-06-05T15:29:02.736Z",
       "level": "Watch",
@@ -292,21 +306,6 @@
         "treasuryDelta": "+0.02 today",
         "mbsPrice": "$94.11",
         "mbsDelta": "-0.04% intraday"
-      }
-    },
-    {
-      "generatedAt": "2026-06-03T19:58:21.934Z",
-      "level": "Watch",
-      "label": "Live bias",
-      "detail": "No live lock trigger is active from the public feed rules.",
-      "riskActive": false,
-      "metrics": {
-        "rate": "6.53%",
-        "rateDelta": "+0.02 vs prior week",
-        "treasury": "4.47%",
-        "treasuryDelta": "+0.02 today",
-        "mbsPrice": "$94.13",
-        "mbsDelta": "-0.03% intraday"
       }
     }
   ],
