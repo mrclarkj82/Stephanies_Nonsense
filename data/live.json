@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-06T14:10:32.410Z",
+  "generatedAt": "2026-06-06T17:36:18.580Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-06-06T14:10:32.410Z",
+    "refreshedAt": "2026-06-06T17:36:18.580Z",
     "fallbackCount": 1,
     "warnings": [
       "FRED 10-year Treasury: Fetch failed 504 for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10"
@@ -141,7 +141,7 @@
     ],
     "mbsProxyRaw": {
       "symbol": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex",
-      "date": "nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"t58Q8RjsJLPe_uf2dxb_2w\">",
+      "date": "nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"VoUc2zMbu1fy1xkEl20zaw\">",
       "open": null,
       "high": null,
       "low": null,
@@ -153,10 +153,25 @@
     "latestObservationDates": {
       "mortgageRate": "2026-06-04",
       "treasury10Y": "2026-06-01",
-      "mbsProxy": "nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"t58Q8RjsJLPe_uf2dxb_2w\">"
+      "mbsProxy": "nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"VoUc2zMbu1fy1xkEl20zaw\">"
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-06-06T17:36:18.580Z",
+      "level": "Watch",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "6.48%",
+        "rateDelta": "-0.05 vs prior week",
+        "treasury": "4.47%",
+        "treasuryDelta": "+0.02 today",
+        "mbsPrice": "$NaN",
+        "mbsDelta": "NaN% intraday"
+      }
+    },
     {
       "generatedAt": "2026-06-06T14:10:32.410Z",
       "level": "Watch",
@@ -290,21 +305,6 @@
         "treasuryDelta": "+0.02 today",
         "mbsPrice": "$94.22",
         "mbsDelta": "-0.04% intraday"
-      }
-    },
-    {
-      "generatedAt": "2026-06-04T18:30:44.678Z",
-      "level": "Watch",
-      "label": "Live bias",
-      "detail": "No live lock trigger is active from the public feed rules.",
-      "riskActive": false,
-      "metrics": {
-        "rate": "6.53%",
-        "rateDelta": "+0.02 vs prior week",
-        "treasury": "4.47%",
-        "treasuryDelta": "+0.02 today",
-        "mbsPrice": "$94.21",
-        "mbsDelta": "-0.05% intraday"
       }
     }
   ],
