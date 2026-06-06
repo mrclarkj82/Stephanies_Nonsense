@@ -1,12 +1,11 @@
 {
-  "generatedAt": "2026-06-05T21:46:29.354Z",
+  "generatedAt": "2026-06-06T04:30:13.716Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-06-05T21:46:29.354Z",
-    "fallbackCount": 2,
+    "refreshedAt": "2026-06-06T04:30:13.716Z",
+    "fallbackCount": 1,
     "warnings": [
-      "FRED 10-year Treasury: Fetch failed 504 for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10",
-      "FRED mortgage rate: Fetch failed 504 for https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US"
+      "FRED 10-year Treasury: Fetch failed 504 for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10"
     ]
   },
   "sources": {
@@ -20,14 +19,14 @@
     "demographics": "U.S. Census ACS 5-year profile"
   },
   "dashboard": {
-    "rate": "6.53%",
-    "rateDelta": "+0.02 vs prior week",
+    "rate": "6.48%",
+    "rateDelta": "-0.05 vs prior week",
     "mbsPrice": "$NaN",
     "mbsDelta": "NaN% intraday",
     "treasury": "4.47%",
     "treasuryDelta": "+0.02 today",
     "volatility": "Calm",
-    "narrative": "The latest FRED 30-year mortgage average is 6.53%, +0.02 from the prior reading. The 10-year Treasury is 4.47%, +0.02 from the prior observation. The MBB proxy closed at $NaN, NaN% intraday. No lock trigger is active from the live public-feed rule.",
+    "narrative": "The latest FRED 30-year mortgage average is 6.48%, -0.05 from the prior reading. The 10-year Treasury is 4.47%, +0.02 from the prior observation. The MBB proxy closed at $NaN, NaN% intraday. No lock trigger is active from the live public-feed rule.",
     "driver": "Treasury yield pressure",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
@@ -65,7 +64,7 @@
       {
         "level": "Watch",
         "label": "Mortgage rate",
-        "detail": "Freddie/FRED 30-year average is 6.53%, +0.02 from prior week."
+        "detail": "Freddie/FRED 30-year average is 6.48%, -0.05 from prior week."
       }
     ],
     "riskTrigger": {
@@ -75,10 +74,6 @@
       "detail": "Live public data does not currently meet the lock-risk rule."
     },
     "trend": [
-      {
-        "date": "2026-02-12",
-        "value": 6.09
-      },
       {
         "date": "2026-02-19",
         "value": 6.01
@@ -138,11 +133,15 @@
       {
         "date": "2026-05-28",
         "value": 6.53
+      },
+      {
+        "date": "2026-06-04",
+        "value": 6.48
       }
     ],
     "mbsProxyRaw": {
       "symbol": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex",
-      "date": "nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"zAyRmV_d3ZRqjUKgGssiZA\">",
+      "date": "nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"jXFwTPIgOsOWzcbqaZw6JQ\">",
       "open": null,
       "high": null,
       "low": null,
@@ -152,12 +151,27 @@
       "deltaPercent": null
     },
     "latestObservationDates": {
-      "mortgageRate": "2026-05-28",
+      "mortgageRate": "2026-06-04",
       "treasury10Y": "2026-06-01",
-      "mbsProxy": "nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"zAyRmV_d3ZRqjUKgGssiZA\">"
+      "mbsProxy": "nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"jXFwTPIgOsOWzcbqaZw6JQ\">"
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-06-06T04:30:13.716Z",
+      "level": "Watch",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "6.48%",
+        "rateDelta": "-0.05 vs prior week",
+        "treasury": "4.47%",
+        "treasuryDelta": "+0.02 today",
+        "mbsPrice": "$NaN",
+        "mbsDelta": "NaN% intraday"
+      }
+    },
     {
       "generatedAt": "2026-06-05T21:46:29.354Z",
       "level": "Watch",
@@ -280,21 +294,6 @@
     },
     {
       "generatedAt": "2026-06-04T11:26:14.315Z",
-      "level": "Watch",
-      "label": "Live bias",
-      "detail": "No live lock trigger is active from the public feed rules.",
-      "riskActive": false,
-      "metrics": {
-        "rate": "6.53%",
-        "rateDelta": "+0.02 vs prior week",
-        "treasury": "4.47%",
-        "treasuryDelta": "+0.02 today",
-        "mbsPrice": "$94.11",
-        "mbsDelta": "-0.07% intraday"
-      }
-    },
-    {
-      "generatedAt": "2026-06-04T05:11:08.906Z",
       "level": "Watch",
       "label": "Live bias",
       "detail": "No live lock trigger is active from the public feed rules.",
