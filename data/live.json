@@ -1,11 +1,12 @@
 {
-  "generatedAt": "2026-06-07T21:37:31.773Z",
+  "generatedAt": "2026-06-08T05:03:11.985Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-06-07T21:37:31.773Z",
-    "fallbackCount": 1,
+    "refreshedAt": "2026-06-08T05:03:11.985Z",
+    "fallbackCount": 2,
     "warnings": [
-      "FRED 10-year Treasury: Fetch failed 504 for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10"
+      "FRED 10-year Treasury: Fetch failed 504 for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10",
+      "FRED mortgage rate: Fetch failed 504 for https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US"
     ]
   },
   "sources": {
@@ -141,7 +142,7 @@
     ],
     "mbsProxyRaw": {
       "symbol": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex",
-      "date": "nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"Gj84HwkK_WrrwsJtyiUq4g\">",
+      "date": "nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"C76eMNJOFum7JOv48k58sA\">",
       "open": null,
       "high": null,
       "low": null,
@@ -153,10 +154,25 @@
     "latestObservationDates": {
       "mortgageRate": "2026-06-04",
       "treasury10Y": "2026-06-01",
-      "mbsProxy": "nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"Gj84HwkK_WrrwsJtyiUq4g\">"
+      "mbsProxy": "nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"C76eMNJOFum7JOv48k58sA\">"
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-06-08T05:03:11.985Z",
+      "level": "Watch",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "6.48%",
+        "rateDelta": "-0.05 vs prior week",
+        "treasury": "4.47%",
+        "treasuryDelta": "+0.02 today",
+        "mbsPrice": "$NaN",
+        "mbsDelta": "NaN% intraday"
+      }
+    },
     {
       "generatedAt": "2026-06-07T21:37:31.773Z",
       "level": "Watch",
@@ -279,21 +295,6 @@
     },
     {
       "generatedAt": "2026-06-06T10:23:19.476Z",
-      "level": "Watch",
-      "label": "Live bias",
-      "detail": "No live lock trigger is active from the public feed rules.",
-      "riskActive": false,
-      "metrics": {
-        "rate": "6.48%",
-        "rateDelta": "-0.05 vs prior week",
-        "treasury": "4.47%",
-        "treasuryDelta": "+0.02 today",
-        "mbsPrice": "$NaN",
-        "mbsDelta": "NaN% intraday"
-      }
-    },
-    {
-      "generatedAt": "2026-06-06T04:30:13.716Z",
       "level": "Watch",
       "label": "Live bias",
       "detail": "No live lock trigger is active from the public feed rules.",
