@@ -267,23 +267,47 @@ async function getMbbQuote() {
       : ["Symbol", "Date", "Time", "Open", "High", "Low", "Close", "Volume", "OpenInt"];
     const values = (hasHeader ? lines[1] : lines[0]).split(",");
     const quote = Object.fromEntries(headers.map((header, index) => [header.toLowerCase(), values[index]]));
-    const open = Number.parseFloat(quote.open);
-    const close = Number.parseFloat(quote.close);
-    return {
-      symbol: quote.symbol,
-      date: quote.date,
-      time: quote.time,
-      open,
-      high: Number.parseFloat(quote.high),
-      low: Number.parseFloat(quote.low),
-      close,
-      volume: Number.parseInt(quote.volume, 10),
-      delta: round(close - open, 2),
-      deltaPercent: round(((close - open) / open) * 100, 2),
-    };
-  } catch {
-    return fallbackLiveData?.dashboard?.mbsProxyRaw ?? null;
+    const normalizedQuote = normalizeMbbQuote(quote);
+    if (!normalizedQuote) {
+      throw new Error("MBB quote response did not contain a valid MBB.US price");
+    }
+    return normalizedQuote;
+  } catch (error) {
+    const fallbackQuote = normalizeMbbQuote(fallbackLiveData?.dashboard?.mbsProxyRaw);
+    fetchWarnings.push(
+      fallbackQuote
+        ? `MBB quote: ${error.message}; using the last valid quote.`
+        : `MBB quote: ${error.message}; no valid cached quote is available.`,
+    );
+    return fallbackQuote;
   }
+}
+
+function normalizeMbbQuote(quote) {
+  if (!quote || typeof quote !== "object") return null;
+
+  const symbol = String(quote.symbol ?? "").trim().toUpperCase();
+  const open = Number.parseFloat(quote.open);
+  const close = Number.parseFloat(quote.close);
+  if (symbol !== "MBB.US" || !Number.isFinite(open) || !Number.isFinite(close) || open <= 0 || close <= 0) {
+    return null;
+  }
+
+  const high = Number.parseFloat(quote.high);
+  const low = Number.parseFloat(quote.low);
+  const volume = Number.parseInt(quote.volume, 10);
+  return {
+    symbol,
+    date: quote.date ?? null,
+    time: quote.time ?? null,
+    open,
+    high: Number.isFinite(high) ? high : null,
+    low: Number.isFinite(low) ? low : null,
+    close,
+    volume: Number.isFinite(volume) ? volume : null,
+    delta: round(close - open, 2),
+    deltaPercent: round(((close - open) / open) * 100, 2),
+  };
 }
 
 async function getZillowRows(url, markets) {
@@ -340,25 +364,26 @@ async function getCensusProfile(market) {
 }
 
 function buildDashboard(mortgageSeries, treasurySeries, mbbQuote, fedNews) {
+  const validMbbQuote = normalizeMbbQuote(mbbQuote);
   const rateDelta = mortgageSeries.delta;
   const treasuryDelta = treasurySeries.delta;
-  const mbsDelta = mbbQuote?.deltaPercent ?? 0;
+  const mbsDelta = validMbbQuote?.deltaPercent ?? 0;
   const riskActive = treasuryDelta >= 0.05 || rateDelta >= 0.05 || mbsDelta <= -0.2;
   const alertLevel = riskActive ? "Lock" : treasuryDelta > 0 ? "Watch" : "Float";
 
   return {
     rate: `${mortgageSeries.latest.value.toFixed(2)}%`,
     rateDelta: formatDelta(rateDelta, " vs prior week"),
-    mbsPrice: mbbQuote ? `$${mbbQuote.close.toFixed(2)}` : "Unavailable",
-    mbsDelta: mbbQuote ? formatDelta(mbbQuote.deltaPercent, "% intraday") : "No quote",
+    mbsPrice: validMbbQuote ? `$${validMbbQuote.close.toFixed(2)}` : "Unavailable",
+    mbsDelta: validMbbQuote ? formatDelta(validMbbQuote.deltaPercent, "% intraday") : "No quote",
     treasury: `${treasurySeries.latest.value.toFixed(2)}%`,
     treasuryDelta: formatDelta(treasuryDelta, " today"),
     volatility: riskActive ? "Elevated" : Math.abs(treasuryDelta) >= 0.03 ? "Moderate" : "Calm",
-    narrative: buildNarrative(mortgageSeries, treasurySeries, mbbQuote, riskActive),
+    narrative: buildNarrative(mortgageSeries, treasurySeries, validMbbQuote, riskActive),
     driver: treasuryDelta >= 0 ? "Treasury yield pressure" : "Treasury yield relief",
     riskWindow: "Refreshes from public feeds on the scheduled GitHub Action",
     coupon: "MBB ETF proxy",
-    priceChange: mbbQuote ? formatDelta(mbbQuote.delta, " today") : "No quote",
+    priceChange: validMbbQuote ? formatDelta(validMbbQuote.delta, " today") : "No quote",
     spreadTone: mbsDelta < -0.2 ? "Worse" : mbsDelta > 0.2 ? "Better" : "Stable",
     news: fedNews.map((item) => ({
       title: item.title,
@@ -395,11 +420,11 @@ function buildDashboard(mortgageSeries, treasurySeries, mbbQuote, fedNews) {
       date: point.date,
       value: point.value,
     })),
-    mbsProxyRaw: mbbQuote,
+    mbsProxyRaw: validMbbQuote,
     latestObservationDates: {
       mortgageRate: mortgageSeries.latest.date,
       treasury10Y: treasurySeries.latest.date,
-      mbsProxy: mbbQuote?.date ?? null,
+      mbsProxy: validMbbQuote?.date ?? null,
     },
   };
 }

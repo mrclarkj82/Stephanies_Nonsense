@@ -1,12 +1,11 @@
 {
-  "generatedAt": "2026-06-08T05:03:11.985Z",
+  "generatedAt": "2026-07-17T04:01:06.126Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-06-08T05:03:11.985Z",
-    "fallbackCount": 2,
+    "refreshedAt": "2026-07-17T04:01:06.126Z",
+    "fallbackCount": 1,
     "warnings": [
-      "FRED 10-year Treasury: Fetch failed 504 for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10",
-      "FRED mortgage rate: Fetch failed 504 for https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US"
+      "MBB quote: Fetch failed 404 for https://stooq.com/q/l/?s=mbb.us&i=d; no valid cached quote is available."
     ]
   },
   "sources": {
@@ -20,85 +19,61 @@
     "demographics": "U.S. Census ACS 5-year profile"
   },
   "dashboard": {
-    "rate": "6.48%",
-    "rateDelta": "-0.05 vs prior week",
-    "mbsPrice": "$NaN",
-    "mbsDelta": "NaN% intraday",
-    "treasury": "4.47%",
-    "treasuryDelta": "+0.02 today",
-    "volatility": "Calm",
-    "narrative": "The latest FRED 30-year mortgage average is 6.48%, -0.05 from the prior reading. The 10-year Treasury is 4.47%, +0.02 from the prior observation. The MBB proxy closed at $NaN, NaN% intraday. No lock trigger is active from the live public-feed rule.",
-    "driver": "Treasury yield pressure",
+    "rate": "6.55%",
+    "rateDelta": "+0.06 vs prior week",
+    "mbsPrice": "Unavailable",
+    "mbsDelta": "No quote",
+    "treasury": "4.55%",
+    "treasuryDelta": "-0.03 today",
+    "volatility": "Elevated",
+    "narrative": "The latest FRED 30-year mortgage average is 6.55%, +0.06 from the prior reading. The 10-year Treasury is 4.55%, -0.03 from the prior observation. The public MBS proxy quote is unavailable. Lock risk is active for near-term closings.",
+    "driver": "Treasury yield relief",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
-    "priceChange": "NaN today",
+    "priceChange": "No quote",
     "spreadTone": "Stable",
     "news": [
       {
-        "title": "Agencies remove additional references to reputation risk",
-        "detail": "Banking and Consumer Regulatory Policy - Jun 2, 2026"
+        "title": "Agencies issue joint statement on handling of highly sensitive information during bank examinations",
+        "detail": "Banking and Consumer Regulatory Policy - Jul 16, 2026"
       },
       {
-        "title": "Federal Reserve Board issues enforcement actions with former employee of Atlantic Union Bank and former employee of Frost Bank",
-        "detail": "Enforcement Actions - May 28, 2026"
+        "title": "Federal Reserve Board issues enforcement action with former chief lending officer of Heritage State Bank",
+        "detail": "Enforcement Actions - Jul 16, 2026"
       },
       {
-        "title": "Minutes of the Board&#39;s discount rate meeting on April 20 and 29, 2026",
-        "detail": "Monetary Policy - May 26, 2026"
+        "title": "Minutes of the Board&#39;s discount rate meetings on June 8 and June 17, 2026",
+        "detail": "Monetary Policy - Jul 14, 2026"
       },
       {
-        "title": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh as its chairman",
-        "detail": "Other Announcements - May 22, 2026"
+        "title": "Federal Reserve announces the leadership and objectives of its task forces to advance the conduct of monetary policy",
+        "detail": "Monetary Policy - Jul 9, 2026"
       }
     ],
     "alerts": [
       {
-        "level": "Watch",
-        "label": "Live bias",
-        "detail": "No live lock trigger is active from the public feed rules."
+        "level": "Lock",
+        "label": "Risk trigger",
+        "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings."
       },
       {
         "level": "Watch",
         "label": "10Y Treasury",
-        "detail": "Latest DGS10 is 4.47%, +0.02 from prior observation."
+        "detail": "Latest DGS10 is 4.55%, -0.03 from prior observation."
       },
       {
         "level": "Watch",
         "label": "Mortgage rate",
-        "detail": "Freddie/FRED 30-year average is 6.48%, -0.05 from prior week."
+        "detail": "Freddie/FRED 30-year average is 6.55%, +0.06 from prior week."
       }
     ],
     "riskTrigger": {
-      "active": false,
+      "active": true,
       "id": "live-public-feed-lock-risk",
-      "title": "No lock trigger",
-      "detail": "Live public data does not currently meet the lock-risk rule."
+      "title": "Lock risk trigger",
+      "detail": "Live public data crossed the lock-risk rule: rising rates/yields or weaker MBS proxy pricing."
     },
     "trend": [
-      {
-        "date": "2026-02-19",
-        "value": 6.01
-      },
-      {
-        "date": "2026-02-26",
-        "value": 5.98
-      },
-      {
-        "date": "2026-03-05",
-        "value": 6
-      },
-      {
-        "date": "2026-03-12",
-        "value": 6.11
-      },
-      {
-        "date": "2026-03-19",
-        "value": 6.22
-      },
-      {
-        "date": "2026-03-26",
-        "value": 6.38
-      },
       {
         "date": "2026-04-02",
         "value": 6.46
@@ -138,26 +113,55 @@
       {
         "date": "2026-06-04",
         "value": 6.48
+      },
+      {
+        "date": "2026-06-11",
+        "value": 6.52
+      },
+      {
+        "date": "2026-06-18",
+        "value": 6.47
+      },
+      {
+        "date": "2026-06-25",
+        "value": 6.49
+      },
+      {
+        "date": "2026-07-02",
+        "value": 6.43
+      },
+      {
+        "date": "2026-07-09",
+        "value": 6.49
+      },
+      {
+        "date": "2026-07-16",
+        "value": 6.55
       }
     ],
-    "mbsProxyRaw": {
-      "symbol": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex",
-      "date": "nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"C76eMNJOFum7JOv48k58sA\">",
-      "open": null,
-      "high": null,
-      "low": null,
-      "close": null,
-      "volume": null,
-      "delta": null,
-      "deltaPercent": null
-    },
+    "mbsProxyRaw": null,
     "latestObservationDates": {
-      "mortgageRate": "2026-06-04",
-      "treasury10Y": "2026-06-01",
-      "mbsProxy": "nofollow\"></head><body><noscript>This site requires JavaScript to verify your browser. Please enable JavaScript and reload.</noscript><script nonce=\"C76eMNJOFum7JOv48k58sA\">"
+      "mortgageRate": "2026-07-16",
+      "treasury10Y": "2026-07-15",
+      "mbsProxy": null
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-07-17T04:01:06.126Z",
+      "level": "Lock",
+      "label": "Risk trigger",
+      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
+      "riskActive": true,
+      "metrics": {
+        "rate": "6.55%",
+        "rateDelta": "+0.06 vs prior week",
+        "treasury": "4.55%",
+        "treasuryDelta": "-0.03 today",
+        "mbsPrice": "Unavailable",
+        "mbsDelta": "No quote"
+      }
+    },
     {
       "generatedAt": "2026-06-08T05:03:11.985Z",
       "level": "Watch",
@@ -292,21 +296,6 @@
         "mbsPrice": "$NaN",
         "mbsDelta": "NaN% intraday"
       }
-    },
-    {
-      "generatedAt": "2026-06-06T10:23:19.476Z",
-      "level": "Watch",
-      "label": "Live bias",
-      "detail": "No live lock trigger is active from the public feed rules.",
-      "riskActive": false,
-      "metrics": {
-        "rate": "6.48%",
-        "rateDelta": "-0.05 vs prior week",
-        "treasury": "4.47%",
-        "treasuryDelta": "+0.02 today",
-        "mbsPrice": "$NaN",
-        "mbsDelta": "NaN% intraday"
-      }
     }
   ],
   "reports": {
@@ -315,58 +304,58 @@
         "name": "Austin 78704, TX",
         "marketType": "zip",
         "source": "Live public feeds",
-        "medianHomePrice": 731436,
-        "latestHomeValueDate": "2026-04-30",
-        "appreciation1Y": -5.2,
-        "appreciation5Y": -0.1,
+        "medianHomePrice": 727004,
+        "latestHomeValueDate": "2026-06-30",
+        "appreciation1Y": -4.4,
+        "appreciation5Y": -8.7,
         "inventoryMonths": null,
-        "inventoryLevel": "331 active listings",
-        "latestInventoryDate": "2026-04-30",
+        "inventoryLevel": "410 active listings",
+        "latestInventoryDate": "2026-06-30",
         "affordabilityIndex": null,
         "jobGrowth": "Census labor profile unavailable",
         "demographics": "Census profile unavailable",
         "history": [
           {
             "year": "2020",
-            "value": 656676
+            "value": 655740
           },
           {
             "year": "2021",
-            "value": 880544
+            "value": 879288
           },
           {
             "year": "2022",
-            "value": 955766
+            "value": 954403
           },
           {
             "year": "2023",
-            "value": 845351
+            "value": 844145
           },
           {
             "year": "2024",
-            "value": 791172
+            "value": 790044
           },
           {
             "year": "2025",
-            "value": 748533
+            "value": 747465
           },
           {
             "year": "2026",
-            "value": 731436
+            "value": 727004
           }
         ],
         "forecast": [
           {
-            "year": "2026-05",
-            "value": 0.3
-          },
-          {
             "year": "2026-07",
-            "value": 0
+            "value": -0.7
           },
           {
-            "year": "2027-04",
-            "value": -4.4
+            "year": "2026-09",
+            "value": -3.2
+          },
+          {
+            "year": "2027-06",
+            "value": -5.7
           }
         ],
         "sourceNotes": [
@@ -379,58 +368,58 @@
         "name": "Beverly Hills 90210, CA",
         "marketType": "zip",
         "source": "Live public feeds",
-        "medianHomePrice": 5242255,
-        "latestHomeValueDate": "2026-04-30",
-        "appreciation1Y": 5.9,
-        "appreciation5Y": 11.5,
+        "medianHomePrice": 5332284,
+        "latestHomeValueDate": "2026-06-30",
+        "appreciation1Y": 7.5,
+        "appreciation5Y": 9.9,
         "inventoryMonths": null,
-        "inventoryLevel": "146 active listings",
-        "latestInventoryDate": "2026-04-30",
+        "inventoryLevel": "155 active listings",
+        "latestInventoryDate": "2026-06-30",
         "affordabilityIndex": null,
         "jobGrowth": "Census labor profile unavailable",
         "demographics": "Census profile unavailable",
         "history": [
           {
             "year": "2020",
-            "value": 4647175
+            "value": 4718698
           },
           {
             "year": "2021",
-            "value": 5310340
+            "value": 5392069
           },
           {
             "year": "2022",
-            "value": 5547917
+            "value": 5633302
           },
           {
             "year": "2023",
-            "value": 5502291
+            "value": 5586974
           },
           {
             "year": "2024",
-            "value": 5089646
+            "value": 5167978
           },
           {
             "year": "2025",
-            "value": 5158653
+            "value": 5238047
           },
           {
             "year": "2026",
-            "value": 5242255
+            "value": 5332284
           }
         ],
         "forecast": [
           {
-            "year": "2026-05",
-            "value": 0.4
-          },
-          {
             "year": "2026-07",
-            "value": 0.7
+            "value": -0.1
           },
           {
-            "year": "2027-04",
-            "value": 0
+            "year": "2026-09",
+            "value": -1.1
+          },
+          {
+            "year": "2027-06",
+            "value": -0.4
           }
         ],
         "sourceNotes": [
@@ -443,44 +432,44 @@
         "name": "Orange County, CA",
         "marketType": "county",
         "source": "Live public feeds",
-        "medianHomePrice": 1194373,
-        "latestHomeValueDate": "2026-04-30",
-        "appreciation1Y": 0.8,
-        "appreciation5Y": 44.2,
+        "medianHomePrice": 1194969,
+        "latestHomeValueDate": "2026-06-30",
+        "appreciation1Y": 1.7,
+        "appreciation5Y": 39.9,
         "inventoryMonths": null,
-        "inventoryLevel": "5,557 active listings",
-        "latestInventoryDate": "2026-04-30",
+        "inventoryLevel": "6,359 active listings",
+        "latestInventoryDate": "2026-06-30",
         "affordabilityIndex": null,
         "jobGrowth": "Census labor profile unavailable",
         "demographics": "Census profile unavailable",
         "history": [
           {
             "year": "2020",
-            "value": 794385
+            "value": 794350
           },
           {
             "year": "2021",
-            "value": 915496
+            "value": 915457
           },
           {
             "year": "2022",
-            "value": 1011591
+            "value": 1011547
           },
           {
             "year": "2023",
-            "value": 1088840
+            "value": 1088793
           },
           {
             "year": "2024",
-            "value": 1179625
+            "value": 1179574
           },
           {
             "year": "2025",
-            "value": 1177161
+            "value": 1177110
           },
           {
             "year": "2026",
-            "value": 1194373
+            "value": 1194969
           }
         ],
         "forecast": [
@@ -490,11 +479,11 @@
           },
           {
             "year": "2028",
-            "value": 1.1
+            "value": 1.2
           },
           {
             "year": "2029",
-            "value": 0.9
+            "value": 1
           }
         ],
         "sourceNotes": [
