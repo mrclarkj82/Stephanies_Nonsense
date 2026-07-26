@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-26T10:13:22.447Z",
+  "generatedAt": "2026-07-26T13:59:28.490Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-07-26T10:13:22.447Z",
+    "refreshedAt": "2026-07-26T13:59:28.490Z",
     "fallbackCount": 1,
     "warnings": [
       "MBB quote: Fetch failed 404 for https://stooq.com/q/l/?s=mbb.us&i=d; no valid cached quote is available."
@@ -148,6 +148,21 @@
   },
   "alertHistory": [
     {
+      "generatedAt": "2026-07-26T13:59:28.490Z",
+      "level": "Watch",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "6.58%",
+        "rateDelta": "+0.03 vs prior week",
+        "treasury": "4.71%",
+        "treasuryDelta": "+0.04 today",
+        "mbsPrice": "Unavailable",
+        "mbsDelta": "No quote"
+      }
+    },
+    {
       "generatedAt": "2026-07-26T10:13:22.447Z",
       "level": "Watch",
       "label": "Live bias",
@@ -269,21 +284,6 @@
     },
     {
       "generatedAt": "2026-07-25T03:40:58.480Z",
-      "level": "Watch",
-      "label": "Live bias",
-      "detail": "No live lock trigger is active from the public feed rules.",
-      "riskActive": false,
-      "metrics": {
-        "rate": "6.58%",
-        "rateDelta": "+0.03 vs prior week",
-        "treasury": "4.71%",
-        "treasuryDelta": "+0.04 today",
-        "mbsPrice": "Unavailable",
-        "mbsDelta": "No quote"
-      }
-    },
-    {
-      "generatedAt": "2026-07-24T21:30:20.541Z",
       "level": "Watch",
       "label": "Live bias",
       "detail": "No live lock trigger is active from the public feed rules.",
