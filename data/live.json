@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-30T14:34:11.635Z",
+  "generatedAt": "2026-07-30T17:51:33.260Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-07-30T14:34:11.635Z",
+    "refreshedAt": "2026-07-30T17:51:33.260Z",
     "fallbackCount": 1,
     "warnings": [
       "MBB quote: Fetch failed 404 for https://stooq.com/q/l/?s=mbb.us&i=d; no valid cached quote is available."
@@ -34,20 +34,20 @@
     "spreadTone": "Stable",
     "news": [
       {
+        "title": "Federal Reserve Board issues enforcement actions with former employee of Regions Bank and former employee of First Interstate Bank",
+        "detail": "Enforcement Actions - Jul 30, 2026"
+      },
+      {
+        "title": "Federal Reserve Board issues enforcement action with Iuka Bancshares, Inc. and The Iuka State Bank",
+        "detail": "Enforcement Actions - Jul 30, 2026"
+      },
+      {
         "title": "Federal Reserve issues FOMC statement",
         "detail": "Monetary Policy - Jul 29, 2026"
       },
       {
         "title": "Agencies issue joint statement on handling of highly sensitive information during bank examinations",
         "detail": "Banking and Consumer Regulatory Policy - Jul 16, 2026"
-      },
-      {
-        "title": "Federal Reserve Board issues enforcement action with former chief lending officer of Heritage State Bank",
-        "detail": "Enforcement Actions - Jul 16, 2026"
-      },
-      {
-        "title": "Minutes of the Board&#39;s discount rate meetings on June 8 and June 17, 2026",
-        "detail": "Monetary Policy - Jul 14, 2026"
       }
     ],
     "alerts": [
@@ -147,6 +147,21 @@
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-07-30T17:51:33.260Z",
+      "level": "Float",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "6.58%",
+        "rateDelta": "+0.03 vs prior week",
+        "treasury": "4.61%",
+        "treasuryDelta": "-0.04 today",
+        "mbsPrice": "Unavailable",
+        "mbsDelta": "No quote"
+      }
+    },
     {
       "generatedAt": "2026-07-30T14:34:11.635Z",
       "level": "Float",
@@ -269,21 +284,6 @@
     },
     {
       "generatedAt": "2026-07-29T06:46:13.815Z",
-      "level": "Float",
-      "label": "Live bias",
-      "detail": "No live lock trigger is active from the public feed rules.",
-      "riskActive": false,
-      "metrics": {
-        "rate": "6.58%",
-        "rateDelta": "+0.03 vs prior week",
-        "treasury": "4.65%",
-        "treasuryDelta": "-0.04 today",
-        "mbsPrice": "Unavailable",
-        "mbsDelta": "No quote"
-      }
-    },
-    {
-      "generatedAt": "2026-07-29T03:43:05.412Z",
       "level": "Float",
       "label": "Live bias",
       "detail": "No live lock trigger is active from the public feed rules.",
