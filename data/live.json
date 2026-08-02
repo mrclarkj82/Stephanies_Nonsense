@@ -1,10 +1,11 @@
 {
-  "generatedAt": "2026-08-02T13:59:04.872Z",
+  "generatedAt": "2026-08-02T17:18:00.668Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-08-02T13:59:04.872Z",
-    "fallbackCount": 1,
+    "refreshedAt": "2026-08-02T17:18:00.668Z",
+    "fallbackCount": 2,
     "warnings": [
+      "Zillow county inventory: fetch failed",
       "MBB quote: Fetch failed 404 for https://stooq.com/q/l/?s=mbb.us&i=d; no valid cached quote is available."
     ]
   },
@@ -148,6 +149,21 @@
   },
   "alertHistory": [
     {
+      "generatedAt": "2026-08-02T17:18:00.668Z",
+      "level": "Lock",
+      "label": "Risk trigger",
+      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
+      "riskActive": true,
+      "metrics": {
+        "rate": "6.66%",
+        "rateDelta": "+0.08 vs prior week",
+        "treasury": "4.68%",
+        "treasuryDelta": "+0.01 today",
+        "mbsPrice": "Unavailable",
+        "mbsDelta": "No quote"
+      }
+    },
+    {
       "generatedAt": "2026-08-02T13:59:04.872Z",
       "level": "Lock",
       "label": "Risk trigger",
@@ -269,21 +285,6 @@
     },
     {
       "generatedAt": "2026-08-01T06:41:49.980Z",
-      "level": "Lock",
-      "label": "Risk trigger",
-      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
-      "riskActive": true,
-      "metrics": {
-        "rate": "6.66%",
-        "rateDelta": "+0.08 vs prior week",
-        "treasury": "4.68%",
-        "treasuryDelta": "+0.01 today",
-        "mbsPrice": "Unavailable",
-        "mbsDelta": "No quote"
-      }
-    },
-    {
-      "generatedAt": "2026-08-01T03:53:03.796Z",
       "level": "Lock",
       "label": "Risk trigger",
       "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
@@ -437,8 +438,8 @@
         "appreciation1Y": 1.7,
         "appreciation5Y": 39.9,
         "inventoryMonths": null,
-        "inventoryLevel": "6,359 active listings",
-        "latestInventoryDate": "2026-06-30",
+        "inventoryLevel": "Unavailable",
+        "latestInventoryDate": null,
         "affordabilityIndex": null,
         "jobGrowth": "Census labor profile unavailable",
         "demographics": "Census profile unavailable",
