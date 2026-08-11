@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-11T17:14:01.254Z",
+  "generatedAt": "2026-08-11T21:05:29.169Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-08-11T17:14:01.254Z",
+    "refreshedAt": "2026-08-11T21:05:29.169Z",
     "fallbackCount": 1,
     "warnings": [
       "MBB quote: Fetch failed 404 for https://stooq.com/q/l/?s=mbb.us&i=d; no valid cached quote is available."
@@ -23,11 +23,11 @@
     "rateDelta": "+0.03 vs prior week",
     "mbsPrice": "Unavailable",
     "mbsDelta": "No quote",
-    "treasury": "4.65%",
-    "treasuryDelta": "-0.04 today",
-    "volatility": "Moderate",
-    "narrative": "The latest FRED 30-year mortgage average is 6.69%, +0.03 from the prior reading. The 10-year Treasury is 4.65%, -0.04 from the prior observation. The public MBS proxy quote is unavailable. No lock trigger is active from the live public-feed rule.",
-    "driver": "Treasury yield relief",
+    "treasury": "4.72%",
+    "treasuryDelta": "+0.07 today",
+    "volatility": "Elevated",
+    "narrative": "The latest FRED 30-year mortgage average is 6.69%, +0.03 from the prior reading. The 10-year Treasury is 4.72%, +0.07 from the prior observation. The public MBS proxy quote is unavailable. Lock risk is active for near-term closings.",
+    "driver": "Treasury yield pressure",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
     "priceChange": "No quote",
@@ -52,14 +52,14 @@
     ],
     "alerts": [
       {
-        "level": "Float",
-        "label": "Live bias",
-        "detail": "No live lock trigger is active from the public feed rules."
+        "level": "Lock",
+        "label": "Risk trigger",
+        "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings."
       },
       {
         "level": "Watch",
         "label": "10Y Treasury",
-        "detail": "Latest DGS10 is 4.65%, -0.04 from prior observation."
+        "detail": "Latest DGS10 is 4.72%, +0.07 from prior observation."
       },
       {
         "level": "Watch",
@@ -68,10 +68,10 @@
       }
     ],
     "riskTrigger": {
-      "active": false,
+      "active": true,
       "id": "live-public-feed-lock-risk",
-      "title": "No lock trigger",
-      "detail": "Live public data does not currently meet the lock-risk rule."
+      "title": "Lock risk trigger",
+      "detail": "Live public data crossed the lock-risk rule: rising rates/yields or weaker MBS proxy pricing."
     },
     "trend": [
       {
@@ -142,11 +142,26 @@
     "mbsProxyRaw": null,
     "latestObservationDates": {
       "mortgageRate": "2026-08-06",
-      "treasury10Y": "2026-08-07",
+      "treasury10Y": "2026-08-10",
       "mbsProxy": null
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-08-11T21:05:29.169Z",
+      "level": "Lock",
+      "label": "Risk trigger",
+      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
+      "riskActive": true,
+      "metrics": {
+        "rate": "6.69%",
+        "rateDelta": "+0.03 vs prior week",
+        "treasury": "4.72%",
+        "treasuryDelta": "+0.07 today",
+        "mbsPrice": "Unavailable",
+        "mbsDelta": "No quote"
+      }
+    },
     {
       "generatedAt": "2026-08-11T17:14:01.254Z",
       "level": "Float",
@@ -269,21 +284,6 @@
     },
     {
       "generatedAt": "2026-08-10T09:50:17.165Z",
-      "level": "Lock",
-      "label": "Risk trigger",
-      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
-      "riskActive": true,
-      "metrics": {
-        "rate": "6.69%",
-        "rateDelta": "+0.03 vs prior week",
-        "treasury": "4.69%",
-        "treasuryDelta": "+0.06 today",
-        "mbsPrice": "Unavailable",
-        "mbsDelta": "No quote"
-      }
-    },
-    {
-      "generatedAt": "2026-08-10T05:45:19.254Z",
       "level": "Lock",
       "label": "Risk trigger",
       "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
