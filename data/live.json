@@ -1,11 +1,10 @@
 {
-  "generatedAt": "2026-08-20T01:53:15.036Z",
+  "generatedAt": "2026-08-20T04:55:06.100Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-08-20T01:53:15.036Z",
-    "fallbackCount": 2,
+    "refreshedAt": "2026-08-20T04:55:06.100Z",
+    "fallbackCount": 1,
     "warnings": [
-      "Zillow county inventory: Fetch failed 503 for https://files.zillowstatic.com/research/public_csvs/invt_fs/County_invt_fs_uc_sfrcondo_sm_month.csv",
       "MBB quote: Fetch failed 404 for https://stooq.com/q/l/?s=mbb.us&i=d; no valid cached quote is available."
     ]
   },
@@ -149,6 +148,21 @@
   },
   "alertHistory": [
     {
+      "generatedAt": "2026-08-20T04:55:06.100Z",
+      "level": "Float",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "6.67%",
+        "rateDelta": "-0.02 vs prior week",
+        "treasury": "4.71%",
+        "treasuryDelta": "-0.01 today",
+        "mbsPrice": "Unavailable",
+        "mbsDelta": "No quote"
+      }
+    },
+    {
       "generatedAt": "2026-08-20T01:53:15.036Z",
       "level": "Float",
       "label": "Live bias",
@@ -270,21 +284,6 @@
     },
     {
       "generatedAt": "2026-08-18T16:50:12.391Z",
-      "level": "Lock",
-      "label": "Risk trigger",
-      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
-      "riskActive": true,
-      "metrics": {
-        "rate": "6.67%",
-        "rateDelta": "-0.02 vs prior week",
-        "treasury": "4.68%",
-        "treasuryDelta": "+0.05 today",
-        "mbsPrice": "Unavailable",
-        "mbsDelta": "No quote"
-      }
-    },
-    {
-      "generatedAt": "2026-08-18T13:10:27.907Z",
       "level": "Lock",
       "label": "Risk trigger",
       "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
@@ -438,8 +437,8 @@
         "appreciation1Y": 2.2,
         "appreciation5Y": 38.2,
         "inventoryMonths": null,
-        "inventoryLevel": "Unavailable",
-        "latestInventoryDate": null,
+        "inventoryLevel": "6,621 active listings",
+        "latestInventoryDate": "2026-07-31",
         "affordabilityIndex": null,
         "jobGrowth": "Census labor profile unavailable",
         "demographics": "Census profile unavailable",
