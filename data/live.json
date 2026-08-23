@@ -1,11 +1,10 @@
 {
-  "generatedAt": "2026-08-23T08:50:27.387Z",
+  "generatedAt": "2026-08-23T13:03:35.995Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-08-23T08:50:27.387Z",
-    "fallbackCount": 2,
+    "refreshedAt": "2026-08-23T13:03:35.995Z",
+    "fallbackCount": 1,
     "warnings": [
-      "Zillow ZIP inventory: fetch failed",
       "MBB quote: Fetch failed 404 for https://stooq.com/q/l/?s=mbb.us&i=d; no valid cached quote is available."
     ]
   },
@@ -149,6 +148,21 @@
   },
   "alertHistory": [
     {
+      "generatedAt": "2026-08-23T13:03:35.995Z",
+      "level": "Watch",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "6.65%",
+        "rateDelta": "-0.02 vs prior week",
+        "treasury": "4.69%",
+        "treasuryDelta": "+0.04 today",
+        "mbsPrice": "Unavailable",
+        "mbsDelta": "No quote"
+      }
+    },
+    {
       "generatedAt": "2026-08-23T08:50:27.387Z",
       "level": "Watch",
       "label": "Live bias",
@@ -282,21 +296,6 @@
         "mbsPrice": "Unavailable",
         "mbsDelta": "No quote"
       }
-    },
-    {
-      "generatedAt": "2026-08-21T20:42:26.082Z",
-      "level": "Watch",
-      "label": "Live bias",
-      "detail": "No live lock trigger is active from the public feed rules.",
-      "riskActive": false,
-      "metrics": {
-        "rate": "6.65%",
-        "rateDelta": "-0.02 vs prior week",
-        "treasury": "4.69%",
-        "treasuryDelta": "+0.04 today",
-        "mbsPrice": "Unavailable",
-        "mbsDelta": "No quote"
-      }
     }
   ],
   "reports": {
@@ -310,8 +309,8 @@
         "appreciation1Y": -3.2,
         "appreciation5Y": -11.2,
         "inventoryMonths": null,
-        "inventoryLevel": "Unavailable",
-        "latestInventoryDate": null,
+        "inventoryLevel": "403 active listings",
+        "latestInventoryDate": "2026-07-31",
         "affordabilityIndex": null,
         "jobGrowth": "Census labor profile unavailable",
         "demographics": "Census profile unavailable",
@@ -374,8 +373,8 @@
         "appreciation1Y": 9.1,
         "appreciation5Y": 9.3,
         "inventoryMonths": null,
-        "inventoryLevel": "Unavailable",
-        "latestInventoryDate": null,
+        "inventoryLevel": "156 active listings",
+        "latestInventoryDate": "2026-07-31",
         "affordabilityIndex": null,
         "jobGrowth": "Census labor profile unavailable",
         "demographics": "Census profile unavailable",
