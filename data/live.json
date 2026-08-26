@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-26T17:50:38.369Z",
+  "generatedAt": "2026-08-26T23:39:47.694Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-08-26T17:50:38.369Z",
+    "refreshedAt": "2026-08-26T23:39:47.694Z",
     "fallbackCount": 1,
     "warnings": [
       "MBB quote: Fetch failed 404 for https://stooq.com/q/l/?s=mbb.us&i=d; no valid cached quote is available."
@@ -23,10 +23,10 @@
     "rateDelta": "-0.02 vs prior week",
     "mbsPrice": "Unavailable",
     "mbsDelta": "No quote",
-    "treasury": "4.70%",
-    "treasuryDelta": "-0.04 today",
+    "treasury": "4.64%",
+    "treasuryDelta": "-0.06 today",
     "volatility": "Moderate",
-    "narrative": "The latest FRED 30-year mortgage average is 6.65%, -0.02 from the prior reading. The 10-year Treasury is 4.70%, -0.04 from the prior observation. The public MBS proxy quote is unavailable. No lock trigger is active from the live public-feed rule.",
+    "narrative": "The latest FRED 30-year mortgage average is 6.65%, -0.02 from the prior reading. The 10-year Treasury is 4.64%, -0.06 from the prior observation. The public MBS proxy quote is unavailable. No lock trigger is active from the live public-feed rule.",
     "driver": "Treasury yield relief",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
@@ -59,7 +59,7 @@
       {
         "level": "Watch",
         "label": "10Y Treasury",
-        "detail": "Latest DGS10 is 4.70%, -0.04 from prior observation."
+        "detail": "Latest DGS10 is 4.64%, -0.06 from prior observation."
       },
       {
         "level": "Watch",
@@ -142,11 +142,26 @@
     "mbsProxyRaw": null,
     "latestObservationDates": {
       "mortgageRate": "2026-08-20",
-      "treasury10Y": "2026-08-24",
+      "treasury10Y": "2026-08-25",
       "mbsProxy": null
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-08-26T23:39:47.694Z",
+      "level": "Float",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "6.65%",
+        "rateDelta": "-0.02 vs prior week",
+        "treasury": "4.64%",
+        "treasuryDelta": "-0.06 today",
+        "mbsPrice": "Unavailable",
+        "mbsDelta": "No quote"
+      }
+    },
     {
       "generatedAt": "2026-08-26T17:50:38.369Z",
       "level": "Float",
@@ -269,21 +284,6 @@
     },
     {
       "generatedAt": "2026-08-25T09:01:26.881Z",
-      "level": "Lock",
-      "label": "Risk trigger",
-      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
-      "riskActive": true,
-      "metrics": {
-        "rate": "6.65%",
-        "rateDelta": "-0.02 vs prior week",
-        "treasury": "4.74%",
-        "treasuryDelta": "+0.05 today",
-        "mbsPrice": "Unavailable",
-        "mbsDelta": "No quote"
-      }
-    },
-    {
-      "generatedAt": "2026-08-25T04:55:41.366Z",
       "level": "Lock",
       "label": "Risk trigger",
       "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
