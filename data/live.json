@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-11T12:50:44.853Z",
+  "generatedAt": "2026-09-11T19:10:30.526Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-09-11T12:50:44.853Z",
+    "refreshedAt": "2026-09-11T19:10:30.526Z",
     "fallbackCount": 1,
     "warnings": [
       "MBB quote: Fetch failed 404 for https://stooq.com/q/l/?s=mbb.us&i=d; no valid cached quote is available."
@@ -34,6 +34,10 @@
     "spreadTone": "Stable",
     "news": [
       {
+        "title": "Agencies seek comment on proposed third-party risk management guidance and issue statement on community bank engagement with core service providers",
+        "detail": "Banking and Consumer Regulatory Policy - Sep 11, 2026"
+      },
+      {
         "title": "Agencies reduce regulatory burden for community banks, increase eligibility for 18-month exam cycle",
         "detail": "Banking and Consumer Regulatory Policy - Sep 10, 2026"
       },
@@ -44,10 +48,6 @@
       {
         "title": "Federal Reserve Board issues enforcement action with former employee of Banco Popular de Puerto Rico",
         "detail": "Enforcement Actions - Aug 27, 2026"
-      },
-      {
-        "title": "Minutes of the Board&#39;s discount rate meetings on July 20 and July 29, 2026",
-        "detail": "Monetary Policy - Aug 25, 2026"
       }
     ],
     "alerts": [
@@ -147,6 +147,21 @@
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-09-11T19:10:30.526Z",
+      "level": "Lock",
+      "label": "Risk trigger",
+      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
+      "riskActive": true,
+      "metrics": {
+        "rate": "6.76%",
+        "rateDelta": "+0.05 vs prior week",
+        "treasury": "4.83%",
+        "treasuryDelta": "+0.03 today",
+        "mbsPrice": "Unavailable",
+        "mbsDelta": "No quote"
+      }
+    },
     {
       "generatedAt": "2026-09-11T12:50:44.853Z",
       "level": "Lock",
@@ -269,21 +284,6 @@
     },
     {
       "generatedAt": "2026-09-09T12:59:07.198Z",
-      "level": "Lock",
-      "label": "Risk trigger",
-      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
-      "riskActive": true,
-      "metrics": {
-        "rate": "6.71%",
-        "rateDelta": "+0.05 vs prior week",
-        "treasury": "4.78%",
-        "treasuryDelta": "+0.01 today",
-        "mbsPrice": "Unavailable",
-        "mbsDelta": "No quote"
-      }
-    },
-    {
-      "generatedAt": "2026-09-09T04:47:33.633Z",
       "level": "Lock",
       "label": "Risk trigger",
       "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
