@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-17T22:51:56.518Z",
+  "generatedAt": "2026-09-18T04:48:52.830Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-09-17T22:51:56.518Z",
+    "refreshedAt": "2026-09-18T04:48:52.830Z",
     "fallbackCount": 1,
     "warnings": [
       "MBB quote: Fetch failed 404 for https://stooq.com/q/l/?s=mbb.us&i=d; no valid cached quote is available."
@@ -148,6 +148,21 @@
   },
   "alertHistory": [
     {
+      "generatedAt": "2026-09-18T04:48:52.830Z",
+      "level": "Lock",
+      "label": "Risk trigger",
+      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
+      "riskActive": true,
+      "metrics": {
+        "rate": "6.95%",
+        "rateDelta": "+0.19 vs prior week",
+        "treasury": "5.01%",
+        "treasuryDelta": "+0.01 today",
+        "mbsPrice": "Unavailable",
+        "mbsDelta": "No quote"
+      }
+    },
+    {
       "generatedAt": "2026-09-17T22:51:56.518Z",
       "level": "Lock",
       "label": "Risk trigger",
@@ -277,21 +292,6 @@
         "rate": "6.76%",
         "rateDelta": "+0.05 vs prior week",
         "treasury": "4.97%",
-        "treasuryDelta": "+0.01 today",
-        "mbsPrice": "Unavailable",
-        "mbsDelta": "No quote"
-      }
-    },
-    {
-      "generatedAt": "2026-09-15T19:42:53.150Z",
-      "level": "Lock",
-      "label": "Risk trigger",
-      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
-      "riskActive": true,
-      "metrics": {
-        "rate": "6.76%",
-        "rateDelta": "+0.05 vs prior week",
-        "treasury": "4.96%",
         "treasuryDelta": "+0.01 today",
         "mbsPrice": "Unavailable",
         "mbsDelta": "No quote"
