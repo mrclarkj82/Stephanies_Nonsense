@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-24T13:34:47.441Z",
+  "generatedAt": "2026-09-24T20:00:08.816Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-09-24T13:34:47.441Z",
+    "refreshedAt": "2026-09-24T20:00:08.816Z",
     "fallbackCount": 1,
     "warnings": [
       "MBB quote: Fetch failed 404 for https://stooq.com/q/l/?s=mbb.us&i=d; no valid cached quote is available."
@@ -19,14 +19,14 @@
     "demographics": "U.S. Census ACS 5-year profile"
   },
   "dashboard": {
-    "rate": "6.95%",
-    "rateDelta": "+0.19 vs prior week",
+    "rate": "7.03%",
+    "rateDelta": "+0.08 vs prior week",
     "mbsPrice": "Unavailable",
     "mbsDelta": "No quote",
     "treasury": "4.96%",
     "treasuryDelta": "0.00 today",
     "volatility": "Elevated",
-    "narrative": "The latest FRED 30-year mortgage average is 6.95%, +0.19 from the prior reading. The 10-year Treasury is 4.96%, 0.00 from the prior observation. The public MBS proxy quote is unavailable. Lock risk is active for near-term closings.",
+    "narrative": "The latest FRED 30-year mortgage average is 7.03%, +0.08 from the prior reading. The 10-year Treasury is 4.96%, 0.00 from the prior observation. The public MBS proxy quote is unavailable. Lock risk is active for near-term closings.",
     "driver": "Treasury yield pressure",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
@@ -34,20 +34,20 @@
     "spreadTone": "Stable",
     "news": [
       {
+        "title": "Federal Reserve Board requests public comment on two proposals related to establishing a regulatory framework for Board-supervised payment stablecoin issuers under the GENIUS Act",
+        "detail": "Banking and Consumer Regulatory Policy - Sep 24, 2026"
+      },
+      {
+        "title": "Federal Reserve Board issues enforcement action with former employee of Sandy Spring Bank",
+        "detail": "Enforcement Actions - Sep 24, 2026"
+      },
+      {
         "title": "Federal Reserve Board announces approval of application by BancFirst Corporation",
         "detail": "Orders on Banking Applications - Sep 22, 2026"
       },
       {
         "title": "Federal Reserve Board issues enforcement actions with former employee of Northstar Bank, former employee of American Express Travel Related Services Company, Inc., and former employee of Regions Bank",
         "detail": "Enforcement Actions - Sep 18, 2026"
-      },
-      {
-        "title": "Federal Reserve Board announces termination of enforcement action with SNB Bancshares and Bank of Eufaula",
-        "detail": "Enforcement Actions - Sep 18, 2026"
-      },
-      {
-        "title": "Federal Reserve issues FOMC statement",
-        "detail": "Monetary Policy - Sep 16, 2026"
       }
     ],
     "alerts": [
@@ -64,7 +64,7 @@
       {
         "level": "Watch",
         "label": "Mortgage rate",
-        "detail": "Freddie/FRED 30-year average is 6.95%, +0.19 from prior week."
+        "detail": "Freddie/FRED 30-year average is 7.03%, +0.08 from prior week."
       }
     ],
     "riskTrigger": {
@@ -74,10 +74,6 @@
       "detail": "Live public data crossed the lock-risk rule: rising rates/yields or weaker MBS proxy pricing."
     },
     "trend": [
-      {
-        "date": "2026-06-04",
-        "value": 6.48
-      },
       {
         "date": "2026-06-11",
         "value": 6.52
@@ -137,16 +133,35 @@
       {
         "date": "2026-09-17",
         "value": 6.95
+      },
+      {
+        "date": "2026-09-24",
+        "value": 7.03
       }
     ],
     "mbsProxyRaw": null,
     "latestObservationDates": {
-      "mortgageRate": "2026-09-17",
+      "mortgageRate": "2026-09-24",
       "treasury10Y": "2026-09-22",
       "mbsProxy": null
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-09-24T20:00:08.816Z",
+      "level": "Lock",
+      "label": "Risk trigger",
+      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
+      "riskActive": true,
+      "metrics": {
+        "rate": "7.03%",
+        "rateDelta": "+0.08 vs prior week",
+        "treasury": "4.96%",
+        "treasuryDelta": "0.00 today",
+        "mbsPrice": "Unavailable",
+        "mbsDelta": "No quote"
+      }
+    },
     {
       "generatedAt": "2026-09-24T13:34:47.441Z",
       "level": "Lock",
@@ -269,21 +284,6 @@
     },
     {
       "generatedAt": "2026-09-22T13:26:31.166Z",
-      "level": "Lock",
-      "label": "Risk trigger",
-      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
-      "riskActive": true,
-      "metrics": {
-        "rate": "6.95%",
-        "rateDelta": "+0.19 vs prior week",
-        "treasury": "5.01%",
-        "treasuryDelta": "+0.07 today",
-        "mbsPrice": "Unavailable",
-        "mbsDelta": "No quote"
-      }
-    },
-    {
-      "generatedAt": "2026-09-22T05:03:21.417Z",
       "level": "Lock",
       "label": "Risk trigger",
       "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
