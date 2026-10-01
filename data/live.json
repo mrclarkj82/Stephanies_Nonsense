@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-01T15:28:53.794Z",
+  "generatedAt": "2026-10-01T21:03:06.175Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-10-01T15:28:53.794Z",
+    "refreshedAt": "2026-10-01T21:03:06.175Z",
     "fallbackCount": 1,
     "warnings": [
       "MBB quote: Fetch failed 404 for https://stooq.com/q/l/?s=mbb.us&i=d; no valid cached quote is available."
@@ -19,14 +19,14 @@
     "demographics": "U.S. Census ACS 5-year profile"
   },
   "dashboard": {
-    "rate": "7.03%",
-    "rateDelta": "+0.08 vs prior week",
+    "rate": "7.28%",
+    "rateDelta": "+0.25 vs prior week",
     "mbsPrice": "Unavailable",
     "mbsDelta": "No quote",
-    "treasury": "5.26%",
-    "treasuryDelta": "+0.02 today",
+    "treasury": "5.29%",
+    "treasuryDelta": "+0.03 today",
     "volatility": "Elevated",
-    "narrative": "The latest FRED 30-year mortgage average is 7.03%, +0.08 from the prior reading. The 10-year Treasury is 5.26%, +0.02 from the prior observation. The public MBS proxy quote is unavailable. Lock risk is active for near-term closings.",
+    "narrative": "The latest FRED 30-year mortgage average is 7.28%, +0.25 from the prior reading. The 10-year Treasury is 5.29%, +0.03 from the prior observation. The public MBS proxy quote is unavailable. Lock risk is active for near-term closings.",
     "driver": "Treasury yield pressure",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
@@ -59,12 +59,12 @@
       {
         "level": "Watch",
         "label": "10Y Treasury",
-        "detail": "Latest DGS10 is 5.26%, +0.02 from prior observation."
+        "detail": "Latest DGS10 is 5.29%, +0.03 from prior observation."
       },
       {
         "level": "Watch",
         "label": "Mortgage rate",
-        "detail": "Freddie/FRED 30-year average is 7.03%, +0.08 from prior week."
+        "detail": "Freddie/FRED 30-year average is 7.28%, +0.25 from prior week."
       }
     ],
     "riskTrigger": {
@@ -74,10 +74,6 @@
       "detail": "Live public data crossed the lock-risk rule: rising rates/yields or weaker MBS proxy pricing."
     },
     "trend": [
-      {
-        "date": "2026-06-11",
-        "value": 6.52
-      },
       {
         "date": "2026-06-18",
         "value": 6.47
@@ -137,16 +133,35 @@
       {
         "date": "2026-09-24",
         "value": 7.03
+      },
+      {
+        "date": "2026-10-01",
+        "value": 7.28
       }
     ],
     "mbsProxyRaw": null,
     "latestObservationDates": {
-      "mortgageRate": "2026-09-24",
-      "treasury10Y": "2026-09-29",
+      "mortgageRate": "2026-10-01",
+      "treasury10Y": "2026-09-30",
       "mbsProxy": null
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-10-01T21:03:06.175Z",
+      "level": "Lock",
+      "label": "Risk trigger",
+      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
+      "riskActive": true,
+      "metrics": {
+        "rate": "7.28%",
+        "rateDelta": "+0.25 vs prior week",
+        "treasury": "5.29%",
+        "treasuryDelta": "+0.03 today",
+        "mbsPrice": "Unavailable",
+        "mbsDelta": "No quote"
+      }
+    },
     {
       "generatedAt": "2026-10-01T15:28:53.794Z",
       "level": "Lock",
@@ -278,21 +293,6 @@
         "rateDelta": "+0.08 vs prior week",
         "treasury": "5.17%",
         "treasuryDelta": "-0.01 today",
-        "mbsPrice": "Unavailable",
-        "mbsDelta": "No quote"
-      }
-    },
-    {
-      "generatedAt": "2026-09-28T16:46:55.786Z",
-      "level": "Lock",
-      "label": "Risk trigger",
-      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
-      "riskActive": true,
-      "metrics": {
-        "rate": "7.03%",
-        "rateDelta": "+0.08 vs prior week",
-        "treasury": "5.18%",
-        "treasuryDelta": "+0.07 today",
         "mbsPrice": "Unavailable",
         "mbsDelta": "No quote"
       }
