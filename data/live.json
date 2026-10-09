@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-09T06:14:52.626Z",
+  "generatedAt": "2026-10-09T15:19:59.681Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-10-09T06:14:52.626Z",
+    "refreshedAt": "2026-10-09T15:19:59.681Z",
     "fallbackCount": 1,
     "warnings": [
       "MBB quote: Fetch failed 404 for https://stooq.com/q/l/?s=mbb.us&i=d; no valid cached quote is available."
@@ -34,6 +34,10 @@
     "spreadTone": "Stable",
     "news": [
       {
+        "title": "Federal Reserve Board releases results of the 2025 Survey of Consumer Finances, which provides the public and policymakers with detailed insights into the economic condition of American families",
+        "detail": "Other Announcements - Oct 9, 2026"
+      },
+      {
         "title": "Federal Reserve Board announces enforcement action against American Express Company to address, among other things, the firm’s failure to sufficiently detect and report certain suspicious activity related to money laundering",
         "detail": "Enforcement Actions - Oct 8, 2026"
       },
@@ -44,10 +48,6 @@
       {
         "title": "Federal Reserve Board announces approval of application by Isabella Bank Corporation",
         "detail": "Orders on Banking Applications - Oct 5, 2026"
-      },
-      {
-        "title": "Federal Reserve Board announces approval of application by Fleur Capital Corporation",
-        "detail": "Orders on Banking Applications - Oct 2, 2026"
       }
     ],
     "alerts": [
@@ -147,6 +147,21 @@
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-10-09T15:19:59.681Z",
+      "level": "Lock",
+      "label": "Risk trigger",
+      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
+      "riskActive": true,
+      "metrics": {
+        "rate": "7.40%",
+        "rateDelta": "+0.12 vs prior week",
+        "treasury": "5.28%",
+        "treasuryDelta": "+0.01 today",
+        "mbsPrice": "Unavailable",
+        "mbsDelta": "No quote"
+      }
+    },
     {
       "generatedAt": "2026-10-09T06:14:52.626Z",
       "level": "Lock",
@@ -269,21 +284,6 @@
     },
     {
       "generatedAt": "2026-10-06T18:25:25.274Z",
-      "level": "Lock",
-      "label": "Risk trigger",
-      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
-      "riskActive": true,
-      "metrics": {
-        "rate": "7.28%",
-        "rateDelta": "+0.25 vs prior week",
-        "treasury": "5.28%",
-        "treasuryDelta": "+0.04 today",
-        "mbsPrice": "Unavailable",
-        "mbsDelta": "No quote"
-      }
-    },
-    {
-      "generatedAt": "2026-10-06T11:18:42.331Z",
       "level": "Lock",
       "label": "Risk trigger",
       "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
