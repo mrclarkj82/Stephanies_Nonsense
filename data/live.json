@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-15T23:04:56.448Z",
+  "generatedAt": "2026-10-16T04:37:08.714Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-10-15T23:04:56.448Z",
+    "refreshedAt": "2026-10-16T04:37:08.714Z",
     "fallbackCount": 1,
     "warnings": [
       "MBB quote: Fetch failed 404 for https://stooq.com/q/l/?s=mbb.us&i=d; no valid cached quote is available."
@@ -148,6 +148,21 @@
   },
   "alertHistory": [
     {
+      "generatedAt": "2026-10-16T04:37:08.714Z",
+      "level": "Float",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "7.40%",
+        "rateDelta": "0.00 vs prior week",
+        "treasury": "5.19%",
+        "treasuryDelta": "-0.02 today",
+        "mbsPrice": "Unavailable",
+        "mbsDelta": "No quote"
+      }
+    },
+    {
       "generatedAt": "2026-10-15T23:04:56.448Z",
       "level": "Float",
       "label": "Live bias",
@@ -281,21 +296,6 @@
         "mbsPrice": "Unavailable",
         "mbsDelta": "No quote"
       }
-    },
-    {
-      "generatedAt": "2026-10-13T19:19:15.289Z",
-      "level": "Lock",
-      "label": "Risk trigger",
-      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
-      "riskActive": true,
-      "metrics": {
-        "rate": "7.40%",
-        "rateDelta": "+0.12 vs prior week",
-        "treasury": "5.22%",
-        "treasuryDelta": "-0.06 today",
-        "mbsPrice": "Unavailable",
-        "mbsDelta": "No quote"
-      }
     }
   ],
   "reports": {
@@ -304,58 +304,58 @@
         "name": "Austin 78704, TX",
         "marketType": "zip",
         "source": "Live public feeds",
-        "medianHomePrice": 721338,
-        "latestHomeValueDate": "2026-08-31",
-        "appreciation1Y": -2.1,
-        "appreciation5Y": -12.3,
+        "medianHomePrice": 715332,
+        "latestHomeValueDate": "2026-09-30",
+        "appreciation1Y": -1.4,
+        "appreciation5Y": -12.5,
         "inventoryMonths": null,
-        "inventoryLevel": "384 active listings",
-        "latestInventoryDate": "2026-08-31",
+        "inventoryLevel": "358 active listings",
+        "latestInventoryDate": "2026-09-30",
         "affordabilityIndex": null,
         "jobGrowth": "Census labor profile unavailable",
         "demographics": "Census profile unavailable",
         "history": [
           {
             "year": "2020",
-            "value": 642417
+            "value": 632341
           },
           {
             "year": "2021",
-            "value": 861423
+            "value": 847912
           },
           {
             "year": "2022",
-            "value": 935013
+            "value": 920347
           },
           {
             "year": "2023",
-            "value": 826995
+            "value": 814023
           },
           {
             "year": "2024",
-            "value": 773992
+            "value": 761852
           },
           {
             "year": "2025",
-            "value": 732279
+            "value": 720793
           },
           {
             "year": "2026",
-            "value": 721338
+            "value": 715332
           }
         ],
         "forecast": [
           {
-            "year": "2026-09",
-            "value": -0.7
+            "year": "2026-10",
+            "value": -0.6
           },
           {
-            "year": "2026-11",
-            "value": -2.3
-          },
-          {
-            "year": "2027-08",
+            "year": "2026-12",
             "value": -1.9
+          },
+          {
+            "year": "2027-09",
+            "value": -2.1
           }
         ],
         "sourceNotes": [
@@ -368,58 +368,58 @@
         "name": "Beverly Hills 90210, CA",
         "marketType": "zip",
         "source": "Live public feeds",
-        "medianHomePrice": 5272263,
-        "latestHomeValueDate": "2026-08-31",
-        "appreciation1Y": 10.4,
-        "appreciation5Y": 8.4,
+        "medianHomePrice": 5308262,
+        "latestHomeValueDate": "2026-09-30",
+        "appreciation1Y": 10.3,
+        "appreciation5Y": 7.2,
         "inventoryMonths": null,
-        "inventoryLevel": "159 active listings",
-        "latestInventoryDate": "2026-08-31",
+        "inventoryLevel": "166 active listings",
+        "latestInventoryDate": "2026-09-30",
         "affordabilityIndex": null,
         "jobGrowth": "Census labor profile unavailable",
         "demographics": "Census profile unavailable",
         "history": [
           {
             "year": "2020",
-            "value": 4559456
+            "value": 4550719
           },
           {
             "year": "2021",
-            "value": 5210103
+            "value": 5200119
           },
           {
             "year": "2022",
-            "value": 5443195
+            "value": 5432764
           },
           {
             "year": "2023",
-            "value": 5398431
+            "value": 5388086
           },
           {
             "year": "2024",
-            "value": 4993575
+            "value": 4984005
           },
           {
             "year": "2025",
-            "value": 5061279
+            "value": 5051580
           },
           {
             "year": "2026",
-            "value": 5272263
+            "value": 5308262
           }
         ],
         "forecast": [
           {
-            "year": "2026-09",
-            "value": -0.5
+            "year": "2026-10",
+            "value": -0.7
           },
           {
-            "year": "2026-11",
-            "value": -1.7
+            "year": "2026-12",
+            "value": -2
           },
           {
-            "year": "2027-08",
-            "value": 1.5
+            "year": "2027-09",
+            "value": 1.2
           }
         ],
         "sourceNotes": [
@@ -432,58 +432,58 @@
         "name": "Orange County, CA",
         "marketType": "county",
         "source": "Live public feeds",
-        "medianHomePrice": 1178889,
-        "latestHomeValueDate": "2026-08-31",
-        "appreciation1Y": 2.8,
-        "appreciation5Y": 37.2,
+        "medianHomePrice": 1174873,
+        "latestHomeValueDate": "2026-09-30",
+        "appreciation1Y": 3.2,
+        "appreciation5Y": 36.6,
         "inventoryMonths": null,
-        "inventoryLevel": "6,755 active listings",
-        "latestInventoryDate": "2026-08-31",
+        "inventoryLevel": "6,728 active listings",
+        "latestInventoryDate": "2026-09-30",
         "affordabilityIndex": null,
         "jobGrowth": "Census labor profile unavailable",
         "demographics": "Census profile unavailable",
         "history": [
           {
             "year": "2020",
-            "value": 780521
+            "value": 775971
           },
           {
             "year": "2021",
-            "value": 899519
+            "value": 894276
           },
           {
             "year": "2022",
-            "value": 993937
+            "value": 988143
           },
           {
             "year": "2023",
-            "value": 1069837
+            "value": 1063601
           },
           {
             "year": "2024",
-            "value": 1159038
+            "value": 1152282
           },
           {
             "year": "2025",
-            "value": 1156617
+            "value": 1149875
           },
           {
             "year": "2026",
-            "value": 1178889
+            "value": 1174873
           }
         ],
         "forecast": [
           {
             "year": "2027",
-            "value": 1.7
+            "value": 1.9
           },
           {
             "year": "2028",
-            "value": 1.5
+            "value": 1.7
           },
           {
             "year": "2029",
-            "value": 1.2
+            "value": 1.4
           }
         ],
         "sourceNotes": [
