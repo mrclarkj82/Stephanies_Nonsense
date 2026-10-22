@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-21T23:24:09.051Z",
+  "generatedAt": "2026-10-22T04:55:30.285Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-10-21T23:24:09.051Z",
+    "refreshedAt": "2026-10-22T04:55:30.285Z",
     "fallbackCount": 1,
     "warnings": [
       "MBB quote: Fetch failed 404 for https://stooq.com/q/l/?s=mbb.us&i=d; no valid cached quote is available."
@@ -19,15 +19,15 @@
     "demographics": "U.S. Census ACS 5-year profile"
   },
   "dashboard": {
-    "rate": "400.00%",
+    "rate": "7.40%",
     "rateDelta": "0.00 vs prior week",
     "mbsPrice": "Unavailable",
     "mbsDelta": "No quote",
-    "treasury": "400.00%",
-    "treasuryDelta": "0.00 today",
-    "volatility": "Calm",
-    "narrative": "The latest FRED 30-year mortgage average is 400.00%, 0.00 from the prior reading. The 10-year Treasury is 400.00%, 0.00 from the prior observation. The public MBS proxy quote is unavailable. No lock trigger is active from the live public-feed rule.",
-    "driver": "Treasury yield pressure",
+    "treasury": "5.12%",
+    "treasuryDelta": "-0.03 today",
+    "volatility": "Moderate",
+    "narrative": "The latest FRED 30-year mortgage average is 7.40%, 0.00 from the prior reading. The 10-year Treasury is 5.12%, -0.03 from the prior observation. The public MBS proxy quote is unavailable. No lock trigger is active from the live public-feed rule.",
+    "driver": "Treasury yield relief",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
     "priceChange": "No quote",
@@ -59,12 +59,12 @@
       {
         "level": "Watch",
         "label": "10Y Treasury",
-        "detail": "Latest DGS10 is 400.00%, 0.00 from prior observation."
+        "detail": "Latest DGS10 is 5.12%, -0.03 from prior observation."
       },
       {
         "level": "Watch",
         "label": "Mortgage rate",
-        "detail": "Freddie/FRED 30-year average is 400.00%, 0.00 from prior week."
+        "detail": "Freddie/FRED 30-year average is 7.40%, 0.00 from prior week."
       }
     ],
     "riskTrigger": {
@@ -75,18 +75,93 @@
     },
     "trend": [
       {
-        "date": "    <link href=\"https://fonts.googleapis.com/css?family=Open+Sans:300",
-        "value": 400
+        "date": "2026-07-02",
+        "value": 6.43
+      },
+      {
+        "date": "2026-07-09",
+        "value": 6.49
+      },
+      {
+        "date": "2026-07-16",
+        "value": 6.55
+      },
+      {
+        "date": "2026-07-23",
+        "value": 6.58
+      },
+      {
+        "date": "2026-07-30",
+        "value": 6.66
+      },
+      {
+        "date": "2026-08-06",
+        "value": 6.69
+      },
+      {
+        "date": "2026-08-13",
+        "value": 6.67
+      },
+      {
+        "date": "2026-08-20",
+        "value": 6.65
+      },
+      {
+        "date": "2026-08-27",
+        "value": 6.66
+      },
+      {
+        "date": "2026-09-03",
+        "value": 6.71
+      },
+      {
+        "date": "2026-09-10",
+        "value": 6.76
+      },
+      {
+        "date": "2026-09-17",
+        "value": 6.95
+      },
+      {
+        "date": "2026-09-24",
+        "value": 7.03
+      },
+      {
+        "date": "2026-10-01",
+        "value": 7.28
+      },
+      {
+        "date": "2026-10-08",
+        "value": 7.4
+      },
+      {
+        "date": "2026-10-15",
+        "value": 7.4
       }
     ],
     "mbsProxyRaw": null,
     "latestObservationDates": {
-      "mortgageRate": "    <link href=\"https://fonts.googleapis.com/css?family=Open+Sans:300",
-      "treasury10Y": "    <link href=\"https://fonts.googleapis.com/css?family=Open+Sans:300",
+      "mortgageRate": "2026-10-15",
+      "treasury10Y": "2026-10-20",
       "mbsProxy": null
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-10-22T04:55:30.285Z",
+      "level": "Float",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "7.40%",
+        "rateDelta": "0.00 vs prior week",
+        "treasury": "5.12%",
+        "treasuryDelta": "-0.03 today",
+        "mbsPrice": "Unavailable",
+        "mbsDelta": "No quote"
+      }
+    },
     {
       "generatedAt": "2026-10-21T23:24:09.051Z",
       "level": "Float",
@@ -218,21 +293,6 @@
         "rateDelta": "0.00 vs prior week",
         "treasury": "5.09%",
         "treasuryDelta": "-0.01 today",
-        "mbsPrice": "Unavailable",
-        "mbsDelta": "No quote"
-      }
-    },
-    {
-      "generatedAt": "2026-10-19T16:08:56.744Z",
-      "level": "Float",
-      "label": "Live bias",
-      "detail": "No live lock trigger is active from the public feed rules.",
-      "riskActive": false,
-      "metrics": {
-        "rate": "7.40%",
-        "rateDelta": "0.00 vs prior week",
-        "treasury": "5.10%",
-        "treasuryDelta": "-0.09 today",
         "mbsPrice": "Unavailable",
         "mbsDelta": "No quote"
       }
