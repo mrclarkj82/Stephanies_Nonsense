@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-28T15:09:10.202Z",
+  "generatedAt": "2026-10-28T21:07:59.490Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-10-28T15:09:10.202Z",
+    "refreshedAt": "2026-10-28T21:07:59.490Z",
     "fallbackCount": 1,
     "warnings": [
       "MBB quote: Fetch failed 404 for https://stooq.com/q/l/?s=mbb.us&i=d; no valid cached quote is available."
@@ -23,16 +23,20 @@
     "rateDelta": "-0.08 vs prior week",
     "mbsPrice": "Unavailable",
     "mbsDelta": "No quote",
-    "treasury": "5.00%",
-    "treasuryDelta": "0.00 today",
+    "treasury": "4.99%",
+    "treasuryDelta": "-0.01 today",
     "volatility": "Calm",
-    "narrative": "The latest FRED 30-year mortgage average is 7.32%, -0.08 from the prior reading. The 10-year Treasury is 5.00%, 0.00 from the prior observation. The public MBS proxy quote is unavailable. No lock trigger is active from the live public-feed rule.",
-    "driver": "Treasury yield pressure",
+    "narrative": "The latest FRED 30-year mortgage average is 7.32%, -0.08 from the prior reading. The 10-year Treasury is 4.99%, -0.01 from the prior observation. The public MBS proxy quote is unavailable. No lock trigger is active from the live public-feed rule.",
+    "driver": "Treasury yield relief",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
     "priceChange": "No quote",
     "spreadTone": "Stable",
     "news": [
+      {
+        "title": "Federal Reserve issues FOMC statement",
+        "detail": "Monetary Policy - Oct 28, 2026"
+      },
       {
         "title": "Federal Reserve Board announces termination of enforcement actions with Gardner Bancshares, Inc. and Small Business Bank",
         "detail": "Enforcement Actions - Oct 16, 2026"
@@ -44,10 +48,6 @@
       {
         "title": "Federal Reserve Board releases results of the 2025 Survey of Consumer Finances, which provides the public and policymakers with detailed insights into the economic condition of American families",
         "detail": "Other Announcements - Oct 9, 2026"
-      },
-      {
-        "title": "Federal Reserve Board announces enforcement action against American Express Company to address, among other things, the firm’s failure to sufficiently detect and report certain suspicious activity related to money laundering",
-        "detail": "Enforcement Actions - Oct 8, 2026"
       }
     ],
     "alerts": [
@@ -59,7 +59,7 @@
       {
         "level": "Watch",
         "label": "10Y Treasury",
-        "detail": "Latest DGS10 is 5.00%, 0.00 from prior observation."
+        "detail": "Latest DGS10 is 4.99%, -0.01 from prior observation."
       },
       {
         "level": "Watch",
@@ -142,11 +142,26 @@
     "mbsProxyRaw": null,
     "latestObservationDates": {
       "mortgageRate": "2026-10-22",
-      "treasury10Y": "2026-10-26",
+      "treasury10Y": "2026-10-27",
       "mbsProxy": null
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-10-28T21:07:59.490Z",
+      "level": "Float",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "7.32%",
+        "rateDelta": "-0.08 vs prior week",
+        "treasury": "4.99%",
+        "treasuryDelta": "-0.01 today",
+        "mbsPrice": "Unavailable",
+        "mbsDelta": "No quote"
+      }
+    },
     {
       "generatedAt": "2026-10-28T15:09:10.202Z",
       "level": "Float",
@@ -269,21 +284,6 @@
     },
     {
       "generatedAt": "2026-10-25T22:36:10.252Z",
-      "level": "Float",
-      "label": "Live bias",
-      "detail": "No live lock trigger is active from the public feed rules.",
-      "riskActive": false,
-      "metrics": {
-        "rate": "7.32%",
-        "rateDelta": "-0.08 vs prior week",
-        "treasury": "4.96%",
-        "treasuryDelta": "-0.17 today",
-        "mbsPrice": "Unavailable",
-        "mbsDelta": "No quote"
-      }
-    },
-    {
-      "generatedAt": "2026-10-25T19:05:00.247Z",
       "level": "Float",
       "label": "Live bias",
       "detail": "No live lock trigger is active from the public feed rules.",
