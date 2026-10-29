@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-29T15:15:22.695Z",
+  "generatedAt": "2026-10-29T21:11:04.666Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-10-29T15:15:22.695Z",
+    "refreshedAt": "2026-10-29T21:11:04.666Z",
     "fallbackCount": 1,
     "warnings": [
       "MBB quote: Fetch failed 404 for https://stooq.com/q/l/?s=mbb.us&i=d; no valid cached quote is available."
@@ -19,20 +19,24 @@
     "demographics": "U.S. Census ACS 5-year profile"
   },
   "dashboard": {
-    "rate": "7.32%",
+    "rate": "7.24%",
     "rateDelta": "-0.08 vs prior week",
     "mbsPrice": "Unavailable",
     "mbsDelta": "No quote",
-    "treasury": "4.99%",
-    "treasuryDelta": "-0.01 today",
-    "volatility": "Calm",
-    "narrative": "The latest FRED 30-year mortgage average is 7.32%, -0.08 from the prior reading. The 10-year Treasury is 4.99%, -0.01 from the prior observation. The public MBS proxy quote is unavailable. No lock trigger is active from the live public-feed rule.",
-    "driver": "Treasury yield relief",
+    "treasury": "5.05%",
+    "treasuryDelta": "+0.06 today",
+    "volatility": "Elevated",
+    "narrative": "The latest FRED 30-year mortgage average is 7.24%, -0.08 from the prior reading. The 10-year Treasury is 5.05%, +0.06 from the prior observation. The public MBS proxy quote is unavailable. Lock risk is active for near-term closings.",
+    "driver": "Treasury yield pressure",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
     "priceChange": "No quote",
     "spreadTone": "Stable",
     "news": [
+      {
+        "title": "Federal Reserve Board announces approval of application by The Bank of Nova Scotia",
+        "detail": "Orders on Banking Applications - Oct 29, 2026"
+      },
       {
         "title": "Federal Reserve issues FOMC statement",
         "detail": "Monetary Policy - Oct 28, 2026"
@@ -44,40 +48,32 @@
       {
         "title": "Minutes of the Board&#39;s discount rate meetings on August 17, September 9, and September 16, 2026",
         "detail": "Monetary Policy - Oct 13, 2026"
-      },
-      {
-        "title": "Federal Reserve Board releases results of the 2025 Survey of Consumer Finances, which provides the public and policymakers with detailed insights into the economic condition of American families",
-        "detail": "Other Announcements - Oct 9, 2026"
       }
     ],
     "alerts": [
       {
-        "level": "Float",
-        "label": "Live bias",
-        "detail": "No live lock trigger is active from the public feed rules."
+        "level": "Lock",
+        "label": "Risk trigger",
+        "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings."
       },
       {
         "level": "Watch",
         "label": "10Y Treasury",
-        "detail": "Latest DGS10 is 4.99%, -0.01 from prior observation."
+        "detail": "Latest DGS10 is 5.05%, +0.06 from prior observation."
       },
       {
         "level": "Watch",
         "label": "Mortgage rate",
-        "detail": "Freddie/FRED 30-year average is 7.32%, -0.08 from prior week."
+        "detail": "Freddie/FRED 30-year average is 7.24%, -0.08 from prior week."
       }
     ],
     "riskTrigger": {
-      "active": false,
+      "active": true,
       "id": "live-public-feed-lock-risk",
-      "title": "No lock trigger",
-      "detail": "Live public data does not currently meet the lock-risk rule."
+      "title": "Lock risk trigger",
+      "detail": "Live public data crossed the lock-risk rule: rising rates/yields or weaker MBS proxy pricing."
     },
     "trend": [
-      {
-        "date": "2026-07-09",
-        "value": 6.49
-      },
       {
         "date": "2026-07-16",
         "value": 6.55
@@ -137,16 +133,35 @@
       {
         "date": "2026-10-22",
         "value": 7.32
+      },
+      {
+        "date": "2026-10-29",
+        "value": 7.24
       }
     ],
     "mbsProxyRaw": null,
     "latestObservationDates": {
-      "mortgageRate": "2026-10-22",
-      "treasury10Y": "2026-10-27",
+      "mortgageRate": "2026-10-29",
+      "treasury10Y": "2026-10-28",
       "mbsProxy": null
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-10-29T21:11:04.666Z",
+      "level": "Lock",
+      "label": "Risk trigger",
+      "detail": "Live public feeds show rate or MBS proxy pressure. Consider locking near-term closings.",
+      "riskActive": true,
+      "metrics": {
+        "rate": "7.24%",
+        "rateDelta": "-0.08 vs prior week",
+        "treasury": "5.05%",
+        "treasuryDelta": "+0.06 today",
+        "mbsPrice": "Unavailable",
+        "mbsDelta": "No quote"
+      }
+    },
     {
       "generatedAt": "2026-10-29T15:15:22.695Z",
       "level": "Float",
@@ -278,21 +293,6 @@
         "rateDelta": "-0.08 vs prior week",
         "treasury": "5.00%",
         "treasuryDelta": "+0.04 today",
-        "mbsPrice": "Unavailable",
-        "mbsDelta": "No quote"
-      }
-    },
-    {
-      "generatedAt": "2026-10-26T15:14:08.032Z",
-      "level": "Float",
-      "label": "Live bias",
-      "detail": "No live lock trigger is active from the public feed rules.",
-      "riskActive": false,
-      "metrics": {
-        "rate": "7.32%",
-        "rateDelta": "-0.08 vs prior week",
-        "treasury": "4.96%",
-        "treasuryDelta": "-0.17 today",
         "mbsPrice": "Unavailable",
         "mbsDelta": "No quote"
       }
