@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-05T12:25:24.783Z",
+  "generatedAt": "2026-11-05T22:03:39.836Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-11-05T12:25:24.783Z",
+    "refreshedAt": "2026-11-05T22:03:39.836Z",
     "fallbackCount": 1,
     "warnings": [
       "MBB quote: Fetch failed 404 for https://stooq.com/q/l/?s=mbb.us&i=d; no valid cached quote is available."
@@ -19,20 +19,24 @@
     "demographics": "U.S. Census ACS 5-year profile"
   },
   "dashboard": {
-    "rate": "7.24%",
-    "rateDelta": "-0.08 vs prior week",
+    "rate": "7.18%",
+    "rateDelta": "-0.06 vs prior week",
     "mbsPrice": "Unavailable",
     "mbsDelta": "No quote",
-    "treasury": "4.95%",
-    "treasuryDelta": "+0.04 today",
+    "treasury": "4.90%",
+    "treasuryDelta": "-0.05 today",
     "volatility": "Moderate",
-    "narrative": "The latest FRED 30-year mortgage average is 7.24%, -0.08 from the prior reading. The 10-year Treasury is 4.95%, +0.04 from the prior observation. The public MBS proxy quote is unavailable. No lock trigger is active from the live public-feed rule.",
-    "driver": "Treasury yield pressure",
+    "narrative": "The latest FRED 30-year mortgage average is 7.18%, -0.06 from the prior reading. The 10-year Treasury is 4.90%, -0.05 from the prior observation. The public MBS proxy quote is unavailable. No lock trigger is active from the live public-feed rule.",
+    "driver": "Treasury yield relief",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
     "priceChange": "No quote",
     "spreadTone": "Stable",
     "news": [
+      {
+        "title": "Federal Reserve Board announces termination of enforcement action with Allegiant United Holdings, LLC, Nano Financial Holdings, Inc., and Nano Banc",
+        "detail": "Enforcement Actions - Nov 5, 2026"
+      },
       {
         "title": "Federal Reserve Board announces approval of application by The Bank of Nova Scotia",
         "detail": "Orders on Banking Applications - Oct 29, 2026"
@@ -44,27 +48,23 @@
       {
         "title": "Federal Reserve Board announces termination of enforcement actions with Gardner Bancshares, Inc. and Small Business Bank",
         "detail": "Enforcement Actions - Oct 16, 2026"
-      },
-      {
-        "title": "Minutes of the Board&#39;s discount rate meetings on August 17, September 9, and September 16, 2026",
-        "detail": "Monetary Policy - Oct 13, 2026"
       }
     ],
     "alerts": [
       {
-        "level": "Watch",
+        "level": "Float",
         "label": "Live bias",
         "detail": "No live lock trigger is active from the public feed rules."
       },
       {
         "level": "Watch",
         "label": "10Y Treasury",
-        "detail": "Latest DGS10 is 4.95%, +0.04 from prior observation."
+        "detail": "Latest DGS10 is 4.90%, -0.05 from prior observation."
       },
       {
         "level": "Watch",
         "label": "Mortgage rate",
-        "detail": "Freddie/FRED 30-year average is 7.24%, -0.08 from prior week."
+        "detail": "Freddie/FRED 30-year average is 7.18%, -0.06 from prior week."
       }
     ],
     "riskTrigger": {
@@ -74,10 +74,6 @@
       "detail": "Live public data does not currently meet the lock-risk rule."
     },
     "trend": [
-      {
-        "date": "2026-07-16",
-        "value": 6.55
-      },
       {
         "date": "2026-07-23",
         "value": 6.58
@@ -137,16 +133,35 @@
       {
         "date": "2026-10-29",
         "value": 7.24
+      },
+      {
+        "date": "2026-11-05",
+        "value": 7.18
       }
     ],
     "mbsProxyRaw": null,
     "latestObservationDates": {
-      "mortgageRate": "2026-10-29",
-      "treasury10Y": "2026-11-03",
+      "mortgageRate": "2026-11-05",
+      "treasury10Y": "2026-11-04",
       "mbsProxy": null
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-11-05T22:03:39.836Z",
+      "level": "Float",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "7.18%",
+        "rateDelta": "-0.06 vs prior week",
+        "treasury": "4.90%",
+        "treasuryDelta": "-0.05 today",
+        "mbsPrice": "Unavailable",
+        "mbsDelta": "No quote"
+      }
+    },
     {
       "generatedAt": "2026-11-05T12:25:24.783Z",
       "level": "Watch",
@@ -269,21 +284,6 @@
     },
     {
       "generatedAt": "2026-11-02T18:26:22.402Z",
-      "level": "Float",
-      "label": "Live bias",
-      "detail": "No live lock trigger is active from the public feed rules.",
-      "riskActive": false,
-      "metrics": {
-        "rate": "7.24%",
-        "rateDelta": "-0.08 vs prior week",
-        "treasury": "4.98%",
-        "treasuryDelta": "-0.07 today",
-        "mbsPrice": "Unavailable",
-        "mbsDelta": "No quote"
-      }
-    },
-    {
-      "generatedAt": "2026-11-02T06:15:03.939Z",
       "level": "Float",
       "label": "Live bias",
       "detail": "No live lock trigger is active from the public feed rules.",
