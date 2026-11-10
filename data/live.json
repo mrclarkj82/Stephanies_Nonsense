@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-10T12:42:41.608Z",
+  "generatedAt": "2026-11-10T21:49:27.492Z",
   "mode": "live-public-feeds",
   "feedHealth": {
-    "refreshedAt": "2026-11-10T12:42:41.608Z",
+    "refreshedAt": "2026-11-10T21:49:27.492Z",
     "fallbackCount": 1,
     "warnings": [
       "MBB quote: Fetch failed 404 for https://stooq.com/q/l/?s=mbb.us&i=d; no valid cached quote is available."
@@ -23,10 +23,10 @@
     "rateDelta": "-0.06 vs prior week",
     "mbsPrice": "Unavailable",
     "mbsDelta": "No quote",
-    "treasury": "4.86%",
+    "treasury": "4.88%",
     "treasuryDelta": "+0.02 today",
     "volatility": "Calm",
-    "narrative": "The latest FRED 30-year mortgage average is 7.18%, -0.06 from the prior reading. The 10-year Treasury is 4.86%, +0.02 from the prior observation. The public MBS proxy quote is unavailable. No lock trigger is active from the live public-feed rule.",
+    "narrative": "The latest FRED 30-year mortgage average is 7.18%, -0.06 from the prior reading. The 10-year Treasury is 4.88%, +0.02 from the prior observation. The public MBS proxy quote is unavailable. No lock trigger is active from the live public-feed rule.",
     "driver": "Treasury yield pressure",
     "riskWindow": "Refreshes from public feeds on the scheduled GitHub Action",
     "coupon": "MBB ETF proxy",
@@ -59,7 +59,7 @@
       {
         "level": "Watch",
         "label": "10Y Treasury",
-        "detail": "Latest DGS10 is 4.86%, +0.02 from prior observation."
+        "detail": "Latest DGS10 is 4.88%, +0.02 from prior observation."
       },
       {
         "level": "Watch",
@@ -142,11 +142,26 @@
     "mbsProxyRaw": null,
     "latestObservationDates": {
       "mortgageRate": "2026-11-05",
-      "treasury10Y": "2026-11-06",
+      "treasury10Y": "2026-11-09",
       "mbsProxy": null
     }
   },
   "alertHistory": [
+    {
+      "generatedAt": "2026-11-10T21:49:27.492Z",
+      "level": "Watch",
+      "label": "Live bias",
+      "detail": "No live lock trigger is active from the public feed rules.",
+      "riskActive": false,
+      "metrics": {
+        "rate": "7.18%",
+        "rateDelta": "-0.06 vs prior week",
+        "treasury": "4.88%",
+        "treasuryDelta": "+0.02 today",
+        "mbsPrice": "Unavailable",
+        "mbsDelta": "No quote"
+      }
+    },
     {
       "generatedAt": "2026-11-10T12:42:41.608Z",
       "level": "Watch",
@@ -269,21 +284,6 @@
     },
     {
       "generatedAt": "2026-11-07T20:15:25.221Z",
-      "level": "Float",
-      "label": "Live bias",
-      "detail": "No live lock trigger is active from the public feed rules.",
-      "riskActive": false,
-      "metrics": {
-        "rate": "7.18%",
-        "rateDelta": "-0.06 vs prior week",
-        "treasury": "4.84%",
-        "treasuryDelta": "-0.06 today",
-        "mbsPrice": "Unavailable",
-        "mbsDelta": "No quote"
-      }
-    },
-    {
-      "generatedAt": "2026-11-07T14:55:17.812Z",
       "level": "Float",
       "label": "Live bias",
       "detail": "No live lock trigger is active from the public feed rules.",
